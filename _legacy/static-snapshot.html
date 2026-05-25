@@ -1,0 +1,2968 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italy–Kazakhstan 2026 · Supply Chain Forum + Investment Forum</title>
+<meta name="description" content="Серия флагманских мероприятий итало-казахстанского сотрудничества в 2026 году. SCF'26 — 21 апреля, Rixos President Astana. B2B Investment Forum — 11–12 июня, AIFC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1e3f;
+    --navy-deep: #061533;
+    --gold: #c9a449;
+    --gold-light: #e3c478;
+    --cream: #faf6ee;
+    --paper: #f5efe2;
+    --ink: #1a1a1a;
+    --it-green: #008c45;
+    --it-red: #cd212a;
+    --kz-blue: #00afca;
+    --kz-yellow: #ffc72c;
+    --green: #00a651;
+    --green-dark: #008040;
+    --line: rgba(10, 30, 63, 0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* === TOP BAR === */
+  .top-bar {
+    background: var(--navy-deep);
+    color: var(--cream);
+    padding: 10px 0;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+  .top-bar-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .flag-row { display: flex; align-items: center; gap: 14px; }
+  .mini-flag {
+    width: 26px; height: 17px;
+    display: inline-flex;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
+  }
+  .flag-it span { flex: 1; }
+  .flag-it .a { background: var(--it-green); }
+  .flag-it .b { background: #fff; }
+  .flag-it .c { background: var(--it-red); }
+  .flag-kz {
+    background: var(--kz-blue);
+    position: relative;
+  }
+  .flag-kz::after {
+    content: '☀';
+    position: absolute; inset: 0;
+    color: var(--kz-yellow);
+    font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* === HEADER === */
+  header {
+    background: var(--navy);
+    color: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(201, 164, 73, 0.2);
+  }
+  .nav {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .crest {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    color: var(--navy-deep);
+    font-size: 13px;
+    box-shadow: 0 4px 14px rgba(201, 164, 73, 0.3);
+  }
+  .logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+  .logo-text strong { display: block; font-weight: 600; font-size: 18px;}
+  .logo-text small { font-size: 11px; opacity: 0.7; letter-spacing: 0.15em; text-transform: uppercase; }
+
+  nav ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: var(--gold-light); }
+
+  .btn-cta {
+    background: var(--gold);
+    color: var(--navy-deep);
+    padding: 11px 22px;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .btn-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(201, 164, 73, 0.4);
+  }
+
+  /* === HERO === */
+  .hero {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 80px 32px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(201, 164, 73, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(0, 175, 202, 0.08) 0%, transparent 50%);
+  }
+  .hero-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    border: 1px solid rgba(201, 164, 73, 0.4);
+    border-radius: 100px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 12px var(--gold);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(46px, 6vw, 88px);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 32px auto;
+  }
+  .hero-lead {
+    font-size: 18px;
+    line-height: 1.65;
+    color: rgba(250, 246, 238, 0.85);
+    max-width: 720px;
+    margin: 0 auto 48px;
+    font-weight: 300;
+  }
+  .hero-flags-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .big-flag {
+    width: 80px; height: 52px;
+    display: flex;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .big-flag.it span { flex: 1; }
+  .big-flag.it .a { background: var(--it-green); }
+  .big-flag.it .b { background: #fff; }
+  .big-flag.it .c { background: var(--it-red); }
+  .big-flag.kz {
+    background: var(--kz-blue);
+    position: relative;
+  }
+  .big-flag.kz::after {
+    content: '☀';
+    position: absolute; inset: 0;
+    color: var(--kz-yellow);
+    font-size: 36px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-flags-row .x {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  /* === TWO EVENT CARDS IN HERO === */
+  .events-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .event-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201, 164, 73, 0.25);
+    padding: 36px;
+    text-align: left;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .event-card.green {
+    border-color: rgba(0, 166, 81, 0.4);
+  }
+  .event-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    background: rgba(255,255,255,0.06);
+  }
+  .event-card.green:hover {
+    border-color: var(--green);
+  }
+  .event-card-num {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    font-weight: 500;
+    line-height: 1;
+    color: rgba(201, 164, 73, 0.15);
+    letter-spacing: -0.04em;
+  }
+  .event-card.green .event-card-num {
+    color: rgba(0, 166, 81, 0.18);
+  }
+  .event-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--green);
+    color: #fff;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .event-card:not(.green) .event-tag {
+    background: var(--gold);
+    color: var(--navy-deep);
+  }
+  .event-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    color: var(--cream);
+  }
+  .event-card p.theme {
+    font-size: 14px;
+    color: var(--gold-light);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 20px;
+  }
+  .event-card.green p.theme { color: #b8e6c9; }
+  .event-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .event-card-meta div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+  .event-card-meta span:first-child {
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 10px;
+    align-self: center;
+  }
+  .event-card-meta span:last-child {
+    color: var(--cream);
+    font-weight: 500;
+    text-align: right;
+  }
+  .event-card a.event-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold-light);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: gap 0.3s;
+  }
+  .event-card.green a.event-btn { color: #b8e6c9; }
+  .event-card a.event-btn:hover { gap: 14px; }
+
+  /* === ORGANIZERS BAR === */
+  .org-bar {
+    background: var(--navy-deep);
+    padding: 36px 32px;
+    border-top: 1px solid rgba(201, 164, 73, 0.15);
+  }
+  .org-bar-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .org-label {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 24px;
+  }
+  .org-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 40px;
+    align-items: center;
+  }
+  .org-item {
+    color: rgba(250, 246, 238, 0.75);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 8px;
+  }
+
+  /* === SECTIONS === */
+  section { padding: 100px 32px; }
+  .container { max-width: 1320px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-eyebrow.green { color: var(--green); }
+  .section-eyebrow::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: currentColor;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 4.2vw, 54px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    margin-bottom: 24px;
+    max-width: 900px;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-title em.green { color: var(--green); }
+  .section-lead {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(26, 26, 26, 0.7);
+    max-width: 800px;
+    margin-bottom: 56px;
+    font-weight: 300;
+  }
+
+  /* === TIMELINE: 2026 ROADMAP === */
+  .roadmap {
+    background: var(--paper);
+    position: relative;
+  }
+  .timeline-wrap {
+    position: relative;
+    padding: 40px 0;
+    margin-top: 32px;
+  }
+  .timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--green) 0%, var(--green) 33%, var(--gold) 66%, var(--gold) 100%);
+    transform: translateY(-50%);
+  }
+  .timeline-points {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+  .tl-point {
+    background: var(--paper);
+    padding: 0 20px;
+    text-align: center;
+    position: relative;
+    flex: 1;
+  }
+  .tl-point::before {
+    content: '';
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 2px var(--navy);
+    display: block;
+    margin: 0 auto 20px;
+  }
+  .tl-point.active::before {
+    background: var(--green);
+    box-shadow: 0 0 0 2px var(--green), 0 0 20px var(--green);
+  }
+  .tl-point.gold::before {
+    background: var(--gold);
+    box-shadow: 0 0 0 2px var(--gold), 0 0 20px var(--gold);
+  }
+  .tl-month {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(26,26,26,0.5);
+    margin-bottom: 4px;
+  }
+  .tl-event {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .tl-point.active .tl-event { color: var(--green-dark); }
+  .tl-point.gold .tl-event { color: var(--navy); }
+
+  /* === SCF'26 SECTION === */
+  .scf-section {
+    background: linear-gradient(180deg, #fff 0%, #f0faf2 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .scf-section::before {
+    content: 'SCF·26';
+    position: absolute;
+    top: 60px;
+    right: -50px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 280px;
+    font-weight: 400;
+    color: rgba(0, 166, 81, 0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .scf-header {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 64px;
+    margin-bottom: 64px;
+    align-items: end;
+  }
+  .scf-meta-card {
+    background: linear-gradient(145deg, var(--green) 0%, var(--green-dark) 100%);
+    color: #fff;
+    padding: 40px 36px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .scf-meta-card::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  .scf-meta-card .date-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  .scf-meta-card .date-big small {
+    font-size: 20px;
+    font-weight: 400;
+    opacity: 0.85;
+  }
+  .scf-meta-card .day {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+  }
+  .scf-meta-card .meta-row {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+  }
+  .scf-meta-card .meta-row span:first-child {
+    opacity: 0.7;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .scf-meta-card .meta-row span:last-child { font-weight: 600; }
+
+  /* SCF focus areas */
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+  .focus-item {
+    background: #fff;
+    border: 1px solid rgba(0, 166, 81, 0.25);
+    padding: 28px 24px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .focus-item:hover {
+    border-color: var(--green);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(0, 166, 81, 0.12);
+  }
+  .focus-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--green);
+    font-style: italic;
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+  }
+  .focus-item h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .focus-item p {
+    font-size: 13px;
+    color: rgba(26,26,26,0.65);
+    line-height: 1.5;
+  }
+
+  /* SCF sessions */
+  .sessions-list {
+    display: grid;
+    gap: 16px;
+  }
+  .session-row {
+    background: #fff;
+    border-left: 4px solid var(--green);
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 32px;
+    align-items: center;
+    transition: all 0.3s;
+  }
+  .session-row:hover {
+    box-shadow: 0 12px 32px rgba(0, 166, 81, 0.1);
+    transform: translateX(4px);
+  }
+  .session-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--green);
+    line-height: 1;
+  }
+  .session-content small {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(26,26,26,0.5);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .session-content h5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .session-content p {
+    font-size: 13px;
+    color: rgba(26,26,26,0.65);
+  }
+  .session-tag {
+    background: rgba(0, 166, 81, 0.08);
+    color: var(--green-dark);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ACIK Talks Cases */
+  .cases-section {
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(0, 166, 81, 0.2);
+  }
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .case-item {
+    background: #fff;
+    padding: 24px;
+    border: 1px solid rgba(0, 166, 81, 0.2);
+    border-radius: 4px;
+    display: flex;
+    gap: 18px;
+  }
+  .case-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--green);
+    line-height: 1;
+    font-style: italic;
+    flex-shrink: 0;
+  }
+  .case-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(26,26,26,0.8);
+  }
+
+  /* SCF sponsors */
+  .sponsors-section {
+    background: #fff;
+    position: relative;
+  }
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .sponsor-tier {
+    background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
+    border: 1px solid var(--line);
+    padding: 36px 28px;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s;
+  }
+  .sponsor-tier:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(10, 30, 63, 0.12);
+  }
+  .sponsor-tier.platinum {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--cream);
+    border-color: var(--gold);
+  }
+  .sponsor-tier.platinum::before {
+    content: 'CO-ORGANIZER';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--gold);
+    color: var(--navy-deep);
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+  .sponsor-tier-label {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .sponsor-tier.platinum .sponsor-tier-label { color: var(--gold-light); }
+  .sponsor-tier:not(.platinum) .sponsor-tier-label { color: var(--green); }
+  .sponsor-tier.gold .sponsor-tier-label { color: #b8860b; }
+  .sponsor-tier.silver .sponsor-tier-label { color: #6b7280; }
+  .sponsor-tier.bronze .sponsor-tier-label { color: #92400e; }
+
+  .sponsor-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+  .sponsor-tier.platinum .sponsor-price { color: var(--gold); }
+  .sponsor-tier.gold .sponsor-price { color: #d4a017; }
+  .sponsor-tier.silver .sponsor-price { color: #6b7280; }
+  .sponsor-tier.bronze .sponsor-price { color: #92400e; }
+  .sponsor-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: rgba(26,26,26,0.7);
+  }
+  .sponsor-tier.platinum .sponsor-desc { color: rgba(250,246,238,0.7); }
+  .sponsor-list {
+    list-style: none;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+  .sponsor-tier.platinum .sponsor-list {
+    border-color: rgba(201, 164, 73, 0.2);
+  }
+  .sponsor-list li {
+    padding: 6px 0;
+    font-size: 13px;
+    display: flex;
+    gap: 8px;
+    color: rgba(26,26,26,0.75);
+  }
+  .sponsor-tier.platinum .sponsor-list li { color: rgba(250,246,238,0.85); }
+  .sponsor-list li::before {
+    content: '✦';
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .special-sponsors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .special-sponsor {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 28px 32px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+  .special-sponsor h5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .special-sponsor p { font-size: 13px; color: rgba(26,26,26,0.6);}
+  .special-sponsor .price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--green);
+  }
+
+  /* === B2B INVESTMENT FORUM SECTION === */
+  .b2b-section {
+    background: var(--navy);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .b2b-section::before {
+    content: 'B2B·26';
+    position: absolute;
+    top: 60px;
+    right: -50px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 280px;
+    font-weight: 400;
+    color: rgba(201, 164, 73, 0.05);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .b2b-section .section-title { color: var(--cream); }
+  .b2b-section .section-lead { color: rgba(250,246,238,0.75); }
+
+  .b2b-header {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 64px;
+    margin-bottom: 64px;
+    align-items: end;
+  }
+  .b2b-meta-card {
+    background: linear-gradient(145deg, var(--gold) 0%, #b8941f 100%);
+    color: var(--navy-deep);
+    padding: 40px 36px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .b2b-meta-card::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 50%;
+  }
+  .b2b-meta-card .date-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  .b2b-meta-card .date-big small {
+    font-size: 20px;
+    font-weight: 400;
+    opacity: 0.85;
+  }
+  .b2b-meta-card .day {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+  }
+  .b2b-meta-card .meta-row {
+    border-top: 1px solid rgba(10, 30, 63, 0.2);
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+  }
+  .b2b-meta-card .meta-row span:first-child {
+    opacity: 0.7;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .b2b-meta-card .meta-row span:last-child { font-weight: 700; }
+
+  /* B2B sectors */
+  .b2b-sectors {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 64px;
+  }
+  .b2b-sector {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201, 164, 73, 0.2);
+    padding: 20px 18px;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .b2b-sector:hover {
+    background: rgba(201,164,73,0.08);
+    border-color: var(--gold);
+  }
+  .b2b-sector-icon {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .b2b-sector h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--cream);
+  }
+
+  /* B2B timeline */
+  .b2b-timeline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .b2b-day {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201, 164, 73, 0.15);
+    padding: 32px;
+    border-radius: 4px;
+  }
+  .b2b-day-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(201, 164, 73, 0.2);
+  }
+  .b2b-day-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 500;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .b2b-day-info small {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .b2b-day-info strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--cream);
+  }
+  .b2b-schedule {
+    list-style: none;
+  }
+  .b2b-schedule li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 14px;
+    font-size: 13px;
+  }
+  .b2b-schedule li time {
+    color: var(--gold-light);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  .b2b-schedule li span {
+    color: rgba(250,246,238,0.85);
+  }
+
+  /* === VIP === */
+  .vip-section {
+    background: var(--paper);
+    position: relative;
+  }
+  .delegations {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+  }
+  .delegation {
+    background: #fff;
+    border-top: 4px solid;
+    padding: 36px 32px;
+  }
+  .delegation.it { border-top-color: var(--it-green); }
+  .delegation.kz { border-top-color: var(--kz-blue); }
+  .delegation-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .delegation-header .big-flag {
+    width: 44px;
+    height: 30px;
+    margin: 0;
+  }
+  .delegation-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .vip-list {
+    list-style: none;
+  }
+  .vip-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: baseline;
+  }
+  .vip-list li:last-child { border-bottom: none; }
+  .vip-list .name {
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .vip-list .role {
+    color: rgba(26,26,26,0.55);
+    font-size: 12px;
+    text-align: right;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* === LOGISTICS (FLIGHTS + HOTELS) === */
+  .logistics-section {
+    background: #fff;
+  }
+  .logistics-intro {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--cream);
+    padding: 48px;
+    border-radius: 4px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .logistics-intro h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .logistics-intro p {
+    color: rgba(250,246,238,0.8);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .plane-route {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px;
+  }
+  .plane-city {
+    text-align: center;
+  }
+  .plane-city .code {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .plane-city .name {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250,246,238,0.7);
+    margin-top: 6px;
+  }
+  .plane-arrow {
+    color: var(--gold);
+    font-size: 24px;
+  }
+
+  .flights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+  .flight-tier {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 32px;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+  .flight-tier:hover {
+    border-color: var(--gold);
+    box-shadow: 0 16px 32px rgba(10,30,63,0.08);
+  }
+  .flight-tier.premium {
+    background: linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
+    border-color: var(--gold);
+  }
+  .flight-class {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .flight-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .flight-prices {
+    display: flex;
+    gap: 24px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 20px;
+  }
+  .flight-price {
+    flex: 1;
+  }
+  .flight-price small {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(26,26,26,0.5);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .flight-price strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .flight-features {
+    list-style: none;
+    font-size: 13px;
+  }
+  .flight-features li {
+    padding: 4px 0;
+    color: rgba(26,26,26,0.7);
+    display: flex;
+    gap: 8px;
+  }
+  .flight-features li::before {
+    content: '✓';
+    color: var(--green);
+  }
+
+  /* Hotels */
+  .hotels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .hotel-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .hotel-header {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 20px 24px;
+  }
+  .hotel-stars {
+    color: var(--gold);
+    font-size: 14px;
+    margin-bottom: 6px;
+    letter-spacing: 2px;
+  }
+  .hotel-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .hotel-body {
+    padding: 20px 24px;
+  }
+  .hotel-rooms {
+    list-style: none;
+  }
+  .hotel-rooms li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: rgba(26,26,26,0.75);
+  }
+  .hotel-rooms li:last-child { border-bottom: none;}
+  .hotel-rooms li strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* === FORM === */
+  .form-section {
+    background: linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
+  }
+  .form-wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 64px;
+    box-shadow: 0 30px 80px rgba(10, 30, 63, 0.1);
+    border-top: 4px solid var(--gold);
+    position: relative;
+  }
+  .form-wrap::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 33%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--it-green) 0%, var(--it-green) 33%, #fff 33%, #fff 66%, var(--it-red) 66%);
+  }
+  .form-wrap::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 33%;
+    height: 4px;
+    background: var(--kz-blue);
+  }
+  .form-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+  .form-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .form-header p {
+    color: rgba(26, 26, 26, 0.6);
+    font-size: 15px;
+  }
+
+  /* Event picker */
+  .event-picker {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .event-pick {
+    position: relative;
+  }
+  .event-pick input { position: absolute; opacity: 0; }
+  .event-pick label {
+    display: block;
+    padding: 24px;
+    border: 2px solid var(--line);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #fff;
+  }
+  .event-pick input:checked + label {
+    border-color: var(--gold);
+    background: var(--cream);
+  }
+  .event-pick input[value="scf"]:checked + label {
+    border-color: var(--green);
+    background: rgba(0,166,81,0.04);
+  }
+  .event-pick-tag {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .event-pick label[for="event-b2b"] .event-pick-tag,
+  .event-pick label[for="event-both"] .event-pick-tag {
+    color: var(--gold);
+  }
+  .event-pick-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .event-pick-date {
+    font-size: 12px;
+    color: rgba(26,26,26,0.6);
+  }
+
+  .form-group-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 32px 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .form-group-title::before {
+    content: '';
+    width: 6px;
+    height: 22px;
+    background: var(--gold);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 16px;
+  }
+  .form-row.full { grid-template-columns: 1fr; }
+  .field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .field label .req { color: var(--it-red); }
+  .field input,
+  .field textarea,
+  .field select {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    transition: all 0.3s;
+  }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(201, 164, 73, 0.1);
+  }
+  .field textarea { resize: vertical; min-height: 100px; font-family: inherit; }
+
+  .agree-box {
+    background: var(--cream);
+    padding: 18px;
+    border-left: 3px solid var(--gold);
+    margin: 16px 0;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(26, 26, 26, 0.75);
+  }
+  .agree-box label {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+  .agree-box input[type="checkbox"] {
+    margin-top: 4px;
+    width: 18px; height: 18px;
+    accent-color: var(--navy);
+  }
+
+  .form-submit {
+    width: 100%;
+    background: var(--navy);
+    color: var(--cream);
+    border: none;
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 16px;
+  }
+  .form-submit:hover {
+    background: var(--gold);
+    color: var(--navy-deep);
+  }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--navy-deep);
+    color: var(--cream);
+    padding: 80px 32px 32px;
+  }
+  .footer-grid {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+  }
+  .footer-brand h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: var(--gold-light);
+  }
+  .footer-brand p {
+    color: rgba(250, 246, 238, 0.6);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .footer-col h4 {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .footer-col a, .footer-col p {
+    display: block;
+    color: rgba(250, 246, 238, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 0;
+    transition: color 0.3s;
+  }
+  .footer-col a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(250, 246, 238, 0.1);
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(250, 246, 238, 0.5);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* === AUDIENCE «ДЛЯ КОГО» === */
+  .audience-section { background: var(--paper); }
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .audience-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 32px 24px;
+    transition: all 0.3s;
+    border-top: 3px solid var(--gold);
+  }
+  .audience-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(10,30,63,0.1);
+  }
+  .audience-icon {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .audience-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .audience-card ul {
+    list-style: none;
+  }
+  .audience-card li {
+    font-size: 13px;
+    color: rgba(26,26,26,0.7);
+    padding: 6px 0;
+    display: flex;
+    gap: 8px;
+    line-height: 1.4;
+  }
+  .audience-card li::before {
+    content: '→';
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* === TARIFFS B2B === */
+  .tariffs-section { background: #fff; }
+  .tariffs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .tariff-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 36px 28px;
+    position: relative;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .tariff-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(10,30,63,0.12);
+  }
+  .tariff-card.popular {
+    border: 2px solid var(--gold);
+    box-shadow: 0 12px 32px rgba(201,164,73,0.18);
+  }
+  .tariff-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--navy-deep);
+    padding: 5px 16px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tariff-name {
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .tariff-sub {
+    font-size: 12px;
+    color: rgba(26,26,26,0.55);
+    margin-bottom: 20px;
+    min-height: 32px;
+  }
+  .tariff-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: -0.03em;
+  }
+  .tariff-price small { font-size: 24px; vertical-align: top; }
+  .tariff-note {
+    font-size: 11px;
+    color: rgba(26,26,26,0.5);
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .tariff-features {
+    list-style: none;
+    flex: 1;
+    margin-bottom: 24px;
+  }
+  .tariff-features li {
+    font-size: 13px;
+    padding: 7px 0;
+    display: flex;
+    gap: 10px;
+    color: rgba(26,26,26,0.75);
+    line-height: 1.4;
+  }
+  .tariff-features li.yes::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0;}
+  .tariff-features li.no { color: rgba(26,26,26,0.3); }
+  .tariff-features li.no::before { content: '—'; flex-shrink: 0; }
+  .tariff-btn {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    background: var(--cream);
+    color: var(--navy);
+    text-decoration: none;
+    border: 1px solid var(--navy);
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  .tariff-card.popular .tariff-btn { background: var(--navy); color: var(--cream); }
+  .tariff-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--navy-deep); }
+  .tariffs-disclaimer {
+    margin-top: 32px;
+    padding: 20px 24px;
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(26,26,26,0.7);
+  }
+
+  /* === GALA DINNER === */
+  .gala-section {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .gala-section::before {
+    content: '✦';
+    position: absolute;
+    top: 40px; right: 60px;
+    font-size: 200px;
+    color: rgba(201,164,73,0.06);
+    pointer-events: none;
+  }
+  .gala-wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .gala-section .section-title { color: var(--cream); }
+  .gala-section .section-eyebrow { color: var(--gold-light); }
+  .gala-section .section-eyebrow::before { background: var(--gold-light); }
+  .gala-features {
+    list-style: none;
+    margin-top: 24px;
+  }
+  .gala-features li {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    color: rgba(250,246,238,0.9);
+  }
+  .gala-features li::before {
+    content: '✦';
+    color: var(--gold);
+  }
+  .gala-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,164,73,0.3);
+    border-radius: 4px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+  }
+  .gala-card .gala-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--gold-light);
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(201,164,73,0.2);
+  }
+  .gala-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    font-size: 14px;
+  }
+  .gala-detail span:first-child {
+    color: rgba(250,246,238,0.6);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .gala-detail span:last-child { color: var(--cream); font-weight: 600; }
+
+  /* === WHY NOW === */
+  .whynow-section { background: var(--cream); }
+  .whynow-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .whynow-card {
+    text-align: left;
+    padding: 32px 0;
+  }
+  .whynow-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 500;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 20px;
+    font-style: italic;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+    padding-bottom: 8px;
+  }
+  .whynow-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .whynow-card p {
+    font-size: 14px;
+    color: rgba(26,26,26,0.7);
+    line-height: 1.6;
+  }
+
+  /* === FINAL CTA === */
+  .final-cta {
+    background: var(--navy);
+    color: var(--cream);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 40%, rgba(201,164,73,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 60%, rgba(0,166,81,0.1) 0%, transparent 50%);
+  }
+  .final-cta-inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+  .final-cta h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .final-cta h2 em { font-style: italic; color: var(--gold-light); }
+  .final-cta p {
+    font-size: 18px;
+    color: rgba(250,246,238,0.8);
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  .final-cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .final-cta .limited {
+    margin-top: 32px;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 980px) {
+    .audience-grid { grid-template-columns: 1fr 1fr; }
+    .tariffs-grid { grid-template-columns: 1fr 1fr; }
+    .gala-wrap { grid-template-columns: 1fr; gap: 32px; }
+    .whynow-grid { grid-template-columns: 1fr 1fr; }
+    nav ul { display: none; }
+    .events-pair { grid-template-columns: 1fr; }
+    .scf-header, .b2b-header { grid-template-columns: 1fr; gap: 32px; }
+    .focus-grid { grid-template-columns: 1fr 1fr; }
+    .session-row { grid-template-columns: 1fr; gap: 12px; padding: 24px;}
+    .session-time { font-size: 24px;}
+    .cases-grid { grid-template-columns: 1fr; }
+    .sponsors-grid { grid-template-columns: 1fr 1fr; }
+    .special-sponsors { grid-template-columns: 1fr; }
+    .b2b-sectors { grid-template-columns: 1fr 1fr; }
+    .b2b-timeline { grid-template-columns: 1fr; }
+    .delegations { grid-template-columns: 1fr; gap: 32px; }
+    .logistics-intro { grid-template-columns: 1fr; gap: 24px; padding: 32px;}
+    .flights-grid { grid-template-columns: 1fr; }
+    .hotels-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .form-wrap { padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    .event-picker { grid-template-columns: 1fr; }
+    section { padding: 60px 24px; }
+    .hero { padding: 60px 24px 80px; }
+    .timeline-points { flex-direction: column; gap: 24px; }
+    .timeline-line { display: none; }
+    .tl-point { padding: 0; }
+    .top-bar-inner { flex-direction: column; gap: 8px; text-align: center;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="flag-row">
+      <span class="mini-flag flag-it"><span class="a"></span><span class="b"></span><span class="c"></span></span>
+      <span style="opacity:0.7">Italia</span>
+      <span class="mini-flag flag-kz"></span>
+      <span style="opacity:0.7">Қазақстан · 2026</span>
+    </div>
+    <div style="opacity:0.7">📍 Астана · 21 апреля + 11–12 июня 2026</div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav">
+    <div class="logo-block">
+      <div class="crest">IT·KZ</div>
+      <div class="logo-text">
+        <strong>Italy–Kazakhstan 2026</strong>
+        <small>Forums · Astana</small>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#roadmap">Календарь</a></li>
+        <li><a href="#scf">SCF'26 · Апрель</a></li>
+        <li><a href="#b2b">B2B Forum · Июнь</a></li>
+        <li><a href="#audience">Для кого</a></li>
+        <li><a href="#tariffs">Тарифы</a></li>
+        <li><a href="#logistics">Логистика</a></li>
+        <li><a href="#form">Регистрация</a></li>
+      </ul>
+    </nav>
+    <a href="#form" class="btn-cta">Подать заявку</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Серия флагманских мероприятий · 2026</div>
+    <div class="hero-flags-row">
+      <span class="big-flag it"><span class="a"></span><span class="b"></span><span class="c"></span></span>
+      <span class="x">×</span>
+      <span class="big-flag kz"></span>
+    </div>
+    <h1>Италия <em>×</em> Казахстан<br>Два форума, <em>одна стратегия</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-lead">
+      Два связанных события на пути от стратегического диалога к конкретным инвестициям. Сначала — Supply Chain Forum в апреле, разбирающий «механизмы поставок» энергетического перехода. Затем — Investment Forum в июне, где итальянские корпорации встречаются с казахстанскими операторами и принимают инвестиционные решения.
+    </p>
+
+    <div class="events-pair">
+      <!-- SCF -->
+      <div class="event-card green">
+        <span class="event-card-num">01</span>
+        <span class="event-tag">Шаг 1 · Контекст</span>
+        <h3>Italy–Kazakhstan Supply Chain Forum</h3>
+        <p class="theme">SCF'26 · Energy Transition in Central Asia</p>
+        <div class="event-card-meta">
+          <div><span>Дата</span><span>21 апреля 2026</span></div>
+          <div><span>Начало</span><span>08:00</span></div>
+          <div><span>Место</span><span>Rixos President Astana</span></div>
+          <div><span>Формат</span><span>1 день · Панели + ACIK Talks</span></div>
+        </div>
+        <a href="#scf" class="event-btn">Программа SCF'26 →</a>
+      </div>
+
+      <!-- B2B -->
+      <div class="event-card">
+        <span class="event-card-num">02</span>
+        <span class="event-tag">Шаг 2 · Сделки</span>
+        <h3>B2B Investment Forum</h3>
+        <p class="theme">Прямые B2B-встречи и подписание соглашений</p>
+        <div class="event-card-meta">
+          <div><span>Даты</span><span>11–12 июня 2026</span></div>
+          <div><span>Делегаты</span><span>300+</span></div>
+          <div><span>Место</span><span>AIFC, Астана</span></div>
+          <div><span>Формат</span><span>2 дня · B2B + Гала-ужин</span></div>
+        </div>
+        <a href="#b2b" class="event-btn">Программа B2B Forum →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANIZERS -->
+<div class="org-bar">
+  <div class="org-bar-inner">
+    <div class="org-label">При поддержке и под эгидой</div>
+    <div class="org-list">
+      <div class="org-item">Посольство Италии в Астане</div>
+      <div class="org-item">Посольство Казахстана в Италии</div>
+      <div class="org-item">Министерство торговли и интеграции РК</div>
+      <div class="org-item">Министерство национальной экономики РК</div>
+      <div class="org-item">ACIK</div>
+      <div class="org-item">CCIK · 1996</div>
+      <div class="org-item">Самрук-Қазына</div>
+      <div class="org-item">KITH · Kazakh-Italian Trade House</div>
+      <div class="org-item">AIFC</div>
+      <div class="org-item">ICE · Italian Trade Agency</div>
+    </div>
+  </div>
+</div>
+
+<!-- ROADMAP TIMELINE -->
+<section id="roadmap" class="roadmap" style="padding:80px 32px">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:8px">
+      <div class="section-eyebrow" style="display:inline-flex">Дорожная карта 2026</div>
+    </div>
+    <h2 class="section-title" style="text-align:center;margin:0 auto 16px">От <em class="green">энергоперехода</em> к <em>инвестициям</em></h2>
+    <p class="section-lead" style="text-align:center;margin:0 auto">Два мероприятия логически связаны: апрельский форум формирует контекст и приоритеты, июньский — конвертирует стратегию в сделки.</p>
+
+    <div class="timeline-wrap">
+      <div class="timeline-line"></div>
+      <div class="timeline-points">
+        <div class="tl-point active">
+          <div class="tl-month">21 апреля</div>
+          <div class="tl-event">SCF'26<br>Supply Chain Forum</div>
+        </div>
+        <div class="tl-point">
+          <div class="tl-month">Апрель–Июнь</div>
+          <div class="tl-event">Подготовка<br>мэтчинга</div>
+        </div>
+        <div class="tl-point">
+          <div class="tl-month">24 апреля</div>
+          <div class="tl-event">Дедлайн заявок<br>на B2B Forum</div>
+        </div>
+        <div class="tl-point gold">
+          <div class="tl-month">11–12 июня</div>
+          <div class="tl-event">B2B Investment<br>Forum</div>
+        </div>
+        <div class="tl-point gold">
+          <div class="tl-month">12 июня</div>
+          <div class="tl-event">Гала-ужин<br>казахская кухня</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SCF'26 SECTION ============== -->
+<section id="scf" class="scf-section">
+  <div class="container">
+    <div class="scf-header">
+      <div>
+        <div class="section-eyebrow green">Event 01 · Supply Chain Forum</div>
+        <h2 class="section-title">SCF'26 · <em class="green">Energy Transition</em> in Central Asia</h2>
+        <p class="section-lead" style="margin-bottom:0">
+          Практическая бизнес-платформа, дополняющая Ecology and Energy Transition Summit. Фокус — на «механизмах реализации» стратегических обязательств: нефтехимия, логистика, транспортные коридоры и формирующаяся отрасль устойчивого авиатоплива (SAF). Казахстан и Центральная Азия входят в новую фазу промышленной модернизации, и устойчивые цепочки поставок становятся решающим фактором.
+        </p>
+      </div>
+      <div class="scf-meta-card">
+        <div class="day">Вторник</div>
+        <div class="date-big">21 <small>апреля</small></div>
+        <div class="meta-row"><span>Место</span><span>Rixos President Astana</span></div>
+        <div class="meta-row"><span>Начало</span><span>08:00</span></div>
+        <div class="meta-row"><span>Длительность</span><span>1 день</span></div>
+        <div class="meta-row"><span>Чартер</span><span>Milan ↔ Astana</span></div>
+      </div>
+    </div>
+
+    <!-- Focus areas -->
+    <div class="section-eyebrow green" style="margin-top:16px">Key Focus Areas</div>
+    <h3 class="section-title" style="font-size:32px;margin-bottom:32px">Четыре приоритетных направления</h3>
+
+    <div class="focus-grid">
+      <div class="focus-item">
+        <div class="focus-num">— 01 —</div>
+        <h4>Energy Transition & Petrochemical</h4>
+        <p>Энергопереход и нефтехимия: технологии, локализация, цепочки поставок</p>
+      </div>
+      <div class="focus-item">
+        <div class="focus-num">— 02 —</div>
+        <h4>Logistics & Transport Corridors</h4>
+        <p>Логистика и транспортные коридоры, развитие Среднего коридора</p>
+      </div>
+      <div class="focus-item">
+        <div class="focus-num">— 03 —</div>
+        <h4>Sustainable Aviation Fuel</h4>
+        <p>Устойчивое авиационное топливо (SAF) — формирующаяся цепочка ценности</p>
+      </div>
+      <div class="focus-item">
+        <div class="focus-num">— 04 —</div>
+        <h4>Other Industries Opportunity</h4>
+        <p>Кросс-отраслевые возможности для технологических партнёрств</p>
+      </div>
+    </div>
+
+    <!-- Sessions -->
+    <div class="section-eyebrow green" style="margin-top:32px">Format & Structure</div>
+    <h3 class="section-title" style="font-size:32px;margin-bottom:32px">Три ключевые сессии</h3>
+
+    <div class="sessions-list">
+      <div class="session-row">
+        <div class="session-time">09:00</div>
+        <div class="session-content">
+          <small>Session 1</small>
+          <h5>Institutional Opening Remarks</h5>
+          <p>Central Asia Energy Transition and the Role of Supply Chains in delivery and sustainability</p>
+        </div>
+        <span class="session-tag">Открытие</span>
+      </div>
+      <div class="session-row">
+        <div class="session-time">10:30</div>
+        <div class="session-content">
+          <small>Session 2 · Panel</small>
+          <h5>Smart Solutions in the Middle Corridor</h5>
+          <p>Implementing Energy Transition and Raw Material Transformation through Smart Solutions</p>
+        </div>
+        <span class="session-tag">Панель</span>
+      </div>
+      <div class="session-row">
+        <div class="session-time">11:30</div>
+        <div class="session-content">
+          <small>Session 3 · ACIK Talks</small>
+          <h5>Supply Chain Case Study Discussion</h5>
+          <p>Пять кейс-стади по нефтехимии, SAF, экспорту, Среднему коридору и возобновляемой энергетике</p>
+        </div>
+        <span class="session-tag">Case Studies</span>
+      </div>
+    </div>
+
+    <!-- ACIK Talks Cases -->
+    <div class="cases-section">
+      <div class="section-eyebrow green">ACIK Talks · 5 Case Studies</div>
+      <h4 class="section-title" style="font-size:28px;margin-bottom:0">Practical insights from industry leaders</h4>
+
+      <div class="cases-grid">
+        <div class="case-item">
+          <span class="case-num">01</span>
+          <p class="case-text">Assessing Petrochemical Local Supply Chain Readiness — оценка готовности локальной цепочки поставок нефтехимии.</p>
+        </div>
+        <div class="case-item">
+          <span class="case-num">02</span>
+          <p class="case-text">Leveraging Local Feedstocks for Sustainable Aviation Fuel (SAF) Production — использование локального сырья для производства SAF.</p>
+        </div>
+        <div class="case-item">
+          <span class="case-num">03</span>
+          <p class="case-text">Meeting Local Needs and Seizing Worldwide Export Opportunities — удовлетворение локального спроса и глобальный экспорт.</p>
+        </div>
+        <div class="case-item">
+          <span class="case-num">04</span>
+          <p class="case-text">Middle Corridor Development — расширение экспорта и рост локального производства через Средний коридор.</p>
+        </div>
+        <div class="case-item" style="grid-column:span 2">
+          <span class="case-num">05</span>
+          <p class="case-text">Renewable Energy vs Traditional Ones — переход от угля к газу в энергогенерации как возможность индустриализации страны.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCF SPONSORS -->
+<section class="sponsors-section">
+  <div class="container">
+    <div class="section-eyebrow green">SCF'26 · Sponsorship Packages</div>
+    <h2 class="section-title">Спонсорские пакеты <em class="green">Supply Chain Forum</em></h2>
+    <p class="section-lead">Четыре основных уровня партнёрства и две специальные опции для брендирования сессий и нетворкинга. Платиновый уровень — это статус соорганизатора, а не традиционное спонсорство.</p>
+
+    <div class="sponsors-grid">
+      <div class="sponsor-tier platinum">
+        <div class="sponsor-tier-label">Platinum</div>
+        <div class="sponsor-price">€50.000</div>
+        <p class="sponsor-desc">Уникальная возможность стать со-формирователем повестки. Категория для лидеров, ищущих статус «соорганизатора».</p>
+        <ul class="sponsor-list">
+          <li>Tailor-Made пакет</li>
+          <li>Доступ к закрытым executive-сессиям</li>
+          <li>Участие в post-forum white paper</li>
+          <li>«Signature» медиа-контент</li>
+          <li>Согласование позиционирования</li>
+        </ul>
+      </div>
+      <div class="sponsor-tier gold">
+        <div class="sponsor-tier-label">Gold</div>
+        <div class="sponsor-price">€25.000</div>
+        <p class="sponsor-desc">Премиум-видимость и speaker-возможности</p>
+        <ul class="sponsor-list">
+          <li>Логотип на главном экране</li>
+          <li>Брендинг на LED-экранах</li>
+          <li>Keynote 5–7 минут</li>
+          <li>5 проходов делегата</li>
+          <li>5 пропусков на VIP-приём</li>
+        </ul>
+      </div>
+      <div class="sponsor-tier silver">
+        <div class="sponsor-tier-label">Silver</div>
+        <div class="sponsor-price">€10.000</div>
+        <p class="sponsor-desc">Базовая видимость и доступ</p>
+        <ul class="sponsor-list">
+          <li>Логотип в программе</li>
+          <li>Roll-up в зоне нетворкинга</li>
+          <li>3 прохода делегата</li>
+          <li>3 пропуска на VIP-приём</li>
+        </ul>
+      </div>
+      <div class="sponsor-tier bronze">
+        <div class="sponsor-tier-label">Bronze</div>
+        <div class="sponsor-price">€5.000</div>
+        <p class="sponsor-desc">Старт-пакет участия</p>
+        <ul class="sponsor-list">
+          <li>Логотип в программе</li>
+          <li>Логотип на экране</li>
+          <li>3 прохода делегата</li>
+          <li>Упоминание в коммуникациях</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="special-sponsors">
+      <div class="special-sponsor">
+        <div>
+          <h5>Session Sponsor</h5>
+          <p>Брендинг тематической сессии · модерация · логотип на материалах</p>
+        </div>
+        <div class="price">€30.000</div>
+      </div>
+      <div class="special-sponsor">
+        <div>
+          <h5>Networking Cocktail Sponsor</h5>
+          <p>Брендинг официального коктейль-приёма · логотип в зоне коктейля</p>
+        </div>
+        <div class="price">€10.000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== B2B INVESTMENT FORUM SECTION ============== -->
+<section id="b2b" class="b2b-section">
+  <div class="container">
+    <div class="b2b-header">
+      <div>
+        <div class="section-eyebrow">Event 02 · Investment Forum</div>
+        <h2 class="section-title">Инвестиционный форум <em>Италия–Казахстан</em></h2>
+        <p class="section-lead" style="margin-bottom:0">
+          Ключевое событие двустороннего экономического сотрудничества. Платформа для прямого диалога между государствами, корпорациями и инвесторами. Главная миссия — превращение Казахстана в стратегический деловой хаб между Европой, Азией и США. Создание совместного фонда с SIMEST, привлечение глобальных ритейл-сетей и интенсивные B2B-переговоры с участием профессиональных переводчиков.
+        </p>
+      </div>
+      <div class="b2b-meta-card">
+        <div class="day">Четверг–Пятница</div>
+        <div class="date-big">11–12 <small>июня</small></div>
+        <div class="meta-row"><span>Место</span><span>AIFC, Астана</span></div>
+        <div class="meta-row"><span>Делегатов</span><span>300+</span></div>
+        <div class="meta-row"><span>Взнос</span><span>€1.000</span></div>
+        <div class="meta-row"><span>Дедлайн</span><span>24 апреля 2026</span></div>
+      </div>
+    </div>
+
+    <!-- B2B Sectors -->
+    <div class="section-eyebrow" style="margin-top:16px">Приоритетные секторы</div>
+    <h3 class="section-title" style="font-size:32px;margin-bottom:32px;color:var(--cream)">12 отраслей в фокусе форума</h3>
+
+    <div class="b2b-sectors">
+      <div class="b2b-sector"><div class="b2b-sector-icon">⛽</div><h6>Нефть и газ</h6></div>
+      <div class="b2b-sector"><div class="b2b-sector-icon">🌱</div><h6>Зелёная энергетика</h6></div>
+      <div class="b2b-sector"><div class="b2b-sector-icon">🌾</div><h6>АПК</h6></div>
+      <div class="b2b-sector"><div class="b2b-sector-icon">🍇</div><h6>Food & Beverage</h6></div>
+      <div class="b2b-sector"><div class="b2b-sector-icon">🚜</div><h6>Сельхозтехника</h6></div>
+      <div class="b2b-sector"><div class="b2b-sector-icon">⚙</div><h6>Механика</h6></div>
+      <div class="b2b-sector"><div class="b2b-sector-icon">🛋</div><h6>Мебель</h6></div>
+      <div class="b2b-sector"><div class="b2b-sector-icon">🧬</div><h6>Биотех</h6></div>
+      <div class="b2b-sector"><div class="b2b-sector-icon">🚛</div><h6>Логистика</h6></div>
+      <div class="b2b-sector"><div class="b2b-sector-icon">🧵</div><h6>Текстиль</h6></div>
+      <div class="b2b-sector"><div class="b2b-sector-icon">💡</div><h6>Технологии</h6></div>
+      <div class="b2b-sector"><div class="b2b-sector-icon">🛒</div><h6>Ритейл</h6></div>
+    </div>
+
+    <!-- B2B Programme -->
+    <div class="section-eyebrow" style="margin-top:32px">Программа</div>
+    <h3 class="section-title" style="font-size:32px;margin-bottom:32px;color:var(--cream)">Два дня стратегической работы</h3>
+
+    <div class="b2b-timeline">
+      <div class="b2b-day">
+        <div class="b2b-day-header">
+          <div class="b2b-day-num">11</div>
+          <div class="b2b-day-info">
+            <small>Четверг · День 1</small>
+            <strong>Инвестиционный форум</strong>
+          </div>
+        </div>
+        <ul class="b2b-schedule">
+          <li><time>09:00</time><span>Регистрация · Atrium C3.3</span></li>
+          <li><time>10:00</time><span>Торжественное открытие · Trading Hall</span></li>
+          <li><time>10:45</time><span>Пленарная сессия: инвест-климат</span></li>
+          <li><time>12:00</time><span>Тематические круглые столы</span></li>
+          <li><time>13:30</time><span>Деловой обед</span></li>
+          <li><time>15:00</time><span>Best Practices Italia</span></li>
+          <li><time>16:00</time><span>B2B-сессии · Турkестан / Самарканд</span></li>
+          <li><time>19:00</time><span>Networking-приём</span></li>
+        </ul>
+      </div>
+      <div class="b2b-day">
+        <div class="b2b-day-header">
+          <div class="b2b-day-num">12</div>
+          <div class="b2b-day-info">
+            <small>Пятница · День 2</small>
+            <strong>B2B + Подписание</strong>
+          </div>
+        </div>
+        <ul class="b2b-schedule">
+          <li><time>09:30</time><span>Продолжение B2B-встреч</span></li>
+          <li><time>11:00</time><span>Питч-сессии проектов</span></li>
+          <li><time>12:30</time><span>Сессия с ритейлерами</span></li>
+          <li><time>13:30</time><span>Деловой обед</span></li>
+          <li><time>15:00</time><span>Финальные B2B</span></li>
+          <li><time>17:00</time><span>Подписание соглашений</span></li>
+          <li><time>18:30</time><span>Закрытие форума</span></li>
+          <li><time>20:00</time><span>★ Гала-ужин — высокая казахская кухня</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIP DELEGATIONS -->
+<section id="vip" class="vip-section">
+  <div class="container">
+    <div class="section-eyebrow">Участники высшего звена</div>
+    <h2 class="section-title">Делегации двух стран в <em>одном пространстве</em></h2>
+    <p class="section-lead">Объединённый список ожидаемых VIP-участников обоих мероприятий. Состав подтверждается; возможны корректировки.</p>
+
+    <div class="delegations">
+      <div class="delegation kz">
+        <div class="delegation-header">
+          <span class="big-flag kz"></span>
+          <h3>Казахстан</h3>
+        </div>
+        <ul class="vip-list">
+          <li><span class="name">Олжас Бектенов</span><span class="role">Премьер-Министр РК</span></li>
+          <li><span class="name">Серик Жумангарин</span><span class="role">Зам. Премьер-министра — Министр нац. экономики</span></li>
+          <li><span class="name">Министерство торговли и интеграции</span><span class="role">МТИ РК · организатор SCF'26</span></li>
+          <li><span class="name">Министерство сельского хозяйства</span><span class="role">МСХ РК</span></li>
+          <li><span class="name">Министерство науки и высшего образования</span><span class="role">МНВО РК</span></li>
+          <li><span class="name">Министерство промышленности и строительства</span><span class="role">МПС РК</span></li>
+          <li><span class="name">«Самрук-Қазына»</span><span class="role">Фонд национального благосостояния</span></li>
+          <li><span class="name">Холдинг «Байтерек»</span><span class="role">Национальный холдинг</span></li>
+          <li><span class="name">Kazakh Invest</span><span class="role">Национальная компания</span></li>
+          <li><span class="name">KITH</span><span class="role">Kazakh-Italian Trade House</span></li>
+        </ul>
+      </div>
+      <div class="delegation it">
+        <div class="delegation-header">
+          <span class="big-flag it"><span class="a"></span><span class="b"></span><span class="c"></span></span>
+          <h3>Италия</h3>
+        </div>
+        <ul class="vip-list">
+          <li><span class="name">Посольство Италии в Астане</span><span class="role">Ambasciata d'Italia</span></li>
+          <li><span class="name">Джанантонио Трамет</span><span class="role">Президент CCIK</span></li>
+          <li><span class="name">Francesco Lollobrigida</span><span class="role">Министр сельского хозяйства</span></li>
+          <li><span class="name">Adolfo Urso</span><span class="role">Министр промышленности и Made in Italy</span></li>
+          <li><span class="name">Giancarlo Giorgetti</span><span class="role">Министр экономики и финансов</span></li>
+          <li><span class="name">Luca Zaia</span><span class="role">Президент региона Венето</span></li>
+          <li><span class="name">Federico Caner</span><span class="role">Veneto Agricoltura</span></li>
+          <li><span class="name">Mauro Viti</span><span class="role">ERSA Friuli</span></li>
+          <li><span class="name">Matteo Zoppas</span><span class="role">Президент ICE</span></li>
+          <li><span class="name">Paolo Boccardelli, Vittorio De Pedys</span><span class="role">Университеты и бизнес-школы</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE «ДЛЯ КОГО» -->
+<section id="audience" class="audience-section">
+  <div class="container">
+    <div class="section-eyebrow">Для кого эти форумы</div>
+    <h2 class="section-title">Шесть профилей участников, <em>один результат</em></h2>
+    <p class="section-lead">Программа обоих мероприятий спроектирована под конкретные роли. Каждый профиль получает прямой доступ к релевантным контактам, проектам и инструментам — без посредников.</p>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-icon">🏛</div>
+        <h4>Госорганы и институты</h4>
+        <ul>
+          <li>Прямой G2G-диалог</li>
+          <li>Формирование Project Needs List</li>
+          <li>Институциональные соглашения</li>
+          <li>Связь торговли, индустрии и транспорта</li>
+        </ul>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">🏭</div>
+        <h4>Нац. компании и операторы</h4>
+        <ul>
+          <li>Презентация проектов инвесторам</li>
+          <li>Поиск технологических партнёров</li>
+          <li>Нефтехимия, энергетика, инфраструктура</li>
+          <li>Локализация производства</li>
+        </ul>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">🔧</div>
+        <h4>EPC и инжиниринг</h4>
+        <ul>
+          <li>Доступ к procurement-потребностям</li>
+          <li>Точки входа в цепочки поставок</li>
+          <li>Прямой контакт с владельцами проектов</li>
+          <li>Поставщики и подрядчики</li>
+        </ul>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">🚛</div>
+        <h4>Логистика и коридоры</h4>
+        <ul>
+          <li>Развитие Среднего коридора</li>
+          <li>Таможня и facilitation</li>
+          <li>Терминалы и операторы</li>
+          <li>Связки Европа–Азия</li>
+        </ul>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">💰</div>
+        <h4>Финансовые институты</h4>
+        <ul>
+          <li>Инвестиции и фонд с SIMEST</li>
+          <li>Страхование и экспортная поддержка</li>
+          <li>Снижение рисков</li>
+          <li>Прозрачность отрасли</li>
+        </ul>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">⚡</div>
+        <h4>Технологические поставщики</h4>
+        <ul>
+          <li>Трансфер технологий KZ ↔ IT</li>
+          <li>Прямые B2B-встречи</li>
+          <li>Офтейк-контракты с ритейлом</li>
+          <li>Выход на рынок Центральной Азии</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFFS B2B -->
+<section id="tariffs" class="tariffs-section">
+  <div class="container">
+    <div class="section-eyebrow">Тарифы участия · B2B Investment Forum</div>
+    <h2 class="section-title">Выберите <em>формат участия</em></h2>
+    <p class="section-lead">Базовый пакет соответствует официальному взносу CCIK €1.000. Расширенные пакеты включают проживание, доступ к гала-ужину и VIP-залам. Цены расширенных пакетов уточняются оргкомитетом.</p>
+
+    <div class="tariffs-grid">
+      <!-- BASIC -->
+      <div class="tariff-card">
+        <div class="tariff-name">Basic</div>
+        <div class="tariff-sub">Официальный взнос CCIK</div>
+        <div class="tariff-price"><small>€</small>1.000</div>
+        <div class="tariff-note">Оплата до 24 апреля 2026</div>
+        <ul class="tariff-features">
+          <li class="yes">Участие в форуме (2 дня)</li>
+          <li class="yes">Программа B2B-встреч</li>
+          <li class="yes">Пленарные сессии и круглые столы</li>
+          <li class="yes">Деловые обеды</li>
+          <li class="yes">Синхронный перевод</li>
+          <li class="yes">Networking-приём</li>
+          <li class="no">Гала-ужин</li>
+          <li class="no">Проживание</li>
+          <li class="yes">1 представитель</li>
+        </ul>
+        <a href="#form" class="tariff-btn">Выбрать Basic</a>
+      </div>
+
+      <!-- BUSINESS -->
+      <div class="tariff-card popular">
+        <span class="tariff-badge">★ Популярный</span>
+        <div class="tariff-name">Business</div>
+        <div class="tariff-sub">Полное участие + гала-ужин</div>
+        <div class="tariff-price"><small>€</small>1.900</div>
+        <div class="tariff-note">Цена уточняется оргкомитетом</div>
+        <ul class="tariff-features">
+          <li class="yes">Всё из Basic</li>
+          <li class="yes">Гала-ужин 12 июня</li>
+          <li class="yes">Доступ к VIP-залам</li>
+          <li class="yes">Приоритетный мэтчинг</li>
+          <li class="yes">VIP-зона на приёме</li>
+          <li class="no">Проживание</li>
+          <li class="yes">2 представителя</li>
+        </ul>
+        <a href="#form" class="tariff-btn">Выбрать Business</a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="tariff-card">
+        <div class="tariff-name">Premium</div>
+        <div class="tariff-sub">+ проживание и трансфер</div>
+        <div class="tariff-price"><small>€</small>2.900</div>
+        <div class="tariff-note">Цена уточняется оргкомитетом</div>
+        <ul class="tariff-features">
+          <li class="yes">Всё из Business</li>
+          <li class="yes">Проживание 1 ночь (отель-партнёр)</li>
+          <li class="yes">Трансфер аэропорт ↔ отель</li>
+          <li class="yes">Приоритетный слот в VIP-залах</li>
+          <li class="yes">Логотип в материалах форума</li>
+          <li class="yes">2 представителя</li>
+        </ul>
+        <a href="#form" class="tariff-btn">Выбрать Premium</a>
+      </div>
+
+      <!-- VIP -->
+      <div class="tariff-card">
+        <div class="tariff-name">VIP</div>
+        <div class="tariff-sub">Максимальный комфорт</div>
+        <div class="tariff-price"><small>€</small>4.500</div>
+        <div class="tariff-note">Цена уточняется оргкомитетом</div>
+        <ul class="tariff-features">
+          <li class="yes">Всё из Premium</li>
+          <li class="yes">Проживание 2 ночи (Rixos 5★)</li>
+          <li class="yes">VIP-стол на гала-ужине</li>
+          <li class="yes">Персональный слот для встреч</li>
+          <li class="yes">Персональный менеджер</li>
+          <li class="yes">Персональный трансфер</li>
+          <li class="yes">До 3 представителей</li>
+        </ul>
+        <a href="#form" class="tariff-btn">Выбрать VIP</a>
+      </div>
+    </div>
+
+    <div class="tariffs-disclaimer">
+      <strong>Важно:</strong> Базовый пакет Basic (€1.000) и связанные с ним условия (юрисдикция Суда Рима, компенсация при отказе до €1.000) соответствуют официальной форме Modulo CCIK. Пакеты Business, Premium и VIP представляют собой базовый взнос плюс дополнительные услуги; их финальная стоимость определяется оргкомитетом с учётом тарифов отелей и логистики. Для SCF'26 действуют отдельные спонсорские пакеты (см. раздел выше).
+    </div>
+  </div>
+</section>
+
+<!-- LOGISTICS -->
+<section id="logistics" class="logistics-section">
+  <div class="container">
+    <div class="section-eyebrow">Логистика для итальянской делегации</div>
+    <h2 class="section-title">Чартер <em>Milan ↔ Astana</em> и отели по специальным тарифам</h2>
+    <p class="section-lead">Для участников из Италии организован выделенный чартер на апрельский форум SCF'26. Для июньского форума действуют корпоративные тарифы в отелях Астаны.</p>
+
+    <div class="logistics-intro">
+      <div>
+        <h3>Dedicated Charter Flight</h3>
+        <p>Выделенный чартер Boeing 737 MAX, организованный специально для итальянской делегации SCF'26. Вылет из Милана 20 апреля, возврат 23 апреля.</p>
+        <p style="margin-top:12px;font-size:13px;color:var(--gold-light);font-style:italic">Только для SCF'26 · апрель 2026</p>
+      </div>
+      <div class="plane-route">
+        <div class="plane-city">
+          <div class="code">MXP</div>
+          <div class="name">Milan Malpensa</div>
+        </div>
+        <div class="plane-arrow">✈ →</div>
+        <div class="plane-city">
+          <div class="code">NQZ</div>
+          <div class="name">Astana</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flights-grid">
+      <div class="flight-tier">
+        <div class="flight-class">Economy Class</div>
+        <div class="flight-name">Эконом</div>
+        <div class="flight-prices">
+          <div class="flight-price">
+            <small>Round trip</small>
+            <strong>€1.000</strong>
+          </div>
+          <div class="flight-price">
+            <small>One-way</small>
+            <strong>€600</strong>
+          </div>
+        </div>
+        <ul class="flight-features">
+          <li>Багаж 23 кг + ручная кладь 8 кг</li>
+          <li>Замена имени за 48 часов (сбор €240)</li>
+          <li>Частичный возврат при отмене за 72 часа (–20% + €75)</li>
+          <li>Вылет: 20 апреля 09:00 / возврат 23 апреля 21:00</li>
+        </ul>
+      </div>
+      <div class="flight-tier premium">
+        <div class="flight-class">Premium Class</div>
+        <div class="flight-name">Премиум</div>
+        <div class="flight-prices">
+          <div class="flight-price">
+            <small>Round trip</small>
+            <strong>€1.500</strong>
+          </div>
+          <div class="flight-price">
+            <small>One-way</small>
+            <strong>€850</strong>
+          </div>
+        </div>
+        <ul class="flight-features">
+          <li>Выделенная регистрация на рейс</li>
+          <li>Fast Track (MXP)</li>
+          <li>Доступ в лаунж (MXP)</li>
+          <li>Премиум-питание на борту</li>
+          <li>Wi-Fi (subject to availability)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HOTELS -->
+    <div class="section-eyebrow" style="margin-top:32px">Размещение в Астане</div>
+    <h3 class="section-title" style="font-size:32px;margin-bottom:32px">Корпоративные тарифы в отелях</h3>
+
+    <div class="hotels-grid">
+      <div class="hotel-card">
+        <div class="hotel-header">
+          <div class="hotel-stars">★★★★★</div>
+          <div class="hotel-name">Rixos President Astana</div>
+        </div>
+        <div class="hotel-body">
+          <ul class="hotel-rooms">
+            <li>Deluxe King (Single)<strong>€215</strong></li>
+            <li>Premium King<strong>€245</strong></li>
+            <li>Premium Twin<strong>€280</strong></li>
+            <li>Junior Suite<strong>€390</strong></li>
+            <li>Presidential Suite<strong>€1.150</strong></li>
+          </ul>
+          <p style="margin-top:12px;font-size:11px;color:var(--green);font-weight:600;letter-spacing:0.1em">★ Площадка SCF'26</p>
+        </div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-header">
+          <div class="hotel-stars">★★★★★</div>
+          <div class="hotel-name">Saad Hotel Astana</div>
+        </div>
+        <div class="hotel-body">
+          <ul class="hotel-rooms">
+            <li>Deluxe King (Single)<strong>€155</strong></li>
+            <li>Deluxe King (Double)<strong>€180</strong></li>
+            <li>Superior King (Single)<strong>€190</strong></li>
+            <li>Superior King (Double)<strong>€220</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-header">
+          <div class="hotel-stars">★★★★</div>
+          <div class="hotel-name">Hilton Garden Inn</div>
+        </div>
+        <div class="hotel-body">
+          <ul class="hotel-rooms">
+            <li>Superior Standard (Single)<strong>€195</strong></li>
+            <li>Superior Standard (Double)<strong>€225</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section id="form" class="form-section">
+  <div class="form-wrap">
+    <div class="form-header">
+      <div class="section-eyebrow" style="justify-content:center;display:inline-flex">Регистрация</div>
+      <h2>Подать заявку на участие</h2>
+      <p>Выберите мероприятие и заполните анкету — наш менеджер свяжется с вами</p>
+    </div>
+
+    <form id="applicationForm">
+      <!-- EVENT PICKER -->
+      <h3 class="form-group-title">Какое мероприятие вас интересует?</h3>
+      <div class="event-picker">
+        <div class="event-pick">
+          <input type="radio" name="event" id="event-scf" value="scf" required>
+          <label for="event-scf">
+            <div class="event-pick-tag">Event 01 · Apr 21</div>
+            <div class="event-pick-title">SCF'26 Supply Chain Forum</div>
+            <div class="event-pick-date">21 апреля · Rixos President</div>
+          </label>
+        </div>
+        <div class="event-pick">
+          <input type="radio" name="event" id="event-b2b" value="b2b" required>
+          <label for="event-b2b">
+            <div class="event-pick-tag">Event 02 · Jun 11–12</div>
+            <div class="event-pick-title">B2B Investment Forum</div>
+            <div class="event-pick-date">11–12 июня · AIFC · €1.000</div>
+          </label>
+        </div>
+        <div class="event-pick" style="grid-column:span 2">
+          <input type="radio" name="event" id="event-both" value="both" required>
+          <label for="event-both">
+            <div class="event-pick-tag">★ Оба мероприятия — Full Programme</div>
+            <div class="event-pick-title">SCF'26 + B2B Investment Forum</div>
+            <div class="event-pick-date">Полный цикл: апрель + июнь · оптимально для итальянской делегации с чартером</div>
+          </label>
+        </div>
+      </div>
+
+      <!-- COMPANY -->
+      <h3 class="form-group-title">Данные компании</h3>
+      <div class="form-row">
+        <div class="field">
+          <label>ФИО подписанта <span class="req">*</span></label>
+          <input type="text" name="signer" required>
+        </div>
+        <div class="field">
+          <label>Должность <span class="req">*</span></label>
+          <input type="text" name="position" required>
+        </div>
+      </div>
+      <div class="form-row full">
+        <div class="field">
+          <label>Название компании <span class="req">*</span></label>
+          <input type="text" name="company" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label>Страна <span class="req">*</span></label>
+          <input type="text" name="country" required>
+        </div>
+        <div class="field">
+          <label>Город / Адрес <span class="req">*</span></label>
+          <input type="text" name="address" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label>Телефон <span class="req">*</span></label>
+          <input type="tel" name="phone" required>
+        </div>
+        <div class="field">
+          <label>E-mail <span class="req">*</span></label>
+          <input type="email" name="email" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label>НДС / Налоговый код</label>
+          <input type="text" name="vat">
+        </div>
+        <div class="field">
+          <label>Сайт компании</label>
+          <input type="text" name="website" placeholder="www.">
+        </div>
+      </div>
+      <div class="form-row full">
+        <div class="field">
+          <label>Сфера деятельности и интересы <span class="req">*</span></label>
+          <textarea name="description" required placeholder="Опишите деятельность компании, интересующие отрасли и цели участия..."></textarea>
+        </div>
+      </div>
+
+      <!-- PARTICIPANT -->
+      <h3 class="form-group-title">Участник мероприятия</h3>
+      <div class="form-row">
+        <div class="field">
+          <label>ФИО <span class="req">*</span></label>
+          <input type="text" name="participant" required>
+        </div>
+        <div class="field">
+          <label>Должность <span class="req">*</span></label>
+          <input type="text" name="participant_position" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label>Прямой телефон <span class="req">*</span></label>
+          <input type="tel" name="participant_phone" required>
+        </div>
+        <div class="field">
+          <label>E-mail участника <span class="req">*</span></label>
+          <input type="email" name="participant_email" required>
+        </div>
+      </div>
+
+      <!-- LOGISTICS -->
+      <h3 class="form-group-title">Логистика (для делегации из Италии)</h3>
+      <div class="form-row">
+        <div class="field">
+          <label>Интересует чартер Milan ↔ Astana?</label>
+          <select name="flight">
+            <option value="">Не нужен</option>
+            <option value="economy">Economy Class · €1.000 round trip</option>
+            <option value="premium">Premium Class · €1.500 round trip</option>
+            <option value="info">Хочу узнать больше</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Интересует размещение в отеле?</label>
+          <select name="hotel">
+            <option value="">Не нужно</option>
+            <option value="rixos">Rixos President (от €215)</option>
+            <option value="saad">Saad Hotel (от €155)</option>
+            <option value="hilton">Hilton Garden Inn (от €195)</option>
+            <option value="info">Хочу узнать больше</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- AGREEMENTS -->
+      <div class="agree-box">
+        <label>
+          <input type="checkbox" required>
+          <span>Подтверждаю принятие условий участия в выбранном мероприятии. Для B2B Investment Forum: оплата <strong>€1.000</strong> до 24.04.2026, юрисдикция Суда Рима. Для SCF'26: условия определяются выбранным форматом участия (делегат или спонсор).</span>
+        </label>
+      </div>
+      <div class="agree-box">
+        <label>
+          <input type="checkbox" required>
+          <span>Даю согласие на обработку персональных данных в соответствии с GDPR (Регламент ЕС 2016/679) и применимым законодательством.</span>
+        </label>
+      </div>
+
+      <button type="submit" class="form-submit">Отправить заявку</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<section id="gala" class="gala-section">
+  <div class="container">
+    <div class="gala-wrap">
+      <div>
+        <div class="section-eyebrow">Вечерняя программа · B2B Forum</div>
+        <h2 class="section-title">Гала-ужин <em>высокой казахской кухни</em></h2>
+        <p class="section-lead" style="margin-bottom:0;color:rgba(250,246,238,0.8)">Деловая часть форума завершится торжественным гала-ужином с дегустационным меню и культурной программой, подчёркивающей гостеприимство и традиции Казахстана. Дополнительная возможность для нетворкинга и укрепления институциональных отношений в неформальной обстановке.</p>
+        <ul class="gala-features">
+          <li>Дегустационное меню высокой казахской кухни</li>
+          <li>Живая музыкальная и культурная программа</li>
+          <li>Награждение участников и подписантов</li>
+          <li>Нетворкинг с лидерами отрасли двух стран</li>
+        </ul>
+      </div>
+      <div class="gala-card">
+        <div class="gala-time">12 июня · 20:00</div>
+        <div class="gala-detail"><span>Дата</span><span>12 июня 2026</span></div>
+        <div class="gala-detail"><span>Место</span><span>AIFC, Астана</span></div>
+        <div class="gala-detail"><span>Дресс-код</span><span>Black Tie</span></div>
+        <div class="gala-detail"><span>Доступ</span><span>Business · Premium · VIP</span></div>
+        <div class="gala-detail" style="border-top:1px solid rgba(201,164,73,0.2);margin-top:8px;padding-top:16px"><span>Формат</span><span>Ужин + программа</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOW -->
+<section class="whynow-section">
+  <div class="container">
+    <div class="section-eyebrow">Почему именно сейчас</div>
+    <h2 class="section-title">Четыре стратегических <em>фактора момента</em></h2>
+    <p class="section-lead">Казахстан и Центральная Азия входят в новую фазу промышленной модернизации. Окно возможностей для итало-казахстанского партнёрства открыто именно сейчас.</p>
+
+    <div class="whynow-grid">
+      <div class="whynow-card">
+        <div class="whynow-num">01</div>
+        <h4>Энергопереход в действии</h4>
+        <p>Цели устойчивого развития переходят с уровня политики к реализации. Решающий фактор — эффективные цепочки поставок.</p>
+      </div>
+      <div class="whynow-card">
+        <div class="whynow-num">02</div>
+        <h4>Средний коридор</h4>
+        <p>Казахстан в выгодной географической позиции между Европой и Азией. Развитие коридора открывает экспортные возможности.</p>
+      </div>
+      <div class="whynow-card">
+        <div class="whynow-num">03</div>
+        <h4>Инвестиции — приоритет</h4>
+        <p>Создание совместного фонда с SIMEST и привлечение глобальных ритейл-сетей для офтейк-контрактов.</p>
+      </div>
+      <div class="whynow-card">
+        <div class="whynow-num">04</div>
+        <h4>Региональное лидерство</h4>
+        <p>Превращение Казахстана в стратегический деловой хаб, связывающий цепочки поставок между Европой, Азией и США.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:#fff;padding:100px 32px">
+  <div class="container">
+    <div class="section-eyebrow" style="justify-content:center;display:flex">Частые вопросы</div>
+    <h2 class="section-title" style="text-align:center;margin:0 auto 0">Что нужно <em>знать заранее</em></h2>
+    <div style="max-width:900px;margin:48px auto 0">
+      <div class="faq-item" style="border-bottom:1px solid var(--line)">
+        <button class="faq-q" style="width:100%;background:none;border:none;padding:28px 0;text-align:left;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:24px">Чем отличаются два форума?<span class="faq-i" style="font-size:28px;color:var(--gold);flex-shrink:0;transition:transform 0.3s">+</span></button>
+        <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height 0.4s,padding 0.4s;color:rgba(26,26,26,0.7);font-size:15px;line-height:1.7"><p>SCF'26 (21 апреля, Rixos) посвящён энергопереходу и цепочкам поставок — это стратегический контекст. B2B Investment Forum (11–12 июня, AIFC) — прямые B2B-встречи и подписание соглашений. Можно участвовать в одном или обоих.</p></div>
+      </div>
+      <div class="faq-item" style="border-bottom:1px solid var(--line)">
+        <button class="faq-q" style="width:100%;background:none;border:none;padding:28px 0;text-align:left;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:24px">Что включено в тарифы B2B Forum?<span class="faq-i" style="font-size:28px;color:var(--gold);flex-shrink:0;transition:transform 0.3s">+</span></button>
+        <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height 0.4s,padding 0.4s;color:rgba(26,26,26,0.7);font-size:15px;line-height:1.7"><p>Basic (€1.000) — участие, B2B-встречи, перевод, обеды. Business — плюс гала-ужин и VIP-залы. Premium — плюс проживание и трансфер. VIP — максимальный пакет с 2 ночами в Rixos и персональным менеджером. Цены расширенных пакетов уточняются.</p></div>
+      </div>
+      <div class="faq-item" style="border-bottom:1px solid var(--line)">
+        <button class="faq-q" style="width:100%;background:none;border:none;padding:28px 0;text-align:left;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:24px">Есть ли чартер из Италии?<span class="faq-i" style="font-size:28px;color:var(--gold);flex-shrink:0;transition:transform 0.3s">+</span></button>
+        <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height 0.4s,padding 0.4s;color:rgba(26,26,26,0.7);font-size:15px;line-height:1.7"><p>Да, для SCF'26 организован выделенный чартер Milan ↔ Astana (Boeing 737 MAX), вылет 20 апреля, возврат 23 апреля. Economy €1.000 / Premium €1.500 round trip. Бронирование через команду организаторов.</p></div>
+      </div>
+      <div class="faq-item" style="border-bottom:1px solid var(--line)">
+        <button class="faq-q" style="width:100%;background:none;border:none;padding:28px 0;text-align:left;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:24px">Гарантировано ли участие после заявки?<span class="faq-i" style="font-size:28px;color:var(--gold);flex-shrink:0;transition:transform 0.3s">+</span></button>
+        <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height 0.4s,padding 0.4s;color:rgba(26,26,26,0.7);font-size:15px;line-height:1.7"><p>Для B2B Forum количество мест ограничено, приоритет — по порядку поступления заявок и подтверждению мэтчинга с операторами. Заявки на B2B принимаются до 24 апреля 2026.</p></div>
+      </div>
+      <div class="faq-item" style="border-bottom:1px solid var(--line)">
+        <button class="faq-q" style="width:100%;background:none;border:none;padding:28px 0;text-align:left;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:24px">На каких языках проходят форумы?<span class="faq-i" style="font-size:28px;color:var(--gold);flex-shrink:0;transition:transform 0.3s">+</span></button>
+        <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height 0.4s,padding 0.4s;color:rgba(26,26,26,0.7);font-size:15px;line-height:1.7"><p>Рабочие языки — итальянский, русский, казахский и английский. Все сессии и B2B-встречи обеспечены профессиональным синхронным переводом.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Будущее итало-казахстанского<br>партнёрства <em>начинается здесь</em></h2>
+    <p>Присоединяйтесь к лидерам бизнеса и государственным институтам двух стран на главных событиях 2026 года.</p>
+    <div class="final-cta-buttons">
+      <a href="#form" class="btn-cta">Подать заявку на участие</a>
+      <a href="#tariffs" class="btn-ghost" style="color:var(--cream);text-decoration:none;font-size:14px;letter-spacing:0.05em;padding:13px 24px;border:1px solid rgba(250,246,238,0.3);border-radius:2px">Посмотреть тарифы →</a>
+    </div>
+    <div class="limited">⚠ Количество мест ограничено</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Italy–Kazakhstan 2026</h3>
+      <p>Серия флагманских мероприятий итало-казахстанского сотрудничества: от стратегического диалога об энергопереходе до конкретных инвестиционных решений и B2B-сделок. Под эгидой министерств обеих стран при участии CCIK (основана в 1996), ACIK и KITH.</p>
+    </div>
+    <div class="footer-col">
+      <h4>SCF'26 · Апрель</h4>
+      <p>21 апреля 2026</p>
+      <p>Rixos President Astana</p>
+      <p>Начало 08:00</p>
+      <p style="font-size:11px;color:var(--green);font-weight:600;letter-spacing:0.1em;margin-top:8px">ENERGY TRANSITION</p>
+    </div>
+    <div class="footer-col">
+      <h4>B2B Forum · Июнь</h4>
+      <p>11–12 июня 2026</p>
+      <p>AIFC, Mangilik El 55/18</p>
+      <p>300+ делегатов</p>
+      <p style="font-size:11px;color:var(--gold);font-weight:600;letter-spacing:0.1em;margin-top:8px">INVESTMENT FORUM</p>
+    </div>
+    <div class="footer-col">
+      <h4>Связь</h4>
+      <a href="mailto:info@italkazak.it">info@italkazak.it</a>
+      <a href="mailto:ufficiopresidenza@italkaz.it">ufficiopresidenza@italkaz.it</a>
+      <a href="mailto:property@aifc.kz">property@aifc.kz (AIFC)</a>
+      <a href="https://www.italkazak.it" target="_blank">www.italkazak.it</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Camera di Commercio Italo-Kazaka · ACIK · KITH</div>
+    <div>Под эгидой Министерств обеих стран · Sezione di Unioncamere</div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-a');
+      const icon = btn.querySelector('.faq-i');
+      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+      document.querySelectorAll('.faq-a').forEach(a => { a.style.maxHeight = '0'; a.style.padding = '0 0 0 0'; });
+      document.querySelectorAll('.faq-i').forEach(i => i.style.transform = 'rotate(0deg)');
+      if (!isOpen) {
+        answer.style.maxHeight = '300px';
+        answer.style.padding = '0 0 28px';
+        if (icon) icon.style.transform = 'rotate(45deg)';
+      }
+    });
+  });
+
+  document.getElementById('applicationForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const event = document.querySelector('input[name="event"]:checked')?.value || 'не выбрано';
+    alert('Это прототип — отправка формы будет настроена при подключении бэкенда.\n\nМероприятие: ' + event + '\nЗаявка успешно собрана и валидирована.');
+  });
+</script>
+
+</body>
+</html>
