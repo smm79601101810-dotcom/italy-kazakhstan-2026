@@ -13,9 +13,27 @@ interface Tariff {
 const tariffs: Tariff[] = [
   {
     name: 'Basic',
+    sub: 'Light Pass · наблюдатель',
+    price: '300',
+    note: 'Доступ к пленарной части · 1 день',
+    features: [
+      { text: '1 день участия по выбору', included: true },
+      { text: 'Доступ к пленарным сессиям', included: true },
+      { text: 'Деловой обед (1 день)', included: true },
+      { text: 'Синхронный перевод', included: true },
+      { text: '1 представитель', included: true },
+      { text: 'B2B-встречи', included: false },
+      { text: 'Networking-приём', included: false },
+      { text: 'Гала-ужин', included: false },
+      { text: 'Проживание', included: false },
+    ],
+  },
+  {
+    name: 'Business',
     sub: 'Официальный взнос CCIK',
     price: '1.000',
     note: 'По официальной форме CCIK',
+    popular: true,
     features: [
       { text: 'Участие в форуме (2 дня)', included: true },
       { text: 'Программа B2B-встреч', included: true },
@@ -29,31 +47,16 @@ const tariffs: Tariff[] = [
     ],
   },
   {
-    name: 'Business',
-    sub: 'Полное участие + гала-ужин',
-    price: '1.900',
-    note: 'Цена уточняется оргкомитетом',
-    popular: true,
-    features: [
-      { text: 'Всё из Basic', included: true },
-      { text: 'Гала-ужин 12 июня', included: true },
-      { text: 'Доступ к VIP-залам', included: true },
-      { text: 'Приоритетный мэтчинг', included: true },
-      { text: 'VIP-зона на приёме', included: true },
-      { text: 'Проживание', included: false },
-      { text: '2 представителя', included: true },
-    ],
-  },
-  {
     name: 'Premium',
-    sub: '+ проживание и трансфер',
+    sub: '+ гала-ужин и проживание',
     price: '2.900',
     note: 'Цена уточняется оргкомитетом',
     features: [
       { text: 'Всё из Business', included: true },
+      { text: 'Гала-ужин 12 июня', included: true },
+      { text: 'Доступ к VIP-залам', included: true },
       { text: 'Проживание 1 ночь (отель-партнёр)', included: true },
       { text: 'Трансфер аэропорт ↔ отель', included: true },
-      { text: 'Приоритетный слот в VIP-залах', included: true },
       { text: 'Логотип в материалах форума', included: true },
       { text: '2 представителя', included: true },
     ],
@@ -104,7 +107,7 @@ export default function Tariffs() {
           transition={{ delay: 0.2 }}
           className="mb-14 mt-6 max-w-2xl text-lg font-light leading-relaxed text-ink/70"
         >
-          Базовый пакет соответствует официальному взносу CCIK €1.000. Расширенные пакеты включают проживание, доступ к гала-ужину и VIP-залам. Цены расширенных пакетов уточняются оргкомитетом.
+          Тариф Business €1.000 — официальный взнос CCIK с полным двухдневным участием. Basic €300 — light pass для наблюдателей. Расширенные Premium и VIP добавляют гала-ужин, проживание и персональный сервис.
         </motion.p>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -176,7 +179,7 @@ export default function Tariffs() {
           viewport={{ once: true }}
           className="mt-8 border-l-[3px] border-gold bg-cream p-6 text-[13px] leading-relaxed text-ink/70"
         >
-          <strong className="text-navy">Важно:</strong> Базовый пакет Basic (€1.000) и связанные с ним условия (юрисдикция Суда Рима, компенсация при отказе до €1.000) соответствуют официальной форме Modulo CCIK. Пакеты Business, Premium и VIP представляют собой базовый взнос плюс дополнительные услуги; их финальная стоимость определяется оргкомитетом с учётом тарифов отелей и логистики.
+          <strong className="text-navy">Важно:</strong> Тариф Business (€1.000) и связанные с ним условия (юрисдикция Суда Рима, компенсация при отказе до €1.000) соответствуют официальной форме Modulo CCIK. Тариф Basic (€300) — light pass для наблюдателей без права участия в B2B-встречах. Пакеты Premium и VIP представляют собой базовый взнос плюс дополнительные услуги; их финальная стоимость определяется оргкомитетом с учётом тарифов отелей и логистики.
         </motion.div>
       </div>
     </section>
