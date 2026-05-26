@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { clsx } from 'clsx';
 
@@ -74,7 +74,55 @@ const content: Record<Lang, Content> = {
   },
 };
 
-const icons = ['💼', '🤝', '🚀', '🏦', '🌐'];
+// Inline SVG icons (Lucide-style outline, 1.4px stroke, gold color)
+// — no external deps, ~2 KB total in bundle
+const svgProps = {
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 1.4,
+  strokeLinecap: 'round' as const,
+  strokeLinejoin: 'round' as const,
+  className: 'h-[26px] w-[26px]',
+};
+
+const icons: ReactNode[] = [
+  // 01 — Investors / TrendingUp with arrow
+  <svg key="investors" {...svgProps}>
+    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+    <polyline points="16 7 22 7 22 13" />
+  </svg>,
+  // 02 — Handshake (B2B negotiations)
+  <svg key="b2b" {...svgProps}>
+    <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+    <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+    <path d="m21 3 1 11h-2" />
+    <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+    <path d="M3 4h8" />
+  </svg>,
+  // 03 — Rocket (investment pitching)
+  <svg key="pitch" {...svgProps}>
+    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+  </svg>,
+  // 04 — Landmark (financial institutions)
+  <svg key="finance" {...svgProps}>
+    <line x1="3" x2="21" y1="22" y2="22" />
+    <line x1="6" x2="6" y1="18" y2="11" />
+    <line x1="10" x2="10" y1="18" y2="11" />
+    <line x1="14" x2="14" y1="18" y2="11" />
+    <line x1="18" x2="18" y1="18" y2="11" />
+    <polygon points="12 2 20 7 4 7" />
+  </svg>,
+  // 05 — Globe (new markets / supply chains)
+  <svg key="markets" {...svgProps}>
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+    <path d="M2 12h20" />
+  </svg>,
+];
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -170,7 +218,7 @@ export default function Benefits() {
                   viewport={{ once: true, margin: '-30px' }}
                   className="group flex flex-col rounded border border-ink/10 bg-white p-7 transition-all hover:-translate-y-1.5 hover:border-gold hover:shadow-2xl hover:shadow-navy/10"
                 >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-cream text-2xl transition-transform group-hover:scale-110">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border-[1.5px] border-gold/40 text-gold transition-all group-hover:border-gold group-hover:bg-gold/5 group-hover:scale-105">
                     {icons[i]}
                   </div>
                   <h4 className="font-display text-lg font-semibold leading-tight text-navy">
