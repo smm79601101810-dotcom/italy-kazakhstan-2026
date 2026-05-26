@@ -15,7 +15,7 @@ const tariffs: Tariff[] = [
     name: 'Basic',
     sub: 'Официальный взнос CCIK',
     price: '1.000',
-    note: 'Оплата до 24 апреля 2026',
+    note: 'По официальной форме CCIK',
     features: [
       { text: 'Участие в форуме (2 дня)', included: true },
       { text: 'Программа B2B-встреч', included: true },

@@ -60,7 +60,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[92vh] items-center overflow-hidden bg-navy pb-28 pt-20 text-cream"
+      className="relative flex min-h-[92vh] items-center overflow-hidden bg-navy pb-24 pt-16 text-cream"
     >
       {/* 3D particle background — lazy chunk */}
       <div className="pointer-events-none absolute inset-0 opacity-80">
@@ -83,14 +83,14 @@ export default function Hero() {
           className="mb-8 inline-flex items-center gap-3 rounded-full border border-gold/40 px-4 py-2 text-[11px] uppercase tracking-[0.25em] text-gold-light"
         >
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold shadow-[0_0_12px_currentColor]" />
-          Флагманское событие · Астана · 11–12 июня 2026
+          Флагманское событие 2026 · Астана
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-          className="mb-10 flex items-center justify-center gap-6"
+          className="mb-8 flex items-center justify-center gap-6"
         >
           <ItalyFlag className="h-[52px] w-20" />
           <span className="font-display text-3xl italic text-gold">×</span>
@@ -101,23 +101,70 @@ export default function Hero() {
           variants={titleContainer}
           initial="hidden"
           animate="visible"
-          className="display-1 mx-auto mb-4 max-w-5xl text-balance"
+          className="display-1 mx-auto max-w-5xl text-balance"
         >
           <TitleLine words={lineA} />
           <TitleLine words={lineB} />
         </motion.h1>
 
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-          className="mx-auto my-8 h-0.5 w-16 origin-center bg-gold"
-        />
+        {/* ★ BIG DATE BLOCK ★ */}
+        <div className="my-10 md:my-14">
+          {/* Top hairline */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.7, delay: 1.3, ease: EASE_OUT_EXPO }}
+            className="mx-auto h-px w-24 origin-center bg-gold/70"
+          />
+
+          {/* The huge numbers */}
+          <motion.div
+            initial={{ y: 40, opacity: 0, filter: 'blur(14px)' }}
+            animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 1.1, delay: 1.4, ease: EASE_OUT_EXPO }}
+            className="mt-6 font-display font-bold leading-[0.85] tracking-[-0.04em] text-gold"
+            style={{ fontSize: 'clamp(88px, 14vw, 232px)' }}
+          >
+            <span className="inline-block">11</span>
+            <span className="mx-3 inline-block align-middle text-cream/60 md:mx-6">
+              —
+            </span>
+            <span className="inline-block">12</span>
+          </motion.div>
+
+          {/* Month + year */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1.7 }}
+            className="mt-3 font-display text-xl font-medium uppercase tracking-[0.45em] text-cream md:mt-5 md:text-3xl"
+          >
+            Июня · 2026
+          </motion.div>
+
+          {/* Venue */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.85 }}
+            className="mt-4 text-[11px] uppercase tracking-[0.3em] text-cream/60 md:text-xs"
+          >
+            AIFC · Astana International Financial Centre
+          </motion.div>
+
+          {/* Bottom hairline */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.7, delay: 1.95, ease: EASE_OUT_EXPO }}
+            className="mx-auto mt-6 h-px w-24 origin-center bg-gold/70"
+          />
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.5 }}
+          transition={{ duration: 0.7, delay: 2.0 }}
           className="mx-auto mb-12 max-w-2xl text-lg font-light leading-relaxed text-cream/85"
         >
           Главное событие двустороннего экономического сотрудничества. Платформа
@@ -129,14 +176,14 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.7 }}
+          transition={{ duration: 0.7, delay: 2.15 }}
           className="flex flex-wrap items-center justify-center gap-4"
         >
           <a href="#form" className="btn btn-primary">
             Подать заявку
           </a>
-          <a href="#roadmap" className="btn btn-ghost">
-            Программа →
+          <a href="#benefits" className="btn btn-ghost">
+            Преимущества →
           </a>
         </motion.div>
       </div>

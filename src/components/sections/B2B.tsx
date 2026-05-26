@@ -102,7 +102,7 @@ export default function B2B() {
                   ['Место', 'AIFC, Астана'],
                   ['Делегатов', '300+'],
                   ['Взнос', '€1.000'],
-                  ['Дедлайн', '24 апреля 2026'],
+                  ['Регистрация', 'Открыта'],
                 ].map(([k, v]) => (
                   <div key={k} className="flex justify-between py-4 text-sm">
                     <dt className="text-xs uppercase tracking-[0.1em] opacity-70">

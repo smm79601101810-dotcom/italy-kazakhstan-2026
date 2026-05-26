@@ -9,10 +9,10 @@ interface Point {
 }
 
 const points: Point[] = [
-  { date: 'Открыто', event: 'Регистрация и мэтчинг', color: 'default' },
-  { date: '24 апреля', event: 'Дедлайн заявок на форум', color: 'default' },
-  { date: 'Апрель–Июнь', event: 'Подготовка B2B-программы', color: 'default' },
-  { date: '11–12 июня', event: 'Investment Forum в AIFC', color: 'gold' },
+  { date: 'Сейчас', event: 'Регистрация открыта', color: 'default' },
+  { date: 'До форума', event: 'Мэтчинг с операторами', color: 'default' },
+  { date: '11 июня', event: 'День 1 · Открытие, питчинг, B2B', color: 'gold' },
+  { date: '12 июня', event: 'День 2 · B2B и подписание', color: 'gold' },
   { date: '12 июня', event: 'Гала-ужин · казахская кухня', color: 'gold' },
 ];
 

@@ -6,6 +6,7 @@ import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import OrganizersBar from './components/sections/OrganizersBar';
 import Roadmap from './components/sections/Roadmap';
+import Benefits from './components/sections/Benefits';
 import B2B from './components/sections/B2B';
 import VIP from './components/sections/VIP';
 import Audience from './components/sections/Audience';
@@ -27,6 +28,7 @@ export default function App() {
         <Hero />
         <OrganizersBar />
         <Roadmap />
+        <Benefits />
         <B2B />
         <VIP />
         <Audience />
