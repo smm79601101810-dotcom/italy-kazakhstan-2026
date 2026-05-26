@@ -2,46 +2,51 @@ import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
 
 interface FormState {
-  signer: string;
-  position: string;
   company: string;
-  country: string;
+  sector: string;
+  fullName: string;
+  position: string;
   address: string;
-  phone: string;
   email: string;
-  vat: string;
+  phone: string;
   website: string;
   description: string;
-  participant: string;
-  participantPosition: string;
-  participantPhone: string;
-  participantEmail: string;
-  hotel: string;
   termsAccepted: boolean;
   gdprAccepted: boolean;
 }
 
 const initial: FormState = {
-  signer: '',
-  position: '',
   company: '',
-  country: '',
+  sector: '',
+  fullName: '',
+  position: '',
   address: '',
-  phone: '',
   email: '',
-  vat: '',
+  phone: '',
   website: '',
   description: '',
-  participant: '',
-  participantPosition: '',
-  participantPhone: '',
-  participantEmail: '',
-  hotel: '',
   termsAccepted: false,
   gdprAccepted: false,
 };
 
-function FieldLabel({ children, required }: { children: React.ReactNode; required?: boolean }) {
+// Aligned with the 6 industry profiles in Audience section
+const sectors = [
+  'Энергетика, транспорт, инфраструктура',
+  'АПК и пищевая промышленность',
+  'Мода, красота, туризм, косметика',
+  'Строительство, обрабатывающая промышленность',
+  'Инвестиции, финансы, госорганы',
+  'Наука, образование, инновации',
+  'Другое',
+];
+
+function FieldLabel({
+  children,
+  required,
+}: {
+  children: React.ReactNode;
+  required?: boolean;
+}) {
   return (
     <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.08em] text-navy">
       {children} {required && <span className="text-it-red">*</span>}
@@ -49,7 +54,8 @@ function FieldLabel({ children, required }: { children: React.ReactNode; require
   );
 }
 
-const fieldClass = 'w-full rounded-sm border border-ink/10 bg-cream px-4 py-3.5 text-[15px] text-ink transition-all focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20';
+const fieldClass =
+  'w-full rounded-sm border border-ink/10 bg-cream px-4 py-3.5 text-[15px] text-ink transition-all focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20';
 
 export default function Form() {
   const [state, setState] = useState<FormState>(initial);
@@ -84,7 +90,9 @@ export default function Form() {
           <div className="absolute -top-1 right-0 h-1 w-1/3 bg-kz-blue" />
 
           <header className="mb-10 border-b border-ink/10 pb-8 text-center">
-            <span className="eyebrow inline-flex !justify-center">Регистрация</span>
+            <span className="eyebrow inline-flex !justify-center">
+              Регистрация
+            </span>
             <h2 className="mt-3 font-display text-3xl font-medium text-navy md:text-4xl">
               Подать заявку на участие
             </h2>
@@ -109,103 +117,115 @@ export default function Form() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Company data */}
-              <div>
-                <h3 className="mb-5 flex items-center gap-3 border-b border-ink/10 pb-3 font-display text-xl font-semibold text-navy">
-                  <span className="h-5 w-1.5 bg-gold" /> Данные компании
-                </h3>
-                <div className="grid gap-5 md:grid-cols-2">
-                  <div>
-                    <FieldLabel required>ФИО подписанта</FieldLabel>
-                    <input type="text" required className={fieldClass} value={state.signer} onChange={(e) => update('signer', e.target.value)} />
-                  </div>
-                  <div>
-                    <FieldLabel required>Должность</FieldLabel>
-                    <input type="text" required className={fieldClass} value={state.position} onChange={(e) => update('position', e.target.value)} />
-                  </div>
-                  <div className="md:col-span-2">
-                    <FieldLabel required>Название компании</FieldLabel>
-                    <input type="text" required className={fieldClass} value={state.company} onChange={(e) => update('company', e.target.value)} />
-                  </div>
-                  <div>
-                    <FieldLabel required>Страна</FieldLabel>
-                    <input type="text" required className={fieldClass} value={state.country} onChange={(e) => update('country', e.target.value)} />
-                  </div>
-                  <div>
-                    <FieldLabel required>Город / Адрес</FieldLabel>
-                    <input type="text" required className={fieldClass} value={state.address} onChange={(e) => update('address', e.target.value)} />
-                  </div>
-                  <div>
-                    <FieldLabel required>Телефон</FieldLabel>
-                    <input type="tel" required className={fieldClass} value={state.phone} onChange={(e) => update('phone', e.target.value)} />
-                  </div>
-                  <div>
-                    <FieldLabel required>E-mail</FieldLabel>
-                    <input type="email" required className={fieldClass} value={state.email} onChange={(e) => update('email', e.target.value)} />
-                  </div>
-                  <div>
-                    <FieldLabel>НДС / Налоговый код</FieldLabel>
-                    <input type="text" className={fieldClass} value={state.vat} onChange={(e) => update('vat', e.target.value)} />
-                  </div>
-                  <div>
-                    <FieldLabel>Сайт компании</FieldLabel>
-                    <input type="text" placeholder="www." className={fieldClass} value={state.website} onChange={(e) => update('website', e.target.value)} />
-                  </div>
-                  <div className="md:col-span-2">
-                    <FieldLabel required>Сфера деятельности и интересы</FieldLabel>
-                    <textarea
-                      required
-                      rows={4}
-                      placeholder="Опишите деятельность компании, интересующие отрасли и цели участия..."
-                      className={`${fieldClass} min-h-[120px] resize-y`}
-                      value={state.description}
-                      onChange={(e) => update('description', e.target.value)}
-                    />
-                  </div>
+              {/* Single consolidated block */}
+              <div className="grid gap-5 md:grid-cols-2">
+                <div className="md:col-span-2">
+                  <FieldLabel required>Название компании</FieldLabel>
+                  <input
+                    type="text"
+                    required
+                    className={fieldClass}
+                    value={state.company}
+                    onChange={(e) => update('company', e.target.value)}
+                  />
                 </div>
-              </div>
 
-              {/* Participant data */}
-              <div>
-                <h3 className="mb-5 flex items-center gap-3 border-b border-ink/10 pb-3 font-display text-xl font-semibold text-navy">
-                  <span className="h-5 w-1.5 bg-gold" /> Участник мероприятия
-                </h3>
-                <div className="grid gap-5 md:grid-cols-2">
-                  <div>
-                    <FieldLabel required>ФИО</FieldLabel>
-                    <input type="text" required className={fieldClass} value={state.participant} onChange={(e) => update('participant', e.target.value)} />
-                  </div>
-                  <div>
-                    <FieldLabel required>Должность</FieldLabel>
-                    <input type="text" required className={fieldClass} value={state.participantPosition} onChange={(e) => update('participantPosition', e.target.value)} />
-                  </div>
-                  <div>
-                    <FieldLabel required>Прямой телефон</FieldLabel>
-                    <input type="tel" required className={fieldClass} value={state.participantPhone} onChange={(e) => update('participantPhone', e.target.value)} />
-                  </div>
-                  <div>
-                    <FieldLabel required>E-mail участника</FieldLabel>
-                    <input type="email" required className={fieldClass} value={state.participantEmail} onChange={(e) => update('participantEmail', e.target.value)} />
-                  </div>
+                <div className="md:col-span-2">
+                  <FieldLabel required>Сектор</FieldLabel>
+                  <select
+                    required
+                    className={fieldClass}
+                    value={state.sector}
+                    onChange={(e) => update('sector', e.target.value)}
+                  >
+                    <option value="" disabled>
+                      Выберите сектор…
+                    </option>
+                    {sectors.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
                 </div>
-              </div>
 
-              {/* Logistics */}
-              <div>
-                <h3 className="mb-5 flex items-center gap-3 border-b border-ink/10 pb-3 font-display text-xl font-semibold text-navy">
-                  <span className="h-5 w-1.5 bg-gold" /> Размещение в Астане
-                </h3>
-                <div className="grid gap-5">
-                  <div>
-                    <FieldLabel>Интересует размещение в отеле-партнёре?</FieldLabel>
-                    <select className={fieldClass} value={state.hotel} onChange={(e) => update('hotel', e.target.value)}>
-                      <option value="">Не нужно</option>
-                      <option value="rixos">Rixos President (от €215)</option>
-                      <option value="saad">Saad Hotel (от €155)</option>
-                      <option value="hilton">Hilton Garden Inn (от €195)</option>
-                      <option value="info">Хочу узнать больше</option>
-                    </select>
-                  </div>
+                <div>
+                  <FieldLabel required>ФИО регистрируемого</FieldLabel>
+                  <input
+                    type="text"
+                    required
+                    className={fieldClass}
+                    value={state.fullName}
+                    onChange={(e) => update('fullName', e.target.value)}
+                  />
+                </div>
+                <div>
+                  <FieldLabel required>Должность</FieldLabel>
+                  <input
+                    type="text"
+                    required
+                    className={fieldClass}
+                    value={state.position}
+                    onChange={(e) => update('position', e.target.value)}
+                  />
+                </div>
+
+                <div className="md:col-span-2">
+                  <FieldLabel required>Адрес компании</FieldLabel>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Страна, город, улица"
+                    className={fieldClass}
+                    value={state.address}
+                    onChange={(e) => update('address', e.target.value)}
+                  />
+                </div>
+
+                <div>
+                  <FieldLabel required>E-mail</FieldLabel>
+                  <input
+                    type="email"
+                    required
+                    className={fieldClass}
+                    value={state.email}
+                    onChange={(e) => update('email', e.target.value)}
+                  />
+                </div>
+                <div>
+                  <FieldLabel required>Телефон</FieldLabel>
+                  <input
+                    type="tel"
+                    required
+                    className={fieldClass}
+                    value={state.phone}
+                    onChange={(e) => update('phone', e.target.value)}
+                  />
+                </div>
+
+                <div className="md:col-span-2">
+                  <FieldLabel>Сайт (при наличии)</FieldLabel>
+                  <input
+                    type="text"
+                    placeholder="www."
+                    className={fieldClass}
+                    value={state.website}
+                    onChange={(e) => update('website', e.target.value)}
+                  />
+                </div>
+
+                <div className="md:col-span-2">
+                  <FieldLabel required>
+                    Краткое описание деятельности компании / продукта
+                  </FieldLabel>
+                  <textarea
+                    required
+                    rows={4}
+                    placeholder="Чем занимается компания, что предлагает, какие цели на форуме…"
+                    className={`${fieldClass} min-h-[120px] resize-y`}
+                    value={state.description}
+                    onChange={(e) => update('description', e.target.value)}
+                  />
                 </div>
               </div>
 
