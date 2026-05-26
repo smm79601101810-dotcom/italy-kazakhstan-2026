@@ -1,9 +1,5 @@
 import { motion, type Variants } from 'framer-motion';
-import { lazy, Suspense } from 'react';
 import { ItalyFlag, KazakhstanFlag } from '../ui/Flag';
-
-// Lazy-load the Three.js scene so it ships in a separate chunk
-const ParticleScene = lazy(() => import('../three/ParticleScene'));
 
 const EASE_OUT_EXPO: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -75,16 +71,9 @@ export default function Hero() {
       />
 
       {/* Dark navy overlay for text contrast */}
-      <div className="pointer-events-none absolute inset-0 bg-navy/60" />
+      <div className="pointer-events-none absolute inset-0 bg-navy/55" />
 
-      {/* 3D particle background on top of video — softer */}
-      <div className="pointer-events-none absolute inset-0 opacity-35 mix-blend-screen">
-        <Suspense fallback={null}>
-          <ParticleScene count={1800} />
-        </Suspense>
-      </div>
-
-      {/* Soft radial overlay */}
+      {/* Soft radial overlay (gold tint) */}
       <div className="pointer-events-none absolute inset-0 bg-hero-radial" />
 
       {/* Bottom fade into next section */}
