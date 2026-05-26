@@ -3,6 +3,7 @@ import ScrollProgress from './components/layout/ScrollProgress';
 import TopBar from './components/layout/TopBar';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import WhatsAppButton from './components/ui/WhatsAppButton';
 import Hero from './components/sections/Hero';
 import OrganizersBar from './components/sections/OrganizersBar';
 import Roadmap from './components/sections/Roadmap';
@@ -41,6 +42,7 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer />
+      <WhatsAppButton />
     </SmoothScroll>
   );
 }
