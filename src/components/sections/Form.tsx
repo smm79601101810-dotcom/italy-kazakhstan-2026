@@ -60,16 +60,35 @@ const fieldClass =
 export default function Form() {
   const [state, setState] = useState<FormState>(initial);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setState((s) => ({ ...s, [key]: value }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Backend will be wired later — show success state for now
-    console.log('Form submission:', state);
-    setSubmitted(true);
+    setError(null);
+    setSubmitting(true);
+    try {
+      const resp = await fetch('/.netlify/functions/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(state),
+      });
+      const body = await resp.json().catch(() => ({ ok: false }));
+      if (!resp.ok || !body.ok) {
+        throw new Error(
+          body.error ?? 'Не удалось отправить заявку. Попробуйте ещё раз.',
+        );
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Ошибка сети');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -257,11 +276,18 @@ export default function Form() {
                 </label>
               </div>
 
+              {error && (
+                <div className="rounded border-l-[3px] border-it-red bg-it-red/5 p-4 text-sm text-it-red">
+                  ⚠ {error}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-navy py-5 text-sm font-semibold uppercase tracking-[0.2em] text-cream transition-colors hover:bg-gold hover:text-navy-deep"
+                disabled={submitting}
+                className="w-full bg-navy py-5 text-sm font-semibold uppercase tracking-[0.2em] text-cream transition-colors hover:bg-gold hover:text-navy-deep disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:bg-navy disabled:hover:text-cream"
               >
-                Отправить заявку
+                {submitting ? 'Отправка…' : 'Отправить заявку'}
               </button>
             </form>
           )}
