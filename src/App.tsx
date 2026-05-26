@@ -5,6 +5,10 @@ import OrganizersBar from './components/sections/OrganizersBar';
 import Roadmap from './components/sections/Roadmap';
 import SCF from './components/sections/SCF';
 import Sponsors from './components/sections/Sponsors';
+import B2B from './components/sections/B2B';
+import VIP from './components/sections/VIP';
+import Audience from './components/sections/Audience';
+import Tariffs from './components/sections/Tariffs';
 
 export default function App() {
   return (
@@ -17,6 +21,10 @@ export default function App() {
         <Roadmap />
         <SCF />
         <Sponsors />
+        <B2B />
+        <VIP />
+        <Audience />
+        <Tariffs />
       </main>
     </>
   );
