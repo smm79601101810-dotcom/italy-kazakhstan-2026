@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-type DotColor = 'green' | 'gold' | 'default';
+type DotColor = 'gold' | 'default';
 
 interface Point {
   date: string;
@@ -9,21 +9,19 @@ interface Point {
 }
 
 const points: Point[] = [
-  { date: '21 апреля', event: "SCF'26 Supply Chain Forum", color: 'green' },
-  { date: 'Апрель–Июнь', event: 'Подготовка мэтчинга', color: 'default' },
-  { date: '24 апреля', event: 'Дедлайн заявок B2B Forum', color: 'default' },
-  { date: '11–12 июня', event: 'B2B Investment Forum', color: 'gold' },
+  { date: 'Открыто', event: 'Регистрация и мэтчинг', color: 'default' },
+  { date: '24 апреля', event: 'Дедлайн заявок на форум', color: 'default' },
+  { date: 'Апрель–Июнь', event: 'Подготовка B2B-программы', color: 'default' },
+  { date: '11–12 июня', event: 'Investment Forum в AIFC', color: 'gold' },
   { date: '12 июня', event: 'Гала-ужин · казахская кухня', color: 'gold' },
 ];
 
 const dotClass: Record<DotColor, string> = {
-  green: 'bg-green shadow-[0_0_22px_theme(colors.green.DEFAULT)]',
   gold: 'bg-gold shadow-[0_0_22px_theme(colors.gold.DEFAULT)]',
   default: 'bg-navy',
 };
 
 const labelClass: Record<DotColor, string> = {
-  green: 'text-green-dark',
   gold: 'text-navy',
   default: 'text-navy',
 };
@@ -48,7 +46,7 @@ export default function Roadmap() {
             transition={{ duration: 0.7 }}
             className="display-2 mx-auto mt-5 max-w-3xl text-navy"
           >
-            От <em className="italic text-green">энергоперехода</em>{' '}
+            От <em className="italic text-gold">диалога</em>{' '}
             к <em className="italic text-gold">инвестициям</em>
           </motion.h2>
           <motion.p
@@ -58,7 +56,7 @@ export default function Roadmap() {
             transition={{ delay: 0.25, duration: 0.7 }}
             className="mx-auto mt-5 mb-16 max-w-2xl text-lg font-light leading-relaxed text-ink/70"
           >
-            Два мероприятия логически связаны: апрельский форум формирует контекст и приоритеты, июньский — конвертирует стратегию в сделки.
+            Пять ключевых вех на пути к Investment Forum в Астане. От открытой регистрации до подписания соглашений и гала-ужина.
           </motion.p>
         </div>
 
@@ -69,7 +67,7 @@ export default function Roadmap() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 1.6, ease: 'easeOut' }}
-            className="pointer-events-none absolute left-0 right-0 top-[7px] hidden h-0.5 origin-left bg-gradient-to-r from-green via-green to-gold md:block"
+            className="pointer-events-none absolute left-0 right-0 top-[7px] hidden h-0.5 origin-left bg-gradient-to-r from-navy via-navy to-gold md:block"
           />
           <div className="grid gap-y-10 md:flex md:justify-between md:gap-y-0">
             {points.map((p, i) => (
@@ -83,11 +81,7 @@ export default function Roadmap() {
               >
                 <span
                   className={`relative z-10 h-4 w-4 shrink-0 rounded-full ring-2 ring-offset-4 ring-offset-paper md:mb-5 ${dotClass[p.color]} ${
-                    p.color === 'green'
-                      ? 'ring-green'
-                      : p.color === 'gold'
-                        ? 'ring-gold'
-                        : 'ring-navy'
+                    p.color === 'gold' ? 'ring-gold' : 'ring-navy'
                   }`}
                 />
                 <div>

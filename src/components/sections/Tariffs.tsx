@@ -88,7 +88,7 @@ export default function Tariffs() {
   return (
     <section id="tariffs" className="bg-white py-24 md:py-32">
       <div className="container-x">
-        <span className="eyebrow">Тарифы участия · B2B Investment Forum</span>
+        <span className="eyebrow">Тарифы участия · Investment Forum</span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -176,7 +176,7 @@ export default function Tariffs() {
           viewport={{ once: true }}
           className="mt-8 border-l-[3px] border-gold bg-cream p-6 text-[13px] leading-relaxed text-ink/70"
         >
-          <strong className="text-navy">Важно:</strong> Базовый пакет Basic (€1.000) и связанные с ним условия (юрисдикция Суда Рима, компенсация при отказе до €1.000) соответствуют официальной форме Modulo CCIK. Пакеты Business, Premium и VIP представляют собой базовый взнос плюс дополнительные услуги; их финальная стоимость определяется оргкомитетом с учётом тарифов отелей и логистики. Для SCF'26 действуют отдельные спонсорские пакеты (см. раздел выше).
+          <strong className="text-navy">Важно:</strong> Базовый пакет Basic (€1.000) и связанные с ним условия (юрисдикция Суда Рима, компенсация при отказе до €1.000) соответствуют официальной форме Modulo CCIK. Пакеты Business, Premium и VIP представляют собой базовый взнос плюс дополнительные услуги; их финальная стоимость определяется оргкомитетом с учётом тарифов отелей и логистики.
         </motion.div>
       </div>
     </section>

@@ -60,7 +60,7 @@ export default function B2B() {
         {/* Header */}
         <div className="mb-16 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-end lg:gap-16">
           <div>
-            <span className="eyebrow">Event 02 · Investment Forum</span>
+            <span className="eyebrow">Программа форума</span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

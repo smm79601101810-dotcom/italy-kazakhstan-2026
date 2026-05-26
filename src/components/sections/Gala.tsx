@@ -29,7 +29,7 @@ export default function Gala() {
           <div>
             <span className="eyebrow !text-gold-light">
               <span className="bg-gold-light/0 [&::before]:!bg-gold-light" />
-              Вечерняя программа · B2B Forum
+              Вечерняя программа · Investment Forum
             </span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}

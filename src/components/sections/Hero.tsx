@@ -36,10 +36,8 @@ const lineA: WordSpec[] = [
   { text: 'Казахстан' },
 ];
 const lineB: WordSpec[] = [
-  { text: 'Два' },
-  { text: 'форума,' },
-  { text: 'одна', highlight: true },
-  { text: 'стратегия', highlight: true },
+  { text: 'Инвестиционный', highlight: true },
+  { text: 'форум', highlight: true },
 ];
 
 function TitleLine({ words }: { words: WordSpec[] }) {
@@ -85,7 +83,7 @@ export default function Hero() {
           className="mb-8 inline-flex items-center gap-3 rounded-full border border-gold/40 px-4 py-2 text-[11px] uppercase tracking-[0.25em] text-gold-light"
         >
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold shadow-[0_0_12px_currentColor]" />
-          Серия флагманских мероприятий · 2026
+          Флагманское событие · Астана · 11–12 июня 2026
         </motion.div>
 
         <motion.div
@@ -122,10 +120,10 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 1.5 }}
           className="mx-auto mb-12 max-w-2xl text-lg font-light leading-relaxed text-cream/85"
         >
-          Два связанных события на пути от стратегического диалога к конкретным
-          инвестициям. Сначала — Supply Chain Forum в апреле. Затем — Investment
-          Forum в июне, где итальянские корпорации встречаются с казахстанскими
-          операторами.
+          Главное событие двустороннего экономического сотрудничества. Платформа
+          прямого диалога между правительствами, корпорациями и инвесторами —
+          прямые B2B-встречи итальянских корпораций с казахстанскими
+          операторами и подписание соглашений в AIFC.
         </motion.p>
 
         <motion.div

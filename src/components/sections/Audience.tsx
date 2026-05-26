@@ -93,7 +93,7 @@ export default function Audience() {
           transition={{ delay: 0.2 }}
           className="mb-12 mt-6 max-w-2xl text-lg font-light leading-relaxed text-ink/70"
         >
-          Программа обоих мероприятий спроектирована под конкретные роли. Каждый профиль получает прямой доступ к релевантным контактам, проектам и инструментам — без посредников.
+          Программа форума спроектирована под конкретные роли. Каждый профиль получает прямой доступ к релевантным контактам, проектам и инструментам — без посредников.
         </motion.p>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

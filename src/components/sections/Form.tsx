@@ -1,11 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { clsx } from 'clsx';
-
-type EventChoice = 'scf' | 'b2b' | 'both';
 
 interface FormState {
-  event: EventChoice | '';
   signer: string;
   position: string;
   company: string;
@@ -20,14 +16,12 @@ interface FormState {
   participantPosition: string;
   participantPhone: string;
   participantEmail: string;
-  flight: string;
   hotel: string;
   termsAccepted: boolean;
   gdprAccepted: boolean;
 }
 
 const initial: FormState = {
-  event: '',
   signer: '',
   position: '',
   company: '',
@@ -42,17 +36,10 @@ const initial: FormState = {
   participantPosition: '',
   participantPhone: '',
   participantEmail: '',
-  flight: '',
   hotel: '',
   termsAccepted: false,
   gdprAccepted: false,
 };
-
-const eventOptions: { value: EventChoice; tag: string; title: string; date: string; span?: boolean }[] = [
-  { value: 'scf', tag: 'Event 01 · Apr 21', title: "SCF'26 Supply Chain Forum", date: '21 апреля · Rixos President' },
-  { value: 'b2b', tag: 'Event 02 · Jun 11–12', title: 'B2B Investment Forum', date: '11–12 июня · AIFC · €1.000' },
-  { value: 'both', tag: '★ Оба мероприятия — Full Programme', title: "SCF'26 + B2B Investment Forum", date: 'Полный цикл: апрель + июнь', span: true },
-];
 
 function FieldLabel({ children, required }: { children: React.ReactNode; required?: boolean }) {
   return (
@@ -102,7 +89,7 @@ export default function Form() {
               Подать заявку на участие
             </h2>
             <p className="mt-3 text-[15px] text-ink/60">
-              Выберите мероприятие и заполните анкету — наш менеджер свяжется с вами
+              Investment Forum · 11–12 июня 2026 · AIFC, Астана — заполните анкету, и наш менеджер свяжется с вами
             </p>
           </header>
 
@@ -122,51 +109,6 @@ export default function Form() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Event picker */}
-              <div>
-                <h3 className="form-group-title mb-5 flex items-center gap-3 border-b border-ink/10 pb-3 font-display text-xl font-semibold text-navy">
-                  <span className="h-5 w-1.5 bg-gold" /> Какое мероприятие вас интересует?
-                </h3>
-                <div className="grid gap-4 md:grid-cols-2">
-                  {eventOptions.map((opt) => (
-                    <label
-                      key={opt.value}
-                      className={clsx(
-                        'cursor-pointer rounded border-2 p-6 transition-all',
-                        state.event === opt.value
-                          ? opt.value === 'scf'
-                            ? 'border-green bg-green/[0.04]'
-                            : 'border-gold bg-cream'
-                          : 'border-ink/10 bg-white hover:border-ink/30',
-                        opt.span ? 'md:col-span-2' : '',
-                      )}
-                    >
-                      <input
-                        type="radio"
-                        name="event"
-                        value={opt.value}
-                        checked={state.event === opt.value}
-                        onChange={() => update('event', opt.value)}
-                        className="sr-only"
-                        required
-                      />
-                      <div
-                        className={clsx(
-                          'mb-1.5 text-[10px] font-semibold uppercase tracking-[0.25em]',
-                          opt.value === 'scf' ? 'text-green' : 'text-gold',
-                        )}
-                      >
-                        {opt.tag}
-                      </div>
-                      <div className="font-display text-lg font-semibold text-navy">
-                        {opt.title}
-                      </div>
-                      <div className="mt-1 text-xs text-ink/60">{opt.date}</div>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
               {/* Company data */}
               <div>
                 <h3 className="mb-5 flex items-center gap-3 border-b border-ink/10 pb-3 font-display text-xl font-semibold text-navy">
@@ -251,20 +193,11 @@ export default function Form() {
               {/* Logistics */}
               <div>
                 <h3 className="mb-5 flex items-center gap-3 border-b border-ink/10 pb-3 font-display text-xl font-semibold text-navy">
-                  <span className="h-5 w-1.5 bg-gold" /> Логистика (для делегации из Италии)
+                  <span className="h-5 w-1.5 bg-gold" /> Размещение в Астане
                 </h3>
-                <div className="grid gap-5 md:grid-cols-2">
+                <div className="grid gap-5">
                   <div>
-                    <FieldLabel>Интересует чартер Milan ↔ Astana?</FieldLabel>
-                    <select className={fieldClass} value={state.flight} onChange={(e) => update('flight', e.target.value)}>
-                      <option value="">Не нужен</option>
-                      <option value="economy">Economy Class · €1.000 round trip</option>
-                      <option value="premium">Premium Class · €1.500 round trip</option>
-                      <option value="info">Хочу узнать больше</option>
-                    </select>
-                  </div>
-                  <div>
-                    <FieldLabel>Интересует размещение в отеле?</FieldLabel>
+                    <FieldLabel>Интересует размещение в отеле-партнёре?</FieldLabel>
                     <select className={fieldClass} value={state.hotel} onChange={(e) => update('hotel', e.target.value)}>
                       <option value="">Не нужно</option>
                       <option value="rixos">Rixos President (от €215)</option>
@@ -287,7 +220,7 @@ export default function Form() {
                     className="mt-1 h-[18px] w-[18px] accent-navy"
                   />
                   <span>
-                    Подтверждаю принятие условий участия в выбранном мероприятии. Для B2B Investment Forum: оплата <strong>€1.000</strong> до 24.04.2026, юрисдикция Суда Рима. Для SCF'26: условия определяются выбранным форматом участия.
+                    Подтверждаю принятие условий участия в Investment Forum: оплата <strong>€1.000</strong> до 24.04.2026, юрисдикция Суда Рима.
                   </span>
                 </label>
                 <label className="flex cursor-pointer items-start gap-3 border-l-[3px] border-gold bg-cream p-4 text-[13px] leading-relaxed text-ink/75">

@@ -4,11 +4,10 @@ import { clsx } from 'clsx';
 
 const navItems = [
   { href: '#roadmap', label: 'Календарь' },
-  { href: '#scf', label: "SCF'26" },
-  { href: '#b2b', label: 'B2B Forum' },
+  { href: '#b2b', label: 'Программа' },
   { href: '#audience', label: 'Для кого' },
   { href: '#tariffs', label: 'Тарифы' },
-  { href: '#logistics', label: 'Логистика' },
+  { href: '#logistics', label: 'Размещение' },
   { href: '#form', label: 'Регистрация' },
 ];
 
