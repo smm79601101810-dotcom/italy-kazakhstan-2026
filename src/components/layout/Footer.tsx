@@ -8,7 +8,7 @@ export default function Footer() {
               Italy × Kazakhstan · Investment Forum 2026
             </h3>
             <p className="text-sm leading-relaxed text-cream/60">
-              Главное событие двустороннего экономического сотрудничества Италии и Казахстана. Прямые B2B-встречи, подписание соглашений, создание совместного фонда с SIMEST. Под эгидой министерств обеих стран при участии CCIK (основана в 1996) и KITH.
+              Главное событие двустороннего экономического сотрудничества Италии и Казахстана. Прямые B2B-встречи, подписание соглашений, создание совместного фонда с SIMEST. Под эгидой министерств обеих стран при участии CCIK (основана в 1996) и Kazakh Invest.
             </p>
           </div>
 
@@ -48,6 +48,18 @@ export default function Footer() {
               property@aifc.kz (AIFC)
             </a>
             <a
+              href="mailto:Issak.K@agriqa.asia"
+              className="block py-1.5 text-sm text-cream/70 transition-colors hover:text-gold-light"
+            >
+              Issak.K@agriqa.asia
+            </a>
+            <a
+              href="mailto:Yusup.z@tetravision.kz"
+              className="block py-1.5 text-sm text-cream/70 transition-colors hover:text-gold-light"
+            >
+              Yusup.z@tetravision.kz
+            </a>
+            <a
               href="https://www.italkazak.it"
               target="_blank"
               rel="noopener noreferrer"
@@ -59,7 +71,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap justify-between gap-4 border-t border-cream/10 pt-8 text-xs text-cream/50">
-          <div>© 2026 Camera di Commercio Italo-Kazaka · KITH</div>
+          <div>© 2026 Camera di Commercio Italo-Kazaka · Kazakh Invest</div>
           <div>Под эгидой Министерств обеих стран · Sezione di Unioncamere</div>
         </div>
       </div>

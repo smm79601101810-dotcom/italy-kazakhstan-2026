@@ -7,7 +7,7 @@ const orgs = [
   'Министерство национальной экономики РК',
   'CCIK · 1996',
   'Самрук-Қазына',
-  'KITH · Kazakh-Italian Trade House',
+  'Kazakh Invest',
   'AIFC',
   'ICE · Italian Trade Agency',
 ];

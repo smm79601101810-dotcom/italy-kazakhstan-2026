@@ -16,7 +16,6 @@ const kzList: Person[] = [
   { name: '«Самрук-Қазына»', role: 'Фонд национального благосостояния' },
   { name: 'Холдинг «Байтерек»', role: 'Национальный холдинг' },
   { name: 'Kazakh Invest', role: 'Национальная компания' },
-  { name: 'KITH', role: 'Kazakh-Italian Trade House' },
 ];
 
 const itList: Person[] = [
