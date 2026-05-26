@@ -10,7 +10,12 @@
  */
 
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+// Strip leading backslash if present — netlify-cli env:set requires escaping
+// the minus prefix on group chat IDs and stores the backslash literally.
+const TELEGRAM_CHAT_ID = (process.env.TELEGRAM_CHAT_ID ?? '').replace(
+  /^\\/,
+  '',
+);
 
 const REQUIRED_FIELDS = [
   'company',
