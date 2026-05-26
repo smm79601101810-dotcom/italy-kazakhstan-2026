@@ -62,10 +62,25 @@ export default function Hero() {
       id="top"
       className="relative flex min-h-[92vh] items-center overflow-hidden bg-navy pb-24 pt-16 text-cream"
     >
-      {/* 3D particle background — lazy chunk */}
-      <div className="pointer-events-none absolute inset-0 opacity-80">
+      {/* Video background — autoplay loop muted (browser autoplay req'd) */}
+      <video
+        src="/hero.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+      />
+
+      {/* Dark navy overlay for text contrast */}
+      <div className="pointer-events-none absolute inset-0 bg-navy/60" />
+
+      {/* 3D particle background on top of video — softer */}
+      <div className="pointer-events-none absolute inset-0 opacity-35 mix-blend-screen">
         <Suspense fallback={null}>
-          <ParticleScene count={2500} />
+          <ParticleScene count={1800} />
         </Suspense>
       </div>
 
@@ -73,7 +88,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-hero-radial" />
 
       {/* Bottom fade into next section */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-navy/80" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-navy" />
 
       <div className="container-x relative z-10 text-center">
         <motion.div
