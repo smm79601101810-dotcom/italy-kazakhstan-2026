@@ -1,18 +1,175 @@
 import { motion, type Variants } from 'framer-motion';
+import { type ReactNode } from 'react';
 
-const sectors = [
-  { icon: '⛽', label: 'Нефть и газ' },
-  { icon: '🌱', label: 'Зелёная энергетика' },
-  { icon: '🌾', label: 'АПК' },
-  { icon: '🍇', label: 'Food & Beverage' },
-  { icon: '🚜', label: 'Сельхозтехника' },
-  { icon: '⚙', label: 'Механика' },
-  { icon: '🛋', label: 'Мебель' },
-  { icon: '🧬', label: 'Биотех' },
-  { icon: '🚛', label: 'Логистика' },
-  { icon: '🧵', label: 'Текстиль' },
-  { icon: '💡', label: 'Технологии' },
-  { icon: '🛒', label: 'Ритейл' },
+// Common SVG attrs for all sector icons (Lucide outline, gold, 1.4px stroke)
+const svgProps = {
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 1.4,
+  strokeLinecap: 'round' as const,
+  strokeLinejoin: 'round' as const,
+  className: 'h-[24px] w-[24px]',
+};
+
+interface Sector {
+  icon: ReactNode;
+  label: string;
+}
+
+const sectors: Sector[] = [
+  {
+    // Fuel pump
+    icon: (
+      <svg {...svgProps}>
+        <line x1="3" x2="15" y1="22" y2="22" />
+        <line x1="4" x2="14" y1="9" y2="9" />
+        <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+        <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5" />
+      </svg>
+    ),
+    label: 'Нефть и газ',
+  },
+  {
+    // Leaf
+    icon: (
+      <svg {...svgProps}>
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96a1 1 0 0 1 1.8.5C20 16 17 22 11 22Z" />
+        <path d="M2 22 17 7" />
+      </svg>
+    ),
+    label: 'Зелёная энергетика',
+  },
+  {
+    // Wheat
+    icon: (
+      <svg {...svgProps}>
+        <path d="M2 22 16 8" />
+        <path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" />
+        <path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" />
+        <path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" />
+        <path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" />
+        <path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" />
+        <path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" />
+        <path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" />
+      </svg>
+    ),
+    label: 'АПК',
+  },
+  {
+    // Wine glass
+    icon: (
+      <svg {...svgProps}>
+        <path d="M8 22h8" />
+        <path d="M7 10h10" />
+        <path d="M12 15v7" />
+        <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z" />
+      </svg>
+    ),
+    label: 'Food & Beverage',
+  },
+  {
+    // Tractor
+    icon: (
+      <svg {...svgProps}>
+        <path d="m10 11 11 .9a1 1 0 0 1 .8 1.1l-.665 4.158a1 1 0 0 1-.988.842H20" />
+        <path d="M16 18h-5" />
+        <path d="M18 5a1 1 0 0 0-1 1v5.573" />
+        <path d="M3 4h8.129a1 1 0 0 1 .99.863L13 11.246" />
+        <path d="M4 11V4" />
+        <path d="M7 15h.01" />
+        <path d="M8 10.1V4" />
+        <circle cx="18" cy="18" r="2" />
+        <circle cx="7" cy="15" r="5" />
+      </svg>
+    ),
+    label: 'Сельхозтехника',
+  },
+  {
+    // Cog
+    icon: (
+      <svg {...svgProps}>
+        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    ),
+    label: 'Механика',
+  },
+  {
+    // Sofa / Armchair
+    icon: (
+      <svg {...svgProps}>
+        <path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3" />
+        <path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0Z" />
+        <path d="M4 18v2" />
+        <path d="M20 18v2" />
+        <path d="M12 4v9" />
+      </svg>
+    ),
+    label: 'Мебель',
+  },
+  {
+    // Atom (biotech)
+    icon: (
+      <svg {...svgProps}>
+        <circle cx="12" cy="12" r="1" />
+        <path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z" />
+        <path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z" />
+      </svg>
+    ),
+    label: 'Биотех',
+  },
+  {
+    // Truck
+    icon: (
+      <svg {...svgProps}>
+        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+        <path d="M15 18H9" />
+        <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+        <circle cx="17" cy="18" r="2" />
+        <circle cx="7" cy="18" r="2" />
+      </svg>
+    ),
+    label: 'Логистика',
+  },
+  {
+    // Shirt
+    icon: (
+      <svg {...svgProps}>
+        <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />
+      </svg>
+    ),
+    label: 'Текстиль',
+  },
+  {
+    // Cpu
+    icon: (
+      <svg {...svgProps}>
+        <rect width="16" height="16" x="4" y="4" rx="2" />
+        <rect width="6" height="6" x="9" y="9" rx="1" />
+        <path d="M15 2v2" />
+        <path d="M15 20v2" />
+        <path d="M2 15h2" />
+        <path d="M2 9h2" />
+        <path d="M20 15h2" />
+        <path d="M20 9h2" />
+        <path d="M9 2v2" />
+        <path d="M9 20v2" />
+      </svg>
+    ),
+    label: 'Технологии',
+  },
+  {
+    // ShoppingBag
+    icon: (
+      <svg {...svgProps}>
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+        <path d="M3 6h18" />
+        <path d="M16 10a4 4 0 0 1-8 0" />
+      </svg>
+    ),
+    label: 'Ритейл',
+  },
 ];
 
 const day1 = [
@@ -136,9 +293,11 @@ export default function B2B() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: '-30px' }}
-                className="rounded border border-gold/20 bg-white/[0.04] p-5 text-center transition-all hover:-translate-y-1 hover:border-gold hover:bg-gold/10"
+                className="group flex flex-col items-center rounded border border-gold/20 bg-white/[0.04] p-5 text-center transition-all hover:-translate-y-1 hover:border-gold hover:bg-gold/[0.06]"
               >
-                <div className="mb-2 text-2xl">{s.icon}</div>
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full border-[1.5px] border-gold/40 text-gold transition-all group-hover:border-gold group-hover:bg-gold/10 group-hover:scale-105">
+                  {s.icon}
+                </div>
                 <h6 className="font-display text-base font-semibold text-cream">
                   {s.label}
                 </h6>
