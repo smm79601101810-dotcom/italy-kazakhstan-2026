@@ -1,8 +1,9 @@
-import { Canvas } from '@react-three/fiber';
 import { motion, type Variants } from 'framer-motion';
-import { Suspense } from 'react';
-import ParticleField from '../three/ParticleField';
+import { lazy, Suspense } from 'react';
 import { ItalyFlag, KazakhstanFlag } from '../ui/Flag';
+
+// Lazy-load the Three.js scene so it ships in a separate chunk
+const ParticleScene = lazy(() => import('../three/ParticleScene'));
 
 const EASE_OUT_EXPO: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -63,17 +64,11 @@ export default function Hero() {
       id="top"
       className="relative flex min-h-[92vh] items-center overflow-hidden bg-navy pb-28 pt-20 text-cream"
     >
-      {/* 3D particle background */}
+      {/* 3D particle background — lazy chunk */}
       <div className="pointer-events-none absolute inset-0 opacity-80">
-        <Canvas
-          camera={{ position: [0, 0, 11], fov: 60 }}
-          gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-          dpr={[1, 2]}
-        >
-          <Suspense fallback={null}>
-            <ParticleField count={2500} />
-          </Suspense>
-        </Canvas>
+        <Suspense fallback={null}>
+          <ParticleScene count={2500} />
+        </Suspense>
       </div>
 
       {/* Soft radial overlay */}

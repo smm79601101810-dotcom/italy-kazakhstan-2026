@@ -1,3 +1,5 @@
+import SmoothScroll from './components/layout/SmoothScroll';
+import ScrollProgress from './components/layout/ScrollProgress';
 import TopBar from './components/layout/TopBar';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
@@ -19,7 +21,8 @@ import FinalCTA from './components/sections/FinalCTA';
 
 export default function App() {
   return (
-    <>
+    <SmoothScroll>
+      <ScrollProgress />
       <TopBar />
       <Header />
       <main>
@@ -40,6 +43,6 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer />
-    </>
+    </SmoothScroll>
   );
 }
