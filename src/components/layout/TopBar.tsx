@@ -17,7 +17,7 @@ export default function TopBar() {
           <span className="opacity-70">Қазақстан · 2026</span>
         </div>
         <div className="hidden opacity-70 sm:block">
-          📍 Астана · 11–12 июня 2026
+          📍 Астана · 29–30 июня 2026
         </div>
       </div>
     </motion.div>

@@ -108,7 +108,7 @@ async function sendEmail(data) {
   <div style="font-family:Inter,Arial,sans-serif;max-width:640px;margin:0 auto;">
     <div style="background:#0a1e3f;padding:24px 32px;">
       <h1 style="margin:0;color:#e3c478;font-size:20px;">🎯 Новая заявка · Investment Forum 2026</h1>
-      <p style="margin:6px 0 0;color:#faf6ee;opacity:.7;font-size:13px;">investbridge.kz · 11–12 июня 2026 · AIFC, Астана</p>
+      <p style="margin:6px 0 0;color:#faf6ee;opacity:.7;font-size:13px;">investbridge.kz · 29–30 июня 2026 · AIFC, Астана</p>
     </div>
     <table style="width:100%;border-collapse:collapse;font-size:14px;border:1px solid #e7e2d5;border-top:none;">
       ${row('Компания', data.company)}
@@ -154,7 +154,7 @@ async function sendApplicantEmail(data) {
   <div style="font-family:Inter,Arial,sans-serif;max-width:600px;margin:0 auto;">
     <div style="background:#0a1e3f;padding:28px 32px;text-align:center;">
       <h1 style="margin:0;color:#e3c478;font-size:22px;">Investment Forum 2026</h1>
-      <p style="margin:8px 0 0;color:#faf6ee;opacity:.8;font-size:14px;">Италия × Казахстан · 11–12 июня 2026 · AIFC, Астана</p>
+      <p style="margin:8px 0 0;color:#faf6ee;opacity:.8;font-size:14px;">Италия × Казахстан · 29–30 июня 2026 · AIFC, Астана</p>
     </div>
     <div style="padding:28px 32px;border:1px solid #e7e2d5;border-top:none;color:#1a1a1a;line-height:1.6;">
       <p style="margin:0 0 16px;font-size:15px;">Здравствуйте, ${escapeHtml(data.fullName)}!</p>

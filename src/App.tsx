@@ -9,6 +9,7 @@ import OrganizersBar from './components/sections/OrganizersBar';
 import Roadmap from './components/sections/Roadmap';
 import Benefits from './components/sections/Benefits';
 import B2B from './components/sections/B2B';
+import SpecialGuests from './components/sections/SpecialGuests';
 import VIP from './components/sections/VIP';
 import Audience from './components/sections/Audience';
 import Tariffs from './components/sections/Tariffs';
@@ -31,6 +32,7 @@ export default function App() {
         <Roadmap />
         <Benefits />
         <B2B />
+        <SpecialGuests />
         <VIP />
         <Audience />
         <Tariffs />

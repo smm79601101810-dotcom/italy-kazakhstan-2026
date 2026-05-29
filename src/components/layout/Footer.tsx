@@ -16,7 +16,7 @@ export default function Footer() {
             <h4 className="mb-5 text-xs uppercase tracking-[0.2em] text-gold">
               Investment Forum
             </h4>
-            <p className="py-1.5 text-sm text-cream/70">11–12 июня 2026</p>
+            <p className="py-1.5 text-sm text-cream/70">29–30 июня 2026</p>
             <p className="py-1.5 text-sm text-cream/70">AIFC, Mangilik El 55/18</p>
             <p className="py-1.5 text-sm text-cream/70">300+ делегатов</p>
             <p className="py-1.5 text-sm text-cream/70">Регистрация открыта</p>

@@ -62,7 +62,7 @@ export default function Logistics() {
           transition={{ delay: 0.2 }}
           className="mb-12 mt-6 max-w-2xl text-lg font-light leading-relaxed text-ink/70"
         >
-          Для всех делегатов Investment Forum 11–12 июня 2026 года действуют корпоративные тарифы в отелях Астаны. Размещение бронируется через оргкомитет — укажите интерес в форме регистрации.
+          Для всех делегатов Investment Forum 29–30 июня 2026 года действуют корпоративные тарифы в отелях Астаны. Размещение бронируется через оргкомитет — укажите интерес в форме регистрации.
         </motion.p>
 
         <div className="grid gap-4 lg:grid-cols-3">

@@ -8,7 +8,7 @@ const galaFeatures = [
 ];
 
 const galaDetails: [string, string][] = [
-  ['Дата', '12 июня 2026'],
+  ['Дата', '30 июня 2026'],
   ['Место', 'AIFC, Астана'],
   ['Дресс-код', 'Black Tie'],
   ['Доступ', 'Business · Premium · VIP'],
@@ -76,7 +76,7 @@ export default function Gala() {
             className="rounded border border-gold/30 bg-white/[0.04] p-10 backdrop-blur"
           >
             <div className="mb-6 border-b border-gold/20 pb-6 font-display text-2xl text-gold-light">
-              12 июня · 20:00
+              30 июня · 20:00
             </div>
             {galaDetails.map(([k, v], i) => (
               <div

@@ -249,10 +249,10 @@ export default function B2B() {
             <div className="absolute -right-5 -top-5 h-32 w-32 rounded-full bg-white/15" />
             <div className="relative z-10">
               <div className="mb-6 text-xs uppercase tracking-[0.2em] opacity-85">
-                Четверг–Пятница
+                Понедельник–Вторник
               </div>
               <div className="mb-2 font-display text-5xl font-medium leading-none">
-                11–12 <span className="text-xl font-normal opacity-85">июня</span>
+                29–30 <span className="text-xl font-normal opacity-85">июня</span>
               </div>
               <dl className="mt-8 divide-y divide-navy-deep/20">
                 {[
@@ -319,8 +319,8 @@ export default function B2B() {
           </motion.h3>
           <div className="grid gap-8 md:grid-cols-2">
             {[
-              { num: '11', day: 'Четверг · День 1', title: 'Инвестиционный форум', schedule: day1 },
-              { num: '12', day: 'Пятница · День 2', title: 'B2B + Подписание', schedule: day2 },
+              { num: '29', day: 'Понедельник · День 1', title: 'Инвестиционный форум', schedule: day1 },
+              { num: '30', day: 'Вторник · День 2', title: 'B2B + Подписание', schedule: day2 },
             ].map((d, idx) => (
               <motion.div
                 key={d.num}

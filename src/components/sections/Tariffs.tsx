@@ -53,7 +53,7 @@ const tariffs: Tariff[] = [
     note: 'Цена уточняется оргкомитетом',
     features: [
       { text: 'Всё из Business', included: true },
-      { text: 'Гала-ужин 12 июня', included: true },
+      { text: 'Гала-ужин 30 июня', included: true },
       { text: 'Доступ к VIP-залам', included: true },
       { text: 'Проживание 1 ночь (отель-партнёр)', included: true },
       { text: 'Трансфер аэропорт ↔ отель', included: true },

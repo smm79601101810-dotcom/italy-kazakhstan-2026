@@ -116,7 +116,7 @@ export default function Form() {
               Подать заявку на участие
             </h2>
             <p className="mt-3 text-[15px] text-ink/60">
-              Investment Forum · 11–12 июня 2026 · AIFC, Астана — заполните анкету, и наш менеджер свяжется с вами
+              Investment Forum · 29–30 июня 2026 · AIFC, Астана — заполните анкету, и наш менеджер свяжется с вами
             </p>
           </header>
 

@@ -129,11 +129,11 @@ export default function Hero() {
             className="mt-6 font-display font-bold leading-[0.85] tracking-[-0.04em] text-gold"
             style={{ fontSize: 'clamp(88px, 14vw, 232px)' }}
           >
-            <span className="inline-block">11</span>
+            <span className="inline-block">29</span>
             <span className="mx-3 inline-block align-middle text-cream/60 md:mx-6">
               —
             </span>
-            <span className="inline-block">12</span>
+            <span className="inline-block">30</span>
           </motion.div>
 
           {/* Month + year */}
