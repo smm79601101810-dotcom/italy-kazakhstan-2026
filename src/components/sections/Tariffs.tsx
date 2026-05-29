@@ -14,7 +14,7 @@ const tariffs: Tariff[] = [
   {
     name: 'Basic',
     sub: 'Light Pass · наблюдатель',
-    price: '300',
+    price: '180 000',
     note: 'Доступ к пленарной части · 1 день',
     features: [
       { text: '1 день участия по выбору', included: true },
@@ -31,7 +31,7 @@ const tariffs: Tariff[] = [
   {
     name: 'Business',
     sub: 'Официальный взнос CCIK',
-    price: '1.000',
+    price: '600 000',
     note: 'По официальной форме CCIK',
     popular: true,
     features: [
@@ -49,7 +49,7 @@ const tariffs: Tariff[] = [
   {
     name: 'Premium',
     sub: '+ гала-ужин и проживание',
-    price: '2.900',
+    price: '1 740 000',
     note: 'Цена уточняется оргкомитетом',
     features: [
       { text: 'Всё из Business', included: true },
@@ -64,7 +64,7 @@ const tariffs: Tariff[] = [
   {
     name: 'VIP',
     sub: 'Максимальный комфорт',
-    price: '4.500',
+    price: '2 700 000',
     note: 'Цена уточняется оргкомитетом',
     features: [
       { text: 'Всё из Premium', included: true },
@@ -107,7 +107,7 @@ export default function Tariffs() {
           transition={{ delay: 0.2 }}
           className="mb-14 mt-6 max-w-2xl text-lg font-light leading-relaxed text-ink/70"
         >
-          Тариф Business €1.000 — официальный взнос CCIK с полным двухдневным участием. Basic €300 — light pass для наблюдателей. Расширенные Premium и VIP добавляют гала-ужин, проживание и персональный сервис.
+          Тариф Business 600 000 ₸ — официальный взнос CCIK с полным двухдневным участием. Basic 180 000 ₸ — light pass для наблюдателей. Расширенные Premium и VIP добавляют гала-ужин, проживание и персональный сервис.
         </motion.p>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -135,9 +135,9 @@ export default function Tariffs() {
                 {t.name}
               </div>
               <div className="mb-5 min-h-[32px] text-xs text-ink/55">{t.sub}</div>
-              <div className="mb-1 font-display text-5xl font-semibold leading-none tracking-tight text-navy">
-                <span className="align-top text-2xl">€</span>
+              <div className="mb-1 whitespace-nowrap font-display text-4xl font-semibold leading-none tracking-tight text-navy">
                 {t.price}
+                <span className="align-top text-xl"> ₸</span>
               </div>
               <div className="mb-6 border-b border-ink/10 pb-6 text-[11px] text-ink/50">
                 {t.note}
@@ -179,7 +179,7 @@ export default function Tariffs() {
           viewport={{ once: true }}
           className="mt-8 border-l-[3px] border-gold bg-cream p-6 text-[13px] leading-relaxed text-ink/70"
         >
-          <strong className="text-navy">Важно:</strong> Тариф Business (€1.000) и связанные с ним условия (юрисдикция Суда Рима, компенсация при отказе до €1.000) соответствуют официальной форме Modulo CCIK. Тариф Basic (€300) — light pass для наблюдателей без права участия в B2B-встречах. Пакеты Premium и VIP представляют собой базовый взнос плюс дополнительные услуги; их финальная стоимость определяется оргкомитетом с учётом тарифов отелей и логистики.
+          <strong className="text-navy">Важно:</strong> Тариф Business (600 000 ₸) и связанные с ним условия (юрисдикция Суда Рима, компенсация при отказе до 600 000 ₸) соответствуют официальной форме Modulo CCIK. Тариф Basic (180 000 ₸) — light pass для наблюдателей без права участия в B2B-встречах. Пакеты Premium и VIP представляют собой базовый взнос плюс дополнительные услуги; их финальная стоимость определяется оргкомитетом с учётом тарифов отелей и логистики.
         </motion.div>
       </div>
     </section>
