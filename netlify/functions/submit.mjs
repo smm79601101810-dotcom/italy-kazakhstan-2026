@@ -28,6 +28,9 @@ const MAIL_TO = [
   'issak.k@agriqa.asia',
 ];
 
+const QR_URL = 'https://investbridge.kz/qr-payment.png';
+const BOT_LINK = 'https://t.me/italkz_forum_bot?start=pay';
+
 const REQUIRED_FIELDS = [
   'company',
   'sector',
@@ -143,6 +146,62 @@ async function sendEmail(data) {
   }
 }
 
+// ── Email to APPLICANT with payment QR ───────────────────────────────────────
+async function sendApplicantEmail(data) {
+  if (!RESEND_API_KEY) throw new Error('Resend not configured');
+
+  const html = `
+  <div style="font-family:Inter,Arial,sans-serif;max-width:600px;margin:0 auto;">
+    <div style="background:#0a1e3f;padding:28px 32px;text-align:center;">
+      <h1 style="margin:0;color:#e3c478;font-size:22px;">Investment Forum 2026</h1>
+      <p style="margin:8px 0 0;color:#faf6ee;opacity:.8;font-size:14px;">Италия × Казахстан · 11–12 июня 2026 · AIFC, Астана</p>
+    </div>
+    <div style="padding:28px 32px;border:1px solid #e7e2d5;border-top:none;color:#1a1a1a;line-height:1.6;">
+      <p style="margin:0 0 16px;font-size:15px;">Здравствуйте, ${escapeHtml(data.fullName)}!</p>
+      <p style="margin:0 0 20px;font-size:15px;">
+        Благодарим за заявку на участие в Инвестиционном форуме Италия–Казахстан.
+        Для подтверждения участия оплатите регистрационный взнос по QR-коду ниже.
+      </p>
+      <div style="text-align:center;margin:24px 0;">
+        <img src="${QR_URL}" alt="QR-код для оплаты" width="280" style="border:1px solid #e7e2d5;border-radius:8px;" />
+      </div>
+      <p style="margin:0 0 8px;font-size:14px;text-align:center;color:#0a1e3f;font-weight:600;">
+        Отсканируйте QR в приложении Halyk или Kaspi
+      </p>
+      <p style="margin:0 0 24px;font-size:13px;text-align:center;color:#6b6375;">
+        Получатель: ИП АТОМ ЮНИТ (г. Алматы)
+      </p>
+      <div style="text-align:center;margin:24px 0;">
+        <a href="${BOT_LINK}" style="display:inline-block;background:#0a1e3f;color:#e3c478;text-decoration:none;padding:14px 28px;border-radius:6px;font-weight:600;font-size:14px;">
+          Получить QR-код в Telegram →
+        </a>
+      </div>
+      <p style="margin:24px 0 0;font-size:13px;color:#6b6375;border-top:1px solid #e7e2d5;padding-top:16px;">
+        После оплаты пришлите чек в нашем Telegram-боте или на ufficiopresidenza@italkazak.it.
+        По вопросам: WhatsApp +7 706 450 1243.
+      </p>
+    </div>
+  </div>`;
+
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: MAIL_FROM,
+      to: [data.email],
+      subject: 'Оплата участия · Investment Forum 2026',
+      html,
+    }),
+  });
+  if (!res.ok) {
+    const detail = await res.text();
+    throw new Error(`Resend(applicant) ${res.status}: ${detail}`);
+  }
+}
+
 // ── Handler ──────────────────────────────────────────────────────────────────
 export default async (req) => {
   if (req.method !== 'POST') {
@@ -166,14 +225,17 @@ export default async (req) => {
     return json(400, { ok: false, error: `Field too long: ${tooLong}` });
   }
 
-  // Fire both channels independently
-  const [tg, mail] = await Promise.allSettled([
+  // Fire all channels independently
+  const [tg, mail, applicant] = await Promise.allSettled([
     sendTelegram(data),
     sendEmail(data),
+    sendApplicantEmail(data),
   ]);
 
   if (tg.status === 'rejected') console.error('Telegram failed:', tg.reason);
   if (mail.status === 'rejected') console.error('Email failed:', mail.reason);
+  if (applicant.status === 'rejected')
+    console.error('Applicant email failed:', applicant.reason);
 
   // Success if at least one channel delivered the lead
   if (tg.status === 'fulfilled' || mail.status === 'fulfilled') {
