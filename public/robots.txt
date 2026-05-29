@@ -1,0 +1,12 @@
+# robots.txt — investbridge.kz
+# Italy × Kazakhstan Investment Forum 2026
+
+User-agent: *
+Allow: /
+
+# Yandex-specific (respects Host directive for canonical host)
+User-agent: Yandex
+Allow: /
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&fbclid&gclid&yclid
+
+Sitemap: https://investbridge.kz/sitemap.xml
