@@ -1,21 +1,32 @@
 /**
  * POST /.netlify/functions/submit
  *
- * Receives the registration form, validates the payload, and forwards
- * the data to a Telegram chat via the Bot API.
+ * Receives the registration form, validates the payload, and forwards it to:
+ *   1. a Telegram chat (Bot API)
+ *   2. email recipients (Resend API)
+ * Both channels are attempted independently — if one fails the other still
+ * delivers. The request succeeds if at least one channel accepted the lead.
  *
  * Env vars (set with `netlify env:set …`):
  *   TELEGRAM_BOT_TOKEN  — bot token from @BotFather
- *   TELEGRAM_CHAT_ID    — destination chat id (personal user id or -100… for groups)
+ *   TELEGRAM_CHAT_ID    — destination chat id (-100… for groups)
+ *   RESEND_API_KEY      — Resend API key (re_…)
+ *   MAIL_FROM           — optional sender, defaults to onboarding@resend.dev
  */
 
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-// Strip leading backslash if present — netlify-cli env:set requires escaping
-// the minus prefix on group chat IDs and stores the backslash literally.
-const TELEGRAM_CHAT_ID = (process.env.TELEGRAM_CHAT_ID ?? '').replace(
-  /^\\/,
-  '',
-);
+// Strip leading backslash — netlify-cli env:set requires escaping the minus
+// prefix on group chat IDs and stores the backslash literally.
+const TELEGRAM_CHAT_ID = (process.env.TELEGRAM_CHAT_ID ?? '').replace(/^\\/, '');
+
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const MAIL_FROM =
+  process.env.MAIL_FROM || 'InvestBridge Forum <onboarding@resend.dev>';
+const MAIL_TO = [
+  'ufficiopresidenza@italkazak.it',
+  'edda.battistella@italkazak.it',
+  'issak.k@agriqa.asia',
+];
 
 const REQUIRED_FIELDS = [
   'company',
@@ -40,45 +51,12 @@ const escapeHtml = (s) =>
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
 
-export default async (req) => {
-  if (req.method !== 'POST') {
-    return json(405, { ok: false, error: 'Method not allowed' });
-  }
-
+// ── Telegram ────────────────────────────────────────────────────────────────
+async function sendTelegram(data) {
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-    return json(500, {
-      ok: false,
-      error: 'Server not configured (missing env vars)',
-    });
+    throw new Error('Telegram not configured');
   }
-
-  let data;
-  try {
-    data = await req.json();
-  } catch {
-    return json(400, { ok: false, error: 'Invalid JSON body' });
-  }
-
-  // Validate required fields
-  for (const field of REQUIRED_FIELDS) {
-    if (
-      typeof data[field] !== 'string' ||
-      data[field].trim().length === 0
-    ) {
-      return json(400, {
-        ok: false,
-        error: `Missing or empty field: ${field}`,
-      });
-    }
-  }
-
-  // Anti-spam: cap field length
-  const tooLong = REQUIRED_FIELDS.find((f) => data[f].length > 2000);
-  if (tooLong) {
-    return json(400, { ok: false, error: `Field too long: ${tooLong}` });
-  }
-
-  const lines = [
+  const text = [
     '🎯 <b>Новая заявка · Investment Forum 2026</b>',
     '',
     `🏢 <b>Компания:</b> ${escapeHtml(data.company)}`,
@@ -94,38 +72,122 @@ export default async (req) => {
     '',
     '📝 <b>Описание:</b>',
     escapeHtml(data.description),
-  ];
+  ].join('\n');
 
-  const text = lines.join('\n');
+  const res = await fetch(
+    `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID,
+        text,
+        parse_mode: 'HTML',
+        disable_web_page_preview: true,
+      }),
+    },
+  );
+  const body = await res.json();
+  if (!body.ok) throw new Error(`Telegram: ${body.description}`);
+}
 
-  try {
-    const tgRes = await fetch(
-      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text,
-          parse_mode: 'HTML',
-          disable_web_page_preview: true,
-        }),
-      },
-    );
+// ── Email (Resend) ───────────────────────────────────────────────────────────
+async function sendEmail(data) {
+  if (!RESEND_API_KEY) throw new Error('Resend not configured');
 
-    const tgBody = await tgRes.json();
-    if (!tgBody.ok) {
-      console.error('Telegram error:', tgBody);
-      return json(502, {
-        ok: false,
-        error: 'Telegram rejected the message',
-        detail: tgBody.description,
-      });
-    }
-  } catch (err) {
-    console.error('Fetch error:', err);
-    return json(502, { ok: false, error: 'Network error reaching Telegram' });
+  const row = (label, value) =>
+    `<tr>
+       <td style="padding:8px 16px;background:#f5efe2;font-weight:600;color:#0a1e3f;white-space:nowrap;">${label}</td>
+       <td style="padding:8px 16px;color:#1a1a1a;">${escapeHtml(value) || '—'}</td>
+     </tr>`;
+
+  const html = `
+  <div style="font-family:Inter,Arial,sans-serif;max-width:640px;margin:0 auto;">
+    <div style="background:#0a1e3f;padding:24px 32px;">
+      <h1 style="margin:0;color:#e3c478;font-size:20px;">🎯 Новая заявка · Investment Forum 2026</h1>
+      <p style="margin:6px 0 0;color:#faf6ee;opacity:.7;font-size:13px;">investbridge.kz · 11–12 июня 2026 · AIFC, Астана</p>
+    </div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;border:1px solid #e7e2d5;border-top:none;">
+      ${row('Компания', data.company)}
+      ${row('Сектор', data.sector)}
+      ${row('ФИО', data.fullName)}
+      ${row('Должность', data.position)}
+      ${row('Адрес', data.address)}
+      ${row('Email', data.email)}
+      ${row('Телефон', data.phone)}
+      ${row('Сайт', data.website)}
+    </table>
+    <div style="padding:16px 32px;border:1px solid #e7e2d5;border-top:none;">
+      <p style="margin:0 0 6px;font-weight:600;color:#0a1e3f;font-size:13px;">Описание деятельности:</p>
+      <p style="margin:0;color:#1a1a1a;font-size:14px;line-height:1.6;white-space:pre-wrap;">${escapeHtml(data.description)}</p>
+    </div>
+  </div>`;
+
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: MAIL_FROM,
+      to: MAIL_TO,
+      reply_to: data.email,
+      subject: `Заявка: ${data.company} (${data.sector})`,
+      html,
+    }),
+  });
+  if (!res.ok) {
+    const detail = await res.text();
+    throw new Error(`Resend ${res.status}: ${detail}`);
+  }
+}
+
+// ── Handler ──────────────────────────────────────────────────────────────────
+export default async (req) => {
+  if (req.method !== 'POST') {
+    return json(405, { ok: false, error: 'Method not allowed' });
   }
 
-  return json(200, { ok: true });
+  let data;
+  try {
+    data = await req.json();
+  } catch {
+    return json(400, { ok: false, error: 'Invalid JSON body' });
+  }
+
+  for (const field of REQUIRED_FIELDS) {
+    if (typeof data[field] !== 'string' || data[field].trim().length === 0) {
+      return json(400, { ok: false, error: `Missing or empty field: ${field}` });
+    }
+  }
+  const tooLong = REQUIRED_FIELDS.find((f) => data[f].length > 2000);
+  if (tooLong) {
+    return json(400, { ok: false, error: `Field too long: ${tooLong}` });
+  }
+
+  // Fire both channels independently
+  const [tg, mail] = await Promise.allSettled([
+    sendTelegram(data),
+    sendEmail(data),
+  ]);
+
+  if (tg.status === 'rejected') console.error('Telegram failed:', tg.reason);
+  if (mail.status === 'rejected') console.error('Email failed:', mail.reason);
+
+  // Success if at least one channel delivered the lead
+  if (tg.status === 'fulfilled' || mail.status === 'fulfilled') {
+    return json(200, {
+      ok: true,
+      delivered: {
+        telegram: tg.status === 'fulfilled',
+        email: mail.status === 'fulfilled',
+      },
+    });
+  }
+
+  return json(502, {
+    ok: false,
+    error: 'Не удалось доставить заявку. Попробуйте ещё раз или напишите в WhatsApp.',
+  });
 };
