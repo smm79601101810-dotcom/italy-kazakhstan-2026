@@ -259,6 +259,7 @@ export default function B2B() {
                   ['Место', 'AIFC, Астана'],
                   ['Делегатов', '300+'],
                   ['Взнос', 'от 180 000 ₸'],
+                  // base Business tariff = 180 000 ₸; Premium/VIP higher
                   ['Регистрация', 'Открыта'],
                 ].map(([k, v]) => (
                   <div key={k} className="flex justify-between py-4 text-sm">
