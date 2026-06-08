@@ -18,6 +18,9 @@ const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 // Strip leading backslash — netlify-cli env:set requires escaping the minus
 // prefix on group chat IDs and stores the backslash literally.
 const TELEGRAM_CHAT_ID = (process.env.TELEGRAM_CHAT_ID ?? '').replace(/^\\/, '');
+// Optional: forum topic id for free-pass (gov-list) applications.
+// When set, such leads go to that topic; paid leads stay in the main feed.
+const TELEGRAM_GOV_TOPIC_ID = process.env.TELEGRAM_GOV_TOPIC_ID || '';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const MAIL_FROM =
@@ -85,17 +88,23 @@ async function sendTelegram(data) {
     escapeHtml(data.description),
   ].join('\n');
 
+  const payload = {
+    chat_id: TELEGRAM_CHAT_ID,
+    text,
+    parse_mode: 'HTML',
+    disable_web_page_preview: true,
+  };
+  // Route free-pass (gov-list) applications to their own forum topic
+  if (data.govListAccepted && TELEGRAM_GOV_TOPIC_ID) {
+    payload.message_thread_id = Number(TELEGRAM_GOV_TOPIC_ID);
+  }
+
   const res = await fetch(
     `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: TELEGRAM_CHAT_ID,
-        text,
-        parse_mode: 'HTML',
-        disable_web_page_preview: true,
-      }),
+      body: JSON.stringify(payload),
     },
   );
   const body = await res.json();
