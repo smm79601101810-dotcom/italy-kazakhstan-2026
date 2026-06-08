@@ -59,6 +59,12 @@ async function sendTelegram(data) {
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
     throw new Error('Telegram not configured');
   }
+  const govLine = data.govListAccepted
+    ? `🎟 <b>Бесплатный пропуск:</b> ДА — ${escapeHtml(data.govBody)}${
+        data.govRegion ? ` (${escapeHtml(data.govRegion)})` : ''
+      }`
+    : '💳 <b>Тип участия:</b> Платный взнос';
+
   const text = [
     '🎯 <b>Новая заявка · Investment Forum 2026</b>',
     '',
@@ -72,6 +78,8 @@ async function sendTelegram(data) {
     `📧 <b>Email:</b> ${escapeHtml(data.email)}`,
     `📱 <b>Телефон:</b> ${escapeHtml(data.phone)}`,
     `🌐 <b>Сайт:</b> ${data.website ? escapeHtml(data.website) : '—'}`,
+    '',
+    govLine,
     '',
     '📝 <b>Описание:</b>',
     escapeHtml(data.description),
@@ -119,6 +127,12 @@ async function sendEmail(data) {
       ${row('Email', data.email)}
       ${row('Телефон', data.phone)}
       ${row('Сайт', data.website)}
+      ${row(
+        'Тип участия',
+        data.govListAccepted
+          ? `Бесплатный пропуск — ${data.govBody}${data.govRegion ? ` (${data.govRegion})` : ''} (требует проверки по спискам до 25 июня)`
+          : 'Платный взнос',
+      )}
     </table>
     <div style="padding:16px 32px;border:1px solid #e7e2d5;border-top:none;">
       <p style="margin:0 0 6px;font-weight:600;color:#0a1e3f;font-size:13px;">Описание деятельности:</p>

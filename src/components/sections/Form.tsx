@@ -11,6 +11,9 @@ interface FormState {
   phone: string;
   website: string;
   description: string;
+  govListAccepted: boolean;
+  govBody: string;
+  govRegion: string;
   termsAccepted: boolean;
   gdprAccepted: boolean;
 }
@@ -25,9 +28,20 @@ const initial: FormState = {
   phone: '',
   website: '',
   description: '',
+  govListAccepted: false,
+  govBody: '',
+  govRegion: '',
   termsAccepted: false,
   gdprAccepted: false,
 };
+
+// Гос. органы, формирующие списки на бесплатный пропуск
+const govBodies = [
+  'QazTrade',
+  'Kazakh Invest',
+  'Министерство сельского хозяйства (МСХ)',
+  'Акимат региона',
+];
 
 // Aligned with the 6 industry profiles in Audience section
 const sectors = [
@@ -258,6 +272,70 @@ export default function Form() {
                     onChange={(e) => update('description', e.target.value)}
                   />
                 </div>
+              </div>
+
+              {/* Free pass via government body list */}
+              <div className="rounded border border-green/30 bg-green/[0.04] p-4">
+                <label className="flex cursor-pointer items-start gap-3 text-[13px] leading-relaxed text-ink/80">
+                  <input
+                    type="checkbox"
+                    checked={state.govListAccepted}
+                    onChange={(e) =>
+                      update('govListAccepted', e.target.checked)
+                    }
+                    className="mt-1 h-[18px] w-[18px] accent-green"
+                  />
+                  <span>
+                    <strong className="text-green-dark">Бесплатный пропуск.</strong>{' '}
+                    Подтверждаю, что являюсь участником по списку государственного органа и претендую на бесплатное участие.
+                  </span>
+                </label>
+
+                {state.govListAccepted && (
+                  <div className="mt-4 space-y-3 border-t border-green/20 pt-4">
+                    <div>
+                      <FieldLabel required>Государственный орган</FieldLabel>
+                      <select
+                        required={state.govListAccepted}
+                        className={fieldClass}
+                        value={state.govBody}
+                        onChange={(e) => update('govBody', e.target.value)}
+                      >
+                        <option value="" disabled>
+                          Выберите орган…
+                        </option>
+                        {govBodies.map((b) => (
+                          <option key={b} value={b}>
+                            {b}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {state.govBody === 'Акимат региона' && (
+                      <div>
+                        <FieldLabel required>Какой регион</FieldLabel>
+                        <input
+                          type="text"
+                          required
+                          placeholder="Например: Акмолинская область"
+                          className={fieldClass}
+                          value={state.govRegion}
+                          onChange={(e) =>
+                            update('govRegion', e.target.value)
+                          }
+                        />
+                      </div>
+                    )}
+
+                    <p className="text-[12px] leading-relaxed text-ink/60">
+                      ⚠ Данная информация будет проверена. При отсутствии вас в
+                      списках, направленных указанным органом в адрес
+                      организатора не позднее <strong>25 июня</strong>, бесплатный
+                      пропуск будет недоступен.
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Agreements */}
