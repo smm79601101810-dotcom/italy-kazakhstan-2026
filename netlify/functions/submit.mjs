@@ -18,9 +18,6 @@ const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 // Strip leading backslash — netlify-cli env:set requires escaping the minus
 // prefix on group chat IDs and stores the backslash literally.
 const TELEGRAM_CHAT_ID = (process.env.TELEGRAM_CHAT_ID ?? '').replace(/^\\/, '');
-// Optional: forum topic id for free-pass (gov-list) applications.
-// When set, such leads go to that topic; paid leads stay in the main feed.
-const TELEGRAM_GOV_TOPIC_ID = process.env.TELEGRAM_GOV_TOPIC_ID || '';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const MAIL_FROM =
@@ -62,14 +59,26 @@ async function sendTelegram(data) {
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
     throw new Error('Telegram not configured');
   }
-  const govLine = data.govListAccepted
-    ? `🎟 <b>Бесплатный пропуск:</b> ДА — ${escapeHtml(data.govBody)}${
-        data.govRegion ? ` (${escapeHtml(data.govRegion)})` : ''
-      }`
-    : '💳 <b>Тип участия:</b> Платный взнос';
+  // Bright header + footer banner for free-pass (gov-list) applications so
+  // they stand out in the shared chat; paid leads get the normal header.
+  const header = data.govListAccepted
+    ? [
+        '🟢🟢🟢 <b>БЕСПЛАТНЫЙ ПРОПУСК — ГОСОРГАН</b> 🟢🟢🟢',
+        `🏛 <b>Орган:</b> ${escapeHtml(data.govBody)}${
+          data.govRegion ? ` — ${escapeHtml(data.govRegion)}` : ''
+        }`,
+        '⚠️ <i>Требует проверки по спискам органа (до 25 июня)</i>',
+        '',
+        '🎯 <b>Новая заявка · Investment Forum 2026</b>',
+      ]
+    : ['🎯 <b>Новая заявка · Investment Forum 2026</b>'];
+
+  const footer = data.govListAccepted
+    ? ['', '🟢 <b>ТИП: БЕСПЛАТНЫЙ ПРОПУСК (госорган)</b> — проверить по спискам!']
+    : ['', '💳 <b>Тип участия:</b> Платный взнос'];
 
   const text = [
-    '🎯 <b>Новая заявка · Investment Forum 2026</b>',
+    ...header,
     '',
     `🏢 <b>Компания:</b> ${escapeHtml(data.company)}`,
     `🏭 <b>Сектор:</b> ${escapeHtml(data.sector)}`,
@@ -82,10 +91,9 @@ async function sendTelegram(data) {
     `📱 <b>Телефон:</b> ${escapeHtml(data.phone)}`,
     `🌐 <b>Сайт:</b> ${data.website ? escapeHtml(data.website) : '—'}`,
     '',
-    govLine,
-    '',
     '📝 <b>Описание:</b>',
     escapeHtml(data.description),
+    ...footer,
   ].join('\n');
 
   const payload = {
@@ -94,10 +102,6 @@ async function sendTelegram(data) {
     parse_mode: 'HTML',
     disable_web_page_preview: true,
   };
-  // Route free-pass (gov-list) applications to their own forum topic
-  if (data.govListAccepted && TELEGRAM_GOV_TOPIC_ID) {
-    payload.message_thread_id = Number(TELEGRAM_GOV_TOPIC_ID);
-  }
 
   const res = await fetch(
     `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
