@@ -280,9 +280,18 @@ export default function Form() {
                   <input
                     type="checkbox"
                     checked={state.govListAccepted}
-                    onChange={(e) =>
-                      update('govListAccepted', e.target.checked)
-                    }
+                    onChange={(e) => {
+                      const on = e.target.checked;
+                      // Free-pass path: clear & detach the paid-track consents
+                      setState((s) => ({
+                        ...s,
+                        govListAccepted: on,
+                        termsAccepted: on ? false : s.termsAccepted,
+                        gdprAccepted: on ? false : s.gdprAccepted,
+                        govBody: on ? s.govBody : '',
+                        govRegion: on ? s.govRegion : '',
+                      }));
+                    }}
                     className="mt-1 h-[18px] w-[18px] accent-green"
                   />
                   <span>
@@ -338,39 +347,41 @@ export default function Form() {
                 )}
               </div>
 
-              {/* Agreements */}
-              <div className="space-y-4">
-                <label className="flex cursor-pointer items-start gap-3 border-l-[3px] border-gold bg-cream p-4 text-[13px] leading-relaxed text-ink/75">
-                  <input
-                    type="checkbox"
-                    required
-                    checked={state.termsAccepted}
-                    onChange={(e) => update('termsAccepted', e.target.checked)}
-                    className="mt-1 h-[18px] w-[18px] accent-navy"
-                  />
-                  <span>
-                    Подтверждаю принятие условий участия в Investment Forum: регистрационный взнос <strong>180 000 ₸</strong> по официальной форме CCIK, юрисдикция Суда Рима.{' '}
-                    <a
-                      href="#benefits"
-                      className="font-semibold text-navy underline decoration-gold underline-offset-2 hover:text-gold"
-                    >
-                      Что входит в участие →
-                    </a>
-                  </span>
-                </label>
-                <label className="flex cursor-pointer items-start gap-3 border-l-[3px] border-gold bg-cream p-4 text-[13px] leading-relaxed text-ink/75">
-                  <input
-                    type="checkbox"
-                    required
-                    checked={state.gdprAccepted}
-                    onChange={(e) => update('gdprAccepted', e.target.checked)}
-                    className="mt-1 h-[18px] w-[18px] accent-navy"
-                  />
-                  <span>
-                    Даю согласие на обработку персональных данных в соответствии с GDPR (Регламент ЕС 2016/679) и применимым законодательством.
-                  </span>
-                </label>
-              </div>
+              {/* Agreements — hidden when applying for a free gov-list pass */}
+              {!state.govListAccepted && (
+                <div className="space-y-4">
+                  <label className="flex cursor-pointer items-start gap-3 border-l-[3px] border-gold bg-cream p-4 text-[13px] leading-relaxed text-ink/75">
+                    <input
+                      type="checkbox"
+                      required
+                      checked={state.termsAccepted}
+                      onChange={(e) => update('termsAccepted', e.target.checked)}
+                      className="mt-1 h-[18px] w-[18px] accent-navy"
+                    />
+                    <span>
+                      Подтверждаю принятие условий участия в Investment Forum: регистрационный взнос <strong>180 000 ₸</strong> по официальной форме CCIK, юрисдикция Суда Рима.{' '}
+                      <a
+                        href="#benefits"
+                        className="font-semibold text-navy underline decoration-gold underline-offset-2 hover:text-gold"
+                      >
+                        Что входит в участие →
+                      </a>
+                    </span>
+                  </label>
+                  <label className="flex cursor-pointer items-start gap-3 border-l-[3px] border-gold bg-cream p-4 text-[13px] leading-relaxed text-ink/75">
+                    <input
+                      type="checkbox"
+                      required
+                      checked={state.gdprAccepted}
+                      onChange={(e) => update('gdprAccepted', e.target.checked)}
+                      className="mt-1 h-[18px] w-[18px] accent-navy"
+                    />
+                    <span>
+                      Даю согласие на обработку персональных данных в соответствии с GDPR (Регламент ЕС 2016/679) и применимым законодательством.
+                    </span>
+                  </label>
+                </div>
+              )}
 
               {error && (
                 <div className="rounded border-l-[3px] border-it-red bg-it-red/5 p-4 text-sm text-it-red">
