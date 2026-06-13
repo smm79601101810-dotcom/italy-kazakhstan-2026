@@ -8,10 +8,10 @@ const galaFeatures = [
 ];
 
 const galaDetails: [string, string][] = [
-  ['Дата', '30 июня 2026'],
+  ['Дата', '29 июня 2026'],
   ['Место', 'AIFC, Астана'],
   ['Дресс-код', 'Black Tie'],
-  ['Доступ', 'Business · Premium · VIP'],
+  ['Доступ', 'Участники форума + гости'],
 ];
 
 export default function Gala() {
@@ -76,7 +76,7 @@ export default function Gala() {
             className="rounded border border-gold/30 bg-white/[0.04] p-10 backdrop-blur"
           >
             <div className="mb-6 border-b border-gold/20 pb-6 font-display text-2xl text-gold-light">
-              30 июня · 20:00
+              29 июня · 20:00
             </div>
             {galaDetails.map(([k, v], i) => (
               <div
@@ -93,6 +93,22 @@ export default function Gala() {
                 <span className="font-semibold text-cream">{v}</span>
               </div>
             ))}
+
+            {/* Guest-only gala places */}
+            <div className="mt-6 rounded border border-gold/40 bg-gold/[0.08] p-5">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.15em] text-gold-light">
+                Только гала-ужин · для гостей
+              </div>
+              <div className="mt-2 font-display text-3xl font-semibold text-cream">
+                60 000 ₸
+                <span className="ml-2 align-middle text-sm font-normal text-cream/60">
+                  / человек
+                </span>
+              </div>
+              <p className="mt-2 text-[13px] leading-relaxed text-cream/75">
+                Дополнительно доступно <strong className="text-cream">12 мест</strong> для гостей без участия в деловой программе — только посещение праздничного ужина 29 июня (≈ 100 €). Бронирование через оргкомитет или WhatsApp.
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -173,16 +173,45 @@ async function sendEmail(data) {
   }
 }
 
-// ── Email to APPLICANT with payment QR ───────────────────────────────────────
+// ── Email to APPLICANT ───────────────────────────────────────────────────────
+// Paid applicants get the payment QR; free-pass (gov-list) applicants get a
+// confirmation WITHOUT any payment info.
 async function sendApplicantEmail(data) {
   if (!RESEND_API_KEY) throw new Error('Resend not configured');
 
-  const html = `
-  <div style="font-family:Inter,Arial,sans-serif;max-width:600px;margin:0 auto;">
+  const headerBlock = `
     <div style="background:#0a1e3f;padding:28px 32px;text-align:center;">
       <h1 style="margin:0;color:#e3c478;font-size:22px;">Investment Forum 2026</h1>
       <p style="margin:8px 0 0;color:#faf6ee;opacity:.8;font-size:14px;">Италия × Казахстан · 29–30 июня 2026 · AIFC, Астана</p>
-    </div>
+    </div>`;
+
+  let bodyBlock;
+  let subject;
+
+  if (data.govListAccepted) {
+    // Free-pass: no payment, just confirmation + verification note
+    subject = 'Заявка получена · Investment Forum 2026';
+    bodyBlock = `
+    <div style="padding:28px 32px;border:1px solid #e7e2d5;border-top:none;color:#1a1a1a;line-height:1.6;">
+      <p style="margin:0 0 16px;font-size:15px;">Здравствуйте, ${escapeHtml(data.fullName)}!</p>
+      <p style="margin:0 0 16px;font-size:15px;">
+        Благодарим за заявку на участие в Инвестиционном форуме Италия–Казахстан.
+        Вы указали бесплатное участие по списку государственного органа
+        (<strong>${escapeHtml(data.govBody)}${data.govRegion ? ` — ${escapeHtml(data.govRegion)}` : ''}</strong>).
+      </p>
+      <p style="margin:0 0 16px;font-size:14px;color:#6b6375;">
+        Ваше участие будет подтверждено после сверки со списками, направленными
+        указанным органом организатору не позднее <strong>25 июня</strong>.
+        Оплата для вас не требуется.
+      </p>
+      <p style="margin:24px 0 0;font-size:13px;color:#6b6375;border-top:1px solid #e7e2d5;padding-top:16px;">
+        По вопросам: WhatsApp +7 706 450 1243 · ufficiopresidenza@italkazak.it.
+      </p>
+    </div>`;
+  } else {
+    // Paid: include QR
+    subject = 'Оплата участия · Investment Forum 2026';
+    bodyBlock = `
     <div style="padding:28px 32px;border:1px solid #e7e2d5;border-top:none;color:#1a1a1a;line-height:1.6;">
       <p style="margin:0 0 16px;font-size:15px;">Здравствуйте, ${escapeHtml(data.fullName)}!</p>
       <p style="margin:0 0 20px;font-size:15px;">
@@ -207,8 +236,10 @@ async function sendApplicantEmail(data) {
         После оплаты пришлите чек в нашем Telegram-боте или на ufficiopresidenza@italkazak.it.
         По вопросам: WhatsApp +7 706 450 1243.
       </p>
-    </div>
-  </div>`;
+    </div>`;
+  }
+
+  const html = `<div style="font-family:Inter,Arial,sans-serif;max-width:600px;margin:0 auto;">${headerBlock}${bodyBlock}</div>`;
 
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
@@ -219,7 +250,7 @@ async function sendApplicantEmail(data) {
     body: JSON.stringify({
       from: MAIL_FROM,
       to: [data.email],
-      subject: 'Оплата участия · Investment Forum 2026',
+      subject,
       html,
     }),
   });

@@ -24,39 +24,8 @@ const tariffs: Tariff[] = [
       { text: 'Деловые обеды', included: true },
       { text: 'Синхронный перевод', included: true },
       { text: 'Networking-приём', included: true },
-      { text: 'Гала-ужин', included: false },
-      { text: 'Проживание', included: false },
+      { text: 'Гала-ужин 29 июня', included: true },
       { text: '1 представитель', included: true },
-    ],
-  },
-  {
-    name: 'Premium',
-    sub: '+ гала-ужин и проживание',
-    price: '1 740 000',
-    note: 'Цена уточняется оргкомитетом',
-    features: [
-      { text: 'Всё из Business', included: true },
-      { text: 'Гала-ужин 30 июня', included: true },
-      { text: 'Доступ к VIP-залам', included: true },
-      { text: 'Проживание 1 ночь (отель-партнёр)', included: true },
-      { text: 'Трансфер аэропорт ↔ отель', included: true },
-      { text: 'Логотип в материалах форума', included: true },
-      { text: '2 представителя', included: true },
-    ],
-  },
-  {
-    name: 'VIP',
-    sub: 'Максимальный комфорт',
-    price: '2 700 000',
-    note: 'Цена уточняется оргкомитетом',
-    features: [
-      { text: 'Всё из Premium', included: true },
-      { text: 'Проживание 2 ночи (Rixos 5★)', included: true },
-      { text: 'VIP-стол на гала-ужине', included: true },
-      { text: 'Персональный слот для встреч', included: true },
-      { text: 'Персональный менеджер', included: true },
-      { text: 'Персональный трансфер', included: true },
-      { text: 'До 3 представителей', included: true },
     ],
   },
 ];
@@ -90,10 +59,10 @@ export default function Tariffs() {
           transition={{ delay: 0.2 }}
           className="mb-14 mt-6 max-w-2xl text-lg font-light leading-relaxed text-ink/70"
         >
-          Тариф Business 180 000 ₸ — официальный взнос CCIK с полным двухдневным участием, программой B2B-встреч и networking-приёмом. Расширенные Premium и VIP добавляют гала-ужин, проживание и персональный сервис.
+          Единый тариф участия — официальный взнос CCIK 180 000 ₸. Включает полное двухдневное участие, программу B2B-встреч, networking-приём и гала-ужин 29 июня.
         </motion.p>
 
-        <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-sm gap-4">
           {tariffs.map((t, i) => (
             <motion.div
               key={t.name}
@@ -162,7 +131,7 @@ export default function Tariffs() {
           viewport={{ once: true }}
           className="mt-8 border-l-[3px] border-gold bg-cream p-6 text-[13px] leading-relaxed text-ink/70"
         >
-          <strong className="text-navy">Важно:</strong> Тариф Business (180 000 ₸) и связанные с ним условия (юрисдикция Суда Рима, компенсация при отказе до 180 000 ₸) соответствуют официальной форме Modulo CCIK. Пакеты Premium и VIP представляют собой базовый взнос плюс дополнительные услуги; их финальная стоимость определяется оргкомитетом с учётом тарифов отелей и логистики.
+          <strong className="text-navy">Важно:</strong> Тариф участия (180 000 ₸) и связанные с ним условия (юрисдикция Суда Рима, компенсация при отказе до 180 000 ₸) соответствуют официальной форме Modulo CCIK. Участники по спискам государственных органов проходят регистрацию бесплатно — отметьте соответствующую опцию в форме заявки.
         </motion.div>
       </div>
     </section>

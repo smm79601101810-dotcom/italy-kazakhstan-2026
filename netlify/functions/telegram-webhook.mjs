@@ -78,14 +78,31 @@ export default async (req) => {
   const handle = from.username ? `@${from.username}` : `id ${from.id}`;
 
   try {
-    // 1) /start → send QR
+    // 1) /start → QR for paying applicants; free-pass applicants get no payment
     if (typeof msg.text === 'string' && msg.text.trim().startsWith('/start')) {
-      await tg('sendPhoto', {
-        chat_id: chatId,
-        photo: QR_URL,
-        caption: PAY_CAPTION,
-        parse_mode: 'HTML',
-      });
+      const isFree = /\bfree\b/.test(msg.text);
+      if (isFree) {
+        await tg('sendMessage', {
+          chat_id: chatId,
+          text: [
+            '✅ <b>Заявка принята · Investment Forum 2026</b>',
+            '',
+            'Вы зарегистрированы как участник по списку государственного органа — <b>оплата не требуется</b>.',
+            '',
+            'Ваше участие будет подтверждено после сверки со списками, направленными органом организатору не позднее <b>25 июня</b>.',
+            '',
+            'По вопросам: WhatsApp +7 706 450 1243.',
+          ].join('\n'),
+          parse_mode: 'HTML',
+        });
+      } else {
+        await tg('sendPhoto', {
+          chat_id: chatId,
+          photo: QR_URL,
+          caption: PAY_CAPTION,
+          parse_mode: 'HTML',
+        });
+      }
       return new Response('ok', { status: 200 });
     }
 

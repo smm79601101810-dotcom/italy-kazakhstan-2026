@@ -12,8 +12,8 @@ const points: Point[] = [
   { date: 'Сейчас', event: 'Регистрация открыта', color: 'default' },
   { date: 'До форума', event: 'Мэтчинг с операторами', color: 'default' },
   { date: '29 июня', event: 'День 1 · Открытие, питчинг, B2B', color: 'gold' },
+  { date: '29 июня', event: 'Гала-ужин · казахская кухня', color: 'gold' },
   { date: '30 июня', event: 'День 2 · B2B и подписание', color: 'gold' },
-  { date: '30 июня', event: 'Гала-ужин · казахская кухня', color: 'gold' },
 ];
 
 const dotClass: Record<DotColor, string> = {
