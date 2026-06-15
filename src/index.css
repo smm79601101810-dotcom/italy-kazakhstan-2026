@@ -110,3 +110,26 @@
     text-wrap: balance;
   }
 }
+
+/* Partners marquee: track holds logos twice, -50% loops seamlessly */
+@keyframes partners-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes partners-marquee-rev {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [style*='partners-marquee'] {
+    animation: none !important;
+  }
+}

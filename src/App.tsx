@@ -17,6 +17,7 @@ import Logistics from './components/sections/Logistics';
 import Form from './components/sections/Form';
 import Gala from './components/sections/Gala';
 import WhyNow from './components/sections/WhyNow';
+import Partners from './components/sections/Partners';
 import FAQ from './components/sections/FAQ';
 import FinalCTA from './components/sections/FinalCTA';
 
@@ -40,6 +41,7 @@ export default function App() {
         <Form />
         <Gala />
         <WhyNow />
+        <Partners />
         <FAQ />
         <FinalCTA />
       </main>
