@@ -371,7 +371,7 @@ export default function Form() {
                       className="mt-1 h-[18px] w-[18px] accent-navy"
                     />
                     <span>
-                      Подтверждаю принятие условий участия в Investment Forum: регистрационный взнос <strong>180 000 ₸</strong> по официальной форме CCIK, юрисдикция Суда Рима.{' '}
+                      Подтверждаю принятие условий участия в Investment Forum: регистрационный взнос <strong>60 000 ₸</strong> по официальной форме CCIK, юрисдикция Суда Рима.{' '}
                       <a
                         href="#benefits"
                         className="font-semibold text-navy underline decoration-gold underline-offset-2 hover:text-gold"

@@ -14,7 +14,7 @@ const tariffs: Tariff[] = [
   {
     name: 'Business',
     sub: 'Официальный взнос CCIK',
-    price: '180 000',
+    price: '60 000',
     note: 'По официальной форме CCIK',
     popular: true,
     features: [
@@ -59,7 +59,7 @@ export default function Tariffs() {
           transition={{ delay: 0.2 }}
           className="mb-14 mt-6 max-w-2xl text-lg font-light leading-relaxed text-ink/70"
         >
-          Единый тариф участия — официальный взнос CCIK 180 000 ₸. Включает полное двухдневное участие, программу B2B-встреч, networking-приём и гала-ужин 29 июня.
+          Единый тариф участия — официальный взнос CCIK 60 000 ₸. Включает полное двухдневное участие, программу B2B-встреч, networking-приём и гала-ужин 29 июня.
         </motion.p>
 
         <div className="mx-auto grid max-w-sm gap-4">
@@ -131,7 +131,7 @@ export default function Tariffs() {
           viewport={{ once: true }}
           className="mt-8 border-l-[3px] border-gold bg-cream p-6 text-[13px] leading-relaxed text-ink/70"
         >
-          <strong className="text-navy">Важно:</strong> Тариф участия (180 000 ₸) и связанные с ним условия (юрисдикция Суда Рима, компенсация при отказе до 180 000 ₸) соответствуют официальной форме Modulo CCIK. Участники по спискам государственных органов проходят регистрацию бесплатно — отметьте соответствующую опцию в форме заявки.
+          <strong className="text-navy">Важно:</strong> Тариф участия (60 000 ₸) и связанные с ним условия (юрисдикция Суда Рима, компенсация при отказе до 60 000 ₸) соответствуют официальной форме Modulo CCIK. Участники по спискам государственных органов проходят регистрацию бесплатно — отметьте соответствующую опцию в форме заявки.
         </motion.div>
       </div>
     </section>
