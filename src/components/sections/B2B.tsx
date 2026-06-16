@@ -258,7 +258,7 @@ export default function B2B() {
                 {[
                   ['Место', 'AIFC, Астана'],
                   ['Делегатов', '300+'],
-                  ['Взнос', '60 000 ₸'],
+                  ['Участие', 'Бесплатно'],
                   ['Регистрация', 'Открыта'],
                 ].map(([k, v]) => (
                   <div key={k} className="flex justify-between py-4 text-sm">

@@ -11,10 +11,7 @@ interface FormState {
   phone: string;
   website: string;
   description: string;
-  govListAccepted: boolean;
-  govBody: string;
-  govRegion: string;
-  termsAccepted: boolean;
+  galaDinner: boolean;
   gdprAccepted: boolean;
 }
 
@@ -28,20 +25,9 @@ const initial: FormState = {
   phone: '',
   website: '',
   description: '',
-  govListAccepted: false,
-  govBody: '',
-  govRegion: '',
-  termsAccepted: false,
+  galaDinner: false,
   gdprAccepted: false,
 };
-
-// Гос. органы, формирующие списки на бесплатный пропуск
-const govBodies = [
-  'QazTrade',
-  'Kazakh Invest',
-  'Министерство сельского хозяйства (МСХ)',
-  'Акимат региона',
-];
 
 // Aligned with the 6 industry profiles in Audience section
 const sectors = [
@@ -127,10 +113,11 @@ export default function Form() {
               Регистрация
             </span>
             <h2 className="mt-3 font-display text-3xl font-medium text-navy md:text-4xl">
-              Подать заявку на участие
+              Бесплатная регистрация на форум
             </h2>
             <p className="mt-3 text-[15px] text-ink/60">
-              Investment Forum · 29–30 июня 2026 · AIFC, Астана — заполните анкету, и наш менеджер свяжется с вами
+              Investment Forum · 29–30 июня 2026 · AIFC, Астана. Участие
+              бесплатное — заполните анкету, и наш менеджер свяжется с вами.
             </p>
           </header>
 
@@ -144,19 +131,12 @@ export default function Form() {
               <h3 className="mb-2 font-display text-2xl font-semibold text-navy">
                 Заявка получена
               </h3>
-              {state.govListAccepted ? (
-                <p className="mx-auto max-w-md text-ink/70">
-                  Вы зарегистрированы как участник по списку государственного
-                  органа — оплата не требуется. Участие будет подтверждено после
-                  сверки со списками (до 25 июня). Подтверждение отправлено на
-                  ваш e-mail.
-                </p>
-              ) : (
+              {state.galaDinner ? (
                 <>
                   <p className="mx-auto mb-2 max-w-md text-ink/70">
-                    QR-код для оплаты регистрационного взноса отправлен на ваш
-                    e-mail. Не пришёл или хотите быстрее — получите его в
-                    Telegram:
+                    Регистрация на форум бесплатна и подтверждена. Вы также
+                    отметили участие в Гала-ужине (60 000 ₸) — получите QR-код
+                    для оплаты в Telegram:
                   </p>
                   <a
                     href="https://t.me/italkz_forum_bot?start=pay"
@@ -167,9 +147,15 @@ export default function Form() {
                     <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
                       <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
                     </svg>
-                    Получить QR в Telegram
+                    Оплатить Гала-ужин в Telegram
                   </a>
                 </>
+              ) : (
+                <p className="mx-auto max-w-md text-ink/70">
+                  Участие в форуме бесплатное — ваша регистрация принята. Наш
+                  менеджер свяжется с вами по указанным контактам. Подтверждение
+                  отправлено на ваш e-mail.
+                </p>
               )}
             </motion.div>
           ) : (
@@ -286,114 +272,43 @@ export default function Form() {
                 </div>
               </div>
 
-              {/* Free pass via government body list */}
-              <div className="rounded border border-green/30 bg-green/[0.04] p-4">
+              {/* Optional paid gala dinner */}
+              <div className="rounded border border-gold/40 bg-gold/[0.06] p-4">
                 <label className="flex cursor-pointer items-start gap-3 text-[13px] leading-relaxed text-ink/80">
                   <input
                     type="checkbox"
-                    checked={state.govListAccepted}
-                    onChange={(e) => {
-                      const on = e.target.checked;
-                      // Free-pass path: clear & detach the paid-track consents
-                      setState((s) => ({
-                        ...s,
-                        govListAccepted: on,
-                        termsAccepted: on ? false : s.termsAccepted,
-                        gdprAccepted: on ? false : s.gdprAccepted,
-                        govBody: on ? s.govBody : '',
-                        govRegion: on ? s.govRegion : '',
-                      }));
-                    }}
-                    className="mt-1 h-[18px] w-[18px] accent-green"
+                    checked={state.galaDinner}
+                    onChange={(e) => update('galaDinner', e.target.checked)}
+                    className="mt-1 h-[18px] w-[18px] accent-gold"
                   />
                   <span>
-                    <strong className="text-green-dark">Бесплатный пропуск.</strong>{' '}
-                    Подтверждаю, что являюсь участником по списку государственного органа и претендую на бесплатное участие.
+                    <strong className="text-navy">Хочу участвовать в Гала-ужине</strong>{' '}
+                    29 июня — <strong>60 000 ₸</strong> с человека (12 мест).
+                    Участие в форуме при этом бесплатное; оплата касается только
+                    ужина.{' '}
+                    <a
+                      href="#gala"
+                      className="font-semibold text-navy underline decoration-gold underline-offset-2 hover:text-gold"
+                    >
+                      О Гала-ужине →
+                    </a>
                   </span>
                 </label>
-
-                {state.govListAccepted && (
-                  <div className="mt-4 space-y-3 border-t border-green/20 pt-4">
-                    <div>
-                      <FieldLabel required>Государственный орган</FieldLabel>
-                      <select
-                        required={state.govListAccepted}
-                        className={fieldClass}
-                        value={state.govBody}
-                        onChange={(e) => update('govBody', e.target.value)}
-                      >
-                        <option value="" disabled>
-                          Выберите орган…
-                        </option>
-                        {govBodies.map((b) => (
-                          <option key={b} value={b}>
-                            {b}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {state.govBody === 'Акимат региона' && (
-                      <div>
-                        <FieldLabel required>Какой регион</FieldLabel>
-                        <input
-                          type="text"
-                          required
-                          placeholder="Например: Акмолинская область"
-                          className={fieldClass}
-                          value={state.govRegion}
-                          onChange={(e) =>
-                            update('govRegion', e.target.value)
-                          }
-                        />
-                      </div>
-                    )}
-
-                    <p className="text-[12px] leading-relaxed text-ink/60">
-                      ⚠ Данная информация будет проверена. При отсутствии вас в
-                      списках, направленных указанным органом в адрес
-                      организатора не позднее <strong>25 июня</strong>, бесплатный
-                      пропуск будет недоступен.
-                    </p>
-                  </div>
-                )}
               </div>
 
-              {/* Agreements — hidden when applying for a free gov-list pass */}
-              {!state.govListAccepted && (
-                <div className="space-y-4">
-                  <label className="flex cursor-pointer items-start gap-3 border-l-[3px] border-gold bg-cream p-4 text-[13px] leading-relaxed text-ink/75">
-                    <input
-                      type="checkbox"
-                      required
-                      checked={state.termsAccepted}
-                      onChange={(e) => update('termsAccepted', e.target.checked)}
-                      className="mt-1 h-[18px] w-[18px] accent-navy"
-                    />
-                    <span>
-                      Подтверждаю принятие условий участия в Investment Forum: регистрационный взнос <strong>60 000 ₸</strong> по официальной форме CCIK, юрисдикция Суда Рима.{' '}
-                      <a
-                        href="#benefits"
-                        className="font-semibold text-navy underline decoration-gold underline-offset-2 hover:text-gold"
-                      >
-                        Что входит в участие →
-                      </a>
-                    </span>
-                  </label>
-                  <label className="flex cursor-pointer items-start gap-3 border-l-[3px] border-gold bg-cream p-4 text-[13px] leading-relaxed text-ink/75">
-                    <input
-                      type="checkbox"
-                      required
-                      checked={state.gdprAccepted}
-                      onChange={(e) => update('gdprAccepted', e.target.checked)}
-                      className="mt-1 h-[18px] w-[18px] accent-navy"
-                    />
-                    <span>
-                      Даю согласие на обработку персональных данных в соответствии с GDPR (Регламент ЕС 2016/679) и применимым законодательством.
-                    </span>
-                  </label>
-                </div>
-              )}
+              {/* GDPR consent (always required) */}
+              <label className="flex cursor-pointer items-start gap-3 border-l-[3px] border-gold bg-cream p-4 text-[13px] leading-relaxed text-ink/75">
+                <input
+                  type="checkbox"
+                  required
+                  checked={state.gdprAccepted}
+                  onChange={(e) => update('gdprAccepted', e.target.checked)}
+                  className="mt-1 h-[18px] w-[18px] accent-navy"
+                />
+                <span>
+                  Даю согласие на обработку персональных данных в соответствии с GDPR (Регламент ЕС 2016/679) и применимым законодательством.
+                </span>
+              </label>
 
               {error && (
                 <div className="rounded border-l-[3px] border-it-red bg-it-red/5 p-4 text-sm text-it-red">

@@ -1,22 +1,26 @@
 import { motion, type Variants } from 'framer-motion';
 import { clsx } from 'clsx';
 
-interface Tariff {
+interface Plan {
   name: string;
   sub: string;
   price: string;
+  unit?: string;
   note: string;
   features: { text: string; included: boolean }[];
-  popular?: boolean;
+  cta: string;
+  highlight?: boolean;
 }
 
-const tariffs: Tariff[] = [
+const plans: Plan[] = [
   {
-    name: 'Business',
-    sub: 'Официальный взнос CCIK',
-    price: '60 000',
-    note: 'По официальной форме CCIK',
-    popular: true,
+    name: 'Участие в форуме',
+    sub: 'Бесплатная регистрация',
+    price: '0',
+    unit: '₸',
+    note: 'Участие бесплатное для всех',
+    highlight: true,
+    cta: 'Зарегистрироваться бесплатно',
     features: [
       { text: 'Участие в форуме (2 дня)', included: true },
       { text: 'Программа B2B-встреч', included: true },
@@ -24,8 +28,23 @@ const tariffs: Tariff[] = [
       { text: 'Деловые обеды', included: true },
       { text: 'Синхронный перевод', included: true },
       { text: 'Networking-приём', included: true },
-      { text: 'Гала-ужин 29 июня', included: true },
-      { text: '1 представитель', included: true },
+      { text: 'Гала-ужин (по желанию, отдельно)', included: false },
+    ],
+  },
+  {
+    name: 'Гала-ужин',
+    sub: 'Праздничный ужин 29 июня',
+    price: '60 000',
+    unit: '₸',
+    note: 'Только 12 мест · оплачивается отдельно',
+    cta: 'Добавить Гала-ужин',
+    features: [
+      { text: 'Высокая казахская кухня', included: true },
+      { text: 'Живая музыкальная программа', included: true },
+      { text: 'Награждение участников', included: true },
+      { text: 'Нетворкинг в неформальной обстановке', included: true },
+      { text: 'Дресс-код Black Tie', included: true },
+      { text: 'Ограничено: 12 мест', included: true },
     ],
   },
 ];
@@ -35,7 +54,7 @@ const cardVariants: Variants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.08 },
+    transition: { duration: 0.6, delay: i * 0.1 },
   }),
 };
 
@@ -43,14 +62,14 @@ export default function Tariffs() {
   return (
     <section id="tariffs" className="bg-white py-24 md:py-32">
       <div className="container-x">
-        <span className="eyebrow">Тарифы участия · Investment Forum</span>
+        <span className="eyebrow">Участие · Investment Forum</span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="display-2 mt-5 max-w-3xl text-navy"
         >
-          Выберите <em className="italic text-gold">формат участия</em>
+          Участие в форуме <em className="italic text-gold">бесплатное</em>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -59,13 +78,15 @@ export default function Tariffs() {
           transition={{ delay: 0.2 }}
           className="mb-14 mt-6 max-w-2xl text-lg font-light leading-relaxed text-ink/70"
         >
-          Единый тариф участия — официальный взнос CCIK 60 000 ₸. Включает полное двухдневное участие, программу B2B-встреч, networking-приём и гала-ужин 29 июня.
+          Регистрация на двухдневный форум — бесплатна для всех участников.
+          Дополнительно можно посетить праздничный Гала-ужин 29 июня — это
+          единственная платная опция (60 000 ₸, ограничено 12 мест).
         </motion.p>
 
-        <div className="mx-auto grid max-w-sm gap-4">
-          {tariffs.map((t, i) => (
+        <div className="mx-auto grid max-w-3xl gap-4 sm:grid-cols-2">
+          {plans.map((p, i) => (
             <motion.div
-              key={t.name}
+              key={p.name}
               custom={i}
               variants={cardVariants}
               initial="hidden"
@@ -73,29 +94,34 @@ export default function Tariffs() {
               viewport={{ once: true, margin: '-30px' }}
               className={clsx(
                 'relative flex flex-col rounded p-9 transition-all hover:-translate-y-1.5',
-                t.popular
-                  ? 'border-2 border-gold shadow-2xl shadow-gold/20'
-                  : 'border border-ink/10 hover:shadow-2xl hover:shadow-navy/10',
+                p.highlight
+                  ? 'border-2 border-green shadow-2xl shadow-green/20'
+                  : 'border border-gold/40 hover:shadow-2xl hover:shadow-navy/10',
               )}
             >
-              {t.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gold px-4 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-navy-deep">
-                  ★ Популярный
+              {p.highlight && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-green px-4 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-white">
+                  Бесплатно
                 </span>
               )}
-              <div className="mb-2 text-xs font-bold uppercase tracking-[0.25em] text-gold">
-                {t.name}
+              <div
+                className={clsx(
+                  'mb-2 text-xs font-bold uppercase tracking-[0.25em]',
+                  p.highlight ? 'text-green' : 'text-gold',
+                )}
+              >
+                {p.name}
               </div>
-              <div className="mb-5 min-h-[32px] text-xs text-ink/55">{t.sub}</div>
+              <div className="mb-5 min-h-[32px] text-xs text-ink/55">{p.sub}</div>
               <div className="mb-1 whitespace-nowrap font-display text-4xl font-semibold leading-none tracking-tight text-navy">
-                {t.price}
-                <span className="align-top text-xl"> ₸</span>
+                {p.price}
+                <span className="align-top text-xl"> {p.unit}</span>
               </div>
               <div className="mb-6 border-b border-ink/10 pb-6 text-[11px] text-ink/50">
-                {t.note}
+                {p.note}
               </div>
               <ul className="mb-6 flex-1 space-y-1.5">
-                {t.features.map((f) => (
+                {p.features.map((f) => (
                   <li
                     key={f.text}
                     className={clsx(
@@ -103,7 +129,7 @@ export default function Tariffs() {
                       f.included ? 'text-ink/75' : 'text-ink/30',
                     )}
                   >
-                    <span className={clsx('shrink-0', f.included ? 'text-green font-bold' : '')}>
+                    <span className={clsx('shrink-0', f.included ? 'font-bold text-green' : '')}>
                       {f.included ? '✓' : '—'}
                     </span>
                     {f.text}
@@ -113,13 +139,13 @@ export default function Tariffs() {
               <a
                 href="#form"
                 className={clsx(
-                  'block rounded-sm border border-navy py-3.5 text-center text-[13px] font-semibold uppercase tracking-[0.1em] transition-colors',
-                  t.popular
-                    ? 'bg-navy text-cream hover:bg-gold hover:border-gold hover:text-navy-deep'
-                    : 'bg-cream text-navy hover:bg-gold hover:border-gold hover:text-navy-deep',
+                  'block rounded-sm border py-3.5 text-center text-[13px] font-semibold uppercase tracking-[0.1em] transition-colors',
+                  p.highlight
+                    ? 'border-navy bg-navy text-cream hover:bg-gold hover:border-gold hover:text-navy-deep'
+                    : 'border-navy bg-cream text-navy hover:bg-gold hover:border-gold hover:text-navy-deep',
                 )}
               >
-                Выбрать {t.name}
+                {p.cta}
               </a>
             </motion.div>
           ))}
@@ -129,9 +155,12 @@ export default function Tariffs() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-8 border-l-[3px] border-gold bg-cream p-6 text-[13px] leading-relaxed text-ink/70"
+          className="mx-auto mt-8 max-w-3xl border-l-[3px] border-gold bg-cream p-6 text-[13px] leading-relaxed text-ink/70"
         >
-          <strong className="text-navy">Важно:</strong> Тариф участия (60 000 ₸) и связанные с ним условия (юрисдикция Суда Рима, компенсация при отказе до 60 000 ₸) соответствуют официальной форме Modulo CCIK. Участники по спискам государственных органов проходят регистрацию бесплатно — отметьте соответствующую опцию в форме заявки.
+          <strong className="text-navy">Важно:</strong> Регистрация на форум
+          бесплатна и не требует оплаты. Гала-ужин 29 июня — отдельная платная
+          опция (60 000 ₸, 12 мест); оплачивается через оргкомитет после подачи
+          заявки. Условия участия соответствуют официальной форме CCIK.
         </motion.div>
       </div>
     </section>

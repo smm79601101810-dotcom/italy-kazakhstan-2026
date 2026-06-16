@@ -36,7 +36,6 @@ export const partnerLogos: string[] = [
   'reploid.png',
   'reynaers.png',
   'rhizolife.png',
-  'salviani.png',
   'socado.png',
   'studio-heussen.png',
   'value-partners.png',

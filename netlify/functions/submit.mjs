@@ -59,23 +59,18 @@ async function sendTelegram(data) {
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
     throw new Error('Telegram not configured');
   }
-  // Bright header + footer banner for free-pass (gov-list) applications so
-  // they stand out in the shared chat; paid leads get the normal header.
-  const header = data.govListAccepted
+  // Highlight applications that opted into the paid gala dinner.
+  const header = data.galaDinner
     ? [
-        '🟢🟢🟢 <b>БЕСПЛАТНЫЙ ПРОПУСК — ГОСОРГАН</b> 🟢🟢🟢',
-        `🏛 <b>Орган:</b> ${escapeHtml(data.govBody)}${
-          data.govRegion ? ` — ${escapeHtml(data.govRegion)}` : ''
-        }`,
-        '⚠️ <i>Требует проверки по спискам органа (до 25 июня)</i>',
+        '🟡🟡🟡 <b>+ ГАЛА-УЖИН (платно 60 000 ₸)</b> 🟡🟡🟡',
         '',
         '🎯 <b>Новая заявка · Investment Forum 2026</b>',
       ]
     : ['🎯 <b>Новая заявка · Investment Forum 2026</b>'];
 
-  const footer = data.govListAccepted
-    ? ['', '🟢 <b>ТИП: БЕСПЛАТНЫЙ ПРОПУСК (госорган)</b> — проверить по спискам!']
-    : ['', '💳 <b>Тип участия:</b> Платный взнос'];
+  const footer = data.galaDinner
+    ? ['', '🍽 <b>ГАЛА-УЖИН:</b> ДА — ожидает оплаты 60 000 ₸ (12 мест)']
+    : ['', '🆓 <b>Участие:</b> бесплатная регистрация (без гала-ужина)'];
 
   const text = [
     ...header,
@@ -141,10 +136,10 @@ async function sendEmail(data) {
       ${row('Телефон', data.phone)}
       ${row('Сайт', data.website)}
       ${row(
-        'Тип участия',
-        data.govListAccepted
-          ? `Бесплатный пропуск — ${data.govBody}${data.govRegion ? ` (${data.govRegion})` : ''} (требует проверки по спискам до 25 июня)`
-          : 'Платный взнос',
+        'Участие',
+        data.galaDinner
+          ? 'Бесплатная регистрация + Гала-ужин (60 000 ₸, ожидает оплаты)'
+          : 'Бесплатная регистрация',
       )}
     </table>
     <div style="padding:16px 32px;border:1px solid #e7e2d5;border-top:none;">
@@ -188,38 +183,23 @@ async function sendApplicantEmail(data) {
   let bodyBlock;
   let subject;
 
-  if (data.govListAccepted) {
-    // Free-pass: no payment, just confirmation + verification note
-    subject = 'Заявка получена · Investment Forum 2026';
+  if (data.galaDinner) {
+    // Free forum registration + paid gala dinner → QR for the dinner only
+    subject = 'Регистрация принята · оплата Гала-ужина · Investment Forum 2026';
     bodyBlock = `
     <div style="padding:28px 32px;border:1px solid #e7e2d5;border-top:none;color:#1a1a1a;line-height:1.6;">
       <p style="margin:0 0 16px;font-size:15px;">Здравствуйте, ${escapeHtml(data.fullName)}!</p>
       <p style="margin:0 0 16px;font-size:15px;">
-        Благодарим за заявку на участие в Инвестиционном форуме Италия–Казахстан.
-        Вы указали бесплатное участие по списку государственного органа
-        (<strong>${escapeHtml(data.govBody)}${data.govRegion ? ` — ${escapeHtml(data.govRegion)}` : ''}</strong>).
+        Ваша регистрация на Инвестиционный форум Италия–Казахстан принята —
+        <strong>участие в форуме бесплатное</strong>.
       </p>
-      <p style="margin:0 0 16px;font-size:14px;color:#6b6375;">
-        Ваше участие будет подтверждено после сверки со списками, направленными
-        указанным органом организатору не позднее <strong>25 июня</strong>.
-        Оплата для вас не требуется.
-      </p>
-      <p style="margin:24px 0 0;font-size:13px;color:#6b6375;border-top:1px solid #e7e2d5;padding-top:16px;">
-        По вопросам: WhatsApp +7 706 450 1243 · ufficiopresidenza@italkazak.it.
-      </p>
-    </div>`;
-  } else {
-    // Paid: include QR
-    subject = 'Оплата участия · Investment Forum 2026';
-    bodyBlock = `
-    <div style="padding:28px 32px;border:1px solid #e7e2d5;border-top:none;color:#1a1a1a;line-height:1.6;">
-      <p style="margin:0 0 16px;font-size:15px;">Здравствуйте, ${escapeHtml(data.fullName)}!</p>
       <p style="margin:0 0 20px;font-size:15px;">
-        Благодарим за заявку на участие в Инвестиционном форуме Италия–Казахстан.
-        Для подтверждения участия оплатите регистрационный взнос по QR-коду ниже.
+        Вы также выбрали участие в Гала-ужине 29 июня. Стоимость —
+        <strong>60 000 ₸</strong> с человека (ограничено 12 мест). Оплатите по
+        QR-коду ниже, чтобы забронировать место.
       </p>
       <div style="text-align:center;margin:24px 0;">
-        <img src="${QR_URL}" alt="QR-код для оплаты" width="280" style="border:1px solid #e7e2d5;border-radius:8px;" />
+        <img src="${QR_URL}" alt="QR-код для оплаты Гала-ужина" width="280" style="border:1px solid #e7e2d5;border-radius:8px;" />
       </div>
       <p style="margin:0 0 8px;font-size:14px;text-align:center;color:#0a1e3f;font-weight:600;">
         Отсканируйте QR в приложении Halyk или Kaspi
@@ -229,12 +209,32 @@ async function sendApplicantEmail(data) {
       </p>
       <div style="text-align:center;margin:24px 0;">
         <a href="${BOT_LINK}" style="display:inline-block;background:#0a1e3f;color:#e3c478;text-decoration:none;padding:14px 28px;border-radius:6px;font-weight:600;font-size:14px;">
-          Получить QR-код в Telegram →
+          Оплатить Гала-ужин в Telegram →
         </a>
       </div>
       <p style="margin:24px 0 0;font-size:13px;color:#6b6375;border-top:1px solid #e7e2d5;padding-top:16px;">
         После оплаты пришлите чек в нашем Telegram-боте или на ufficiopresidenza@italkazak.it.
         По вопросам: WhatsApp +7 706 450 1243.
+      </p>
+    </div>`;
+  } else {
+    // Free forum registration only — no payment
+    subject = 'Регистрация принята · Investment Forum 2026';
+    bodyBlock = `
+    <div style="padding:28px 32px;border:1px solid #e7e2d5;border-top:none;color:#1a1a1a;line-height:1.6;">
+      <p style="margin:0 0 16px;font-size:15px;">Здравствуйте, ${escapeHtml(data.fullName)}!</p>
+      <p style="margin:0 0 16px;font-size:15px;">
+        Благодарим за регистрацию на Инвестиционный форум Италия–Казахстан
+        (29–30 июня 2026, AIFC, Астана). <strong>Участие в форуме бесплатное</strong> —
+        дополнительная оплата не требуется.
+      </p>
+      <p style="margin:0 0 16px;font-size:14px;color:#6b6375;">
+        Наш менеджер свяжется с вами по указанным контактам. При желании вы
+        можете дополнительно посетить праздничный Гала-ужин 29 июня
+        (60 000 ₸, 12 мест) — сообщите нам, если это интересно.
+      </p>
+      <p style="margin:24px 0 0;font-size:13px;color:#6b6375;border-top:1px solid #e7e2d5;padding-top:16px;">
+        По вопросам: WhatsApp +7 706 450 1243 · ufficiopresidenza@italkazak.it.
       </p>
     </div>`;
   }
