@@ -57,6 +57,9 @@ function FieldLabel({
 const fieldClass =
   'w-full rounded-sm border border-ink/10 bg-cream px-4 py-3.5 text-[15px] text-ink transition-all focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20';
 
+// Switch to true to re-open the application form again.
+const REGISTRATION_OPEN = false;
+
 export default function Form() {
   const [state, setState] = useState<FormState>(initial);
   const [submitted, setSubmitted] = useState(false);
@@ -113,15 +116,38 @@ export default function Form() {
               Регистрация
             </span>
             <h2 className="mt-3 font-display text-3xl font-medium text-navy md:text-4xl">
-              Бесплатная регистрация на форум
+              {REGISTRATION_OPEN
+                ? 'Бесплатная регистрация на форум'
+                : 'Приём заявок завершён'}
             </h2>
             <p className="mt-3 text-[15px] text-ink/60">
-              Investment Forum · 29–30 июня 2026 · AIFC, Астана. Участие
-              бесплатное — заполните анкету, и наш менеджер свяжется с вами.
+              {REGISTRATION_OPEN
+                ? 'Investment Forum · 29–30 июня 2026 · AIFC, Астана. Участие бесплатное — заполните анкету, и наш менеджер свяжется с вами.'
+                : 'Investment Forum · 29–30 июня 2026 · AIFC, Астана. Регистрация закрыта — спасибо за интерес!'}
             </p>
           </header>
 
-          {submitted ? (
+          {!REGISTRATION_OPEN ? (
+            <div className="rounded border-l-4 border-gold bg-cream p-8 text-center">
+              <div className="mb-3 text-4xl">🔒</div>
+              <h3 className="mb-2 font-display text-2xl font-semibold text-navy">
+                Регистрация закрыта
+              </h3>
+              <p className="mx-auto max-w-md text-ink/70">
+                Приём заявок на участие в форуме завершён. По вопросам
+                участия свяжитесь с оргкомитетом: WhatsApp{' '}
+                <a
+                  href="https://wa.me/77064501243"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-navy underline decoration-gold underline-offset-2 hover:text-gold"
+                >
+                  +7 706 450 1243
+                </a>{' '}
+                · ufficiopresidenza@italkazak.it.
+              </p>
+            </div>
+          ) : submitted ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}

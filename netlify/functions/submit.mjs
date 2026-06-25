@@ -260,10 +260,22 @@ async function sendApplicantEmail(data) {
   }
 }
 
+// Switch to true to re-open registration again (must match Form.tsx).
+const REGISTRATION_OPEN = false;
+
 // ── Handler ──────────────────────────────────────────────────────────────────
 export default async (req) => {
   if (req.method !== 'POST') {
     return json(405, { ok: false, error: 'Method not allowed' });
+  }
+
+  // Registration closed: reject any new submissions (defence even if a stale
+  // cached front-end still shows the form).
+  if (!REGISTRATION_OPEN) {
+    return json(403, {
+      ok: false,
+      error: 'Приём заявок завершён. Регистрация на форум закрыта.',
+    });
   }
 
   let data;
