@@ -1,35 +1,14 @@
 import { motion, type Variants } from 'framer-motion';
 import { ItalyFlag, KazakhstanFlag } from '../ui/Flag';
+import vipData from '../../content/vip.json';
 
 interface Person {
   name: string;
   role: string;
 }
 
-const kzList: Person[] = [
-  { name: 'Олжас Бектенов', role: 'Премьер-Министр РК' },
-  { name: 'Серик Жумангарин', role: 'Зам. Премьер-министра — Министр нац. экономики' },
-  { name: 'Министерство торговли и интеграции', role: 'МТИ РК' },
-  { name: 'Министерство сельского хозяйства', role: 'МСХ РК' },
-  { name: 'Министерство науки и высшего образования', role: 'МНВО РК' },
-  { name: 'Министерство промышленности и строительства', role: 'МПС РК' },
-  { name: '«Самрук-Қазына»', role: 'Фонд национального благосостояния' },
-  { name: 'Холдинг «Байтерек»', role: 'Национальный холдинг' },
-  { name: 'Kazakh Invest', role: 'Национальная компания' },
-];
-
-const itList: Person[] = [
-  { name: 'Посольство Италии в Астане', role: "Ambasciata d'Italia" },
-  { name: 'Джанантонио Трамет', role: 'Президент CCIK' },
-  { name: 'Francesco Lollobrigida', role: 'Министр сельского хозяйства' },
-  { name: 'Adolfo Urso', role: 'Министр промышленности и Made in Italy' },
-  { name: 'Giancarlo Giorgetti', role: 'Министр экономики и финансов' },
-  { name: 'Luca Zaia', role: 'Президент региона Венето' },
-  { name: 'Federico Caner', role: 'Veneto Agricoltura' },
-  { name: 'Mauro Viti', role: 'ERSA Friuli' },
-  { name: 'Matteo Zoppas', role: 'Президент ICE' },
-  { name: 'Paolo Boccardelli, Vittorio De Pedys', role: 'Университеты и бизнес-школы' },
-];
+const kzList: Person[] = vipData.kazakhstan;
+const itList: Person[] = vipData.italy;
 
 const item: Variants = {
   hidden: { opacity: 0, x: -12 },

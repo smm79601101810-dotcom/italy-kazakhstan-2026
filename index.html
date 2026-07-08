@@ -164,5 +164,20 @@
     </noscript>
 
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Netlify Identity widget — powers login for the /admin CMS panel.
+         Redirects to /admin after an invite/confirmation email is accepted. -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', (user) => {
+          if (!user) {
+            window.netlifyIdentity.on('login', () => {
+              document.location.href = '/admin/';
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>

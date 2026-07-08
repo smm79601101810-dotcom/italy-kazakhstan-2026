@@ -1,30 +1,13 @@
 import { motion, type Variants } from 'framer-motion';
 import { ItalyFlag } from '../ui/Flag';
+import guestsData from '../../content/special-guests.json';
 
 interface Guest {
   name: string;
   role: string;
 }
 
-const guests: Guest[] = [
-  {
-    name: 'Аниелло Петито',
-    role: 'Заместитель главы представительства Посольства Италии в Казахстане',
-  },
-  { name: 'Альберто Стефани', role: 'Президент региона Венето' },
-  { name: 'Валентина Карон', role: 'ERSA' },
-  { name: 'Микеле Фабро', role: 'ERSA' },
-  { name: 'Мауро Вити', role: 'ERSA' },
-  { name: 'Стефано Занниер', role: 'Регион Фриули' },
-  {
-    name: 'Федерико Канер',
-    role: 'Генеральный директор Veneto Agricoltura',
-  },
-  {
-    name: 'Андреа Комаккио',
-    role: 'Технический координатор Комиссии по сельскохозяйственной политике Конференции регионов и автономных провинций',
-  },
-];
+const guests: Guest[] = guestsData.guests;
 
 const rowVariants: Variants = {
   hidden: { opacity: 0, x: -16 },

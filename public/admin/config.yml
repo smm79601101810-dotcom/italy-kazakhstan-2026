@@ -1,0 +1,95 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Язык интерфейса и подписи — на русском для редактора-непрограммиста
+locale: ru
+
+# Куда Decap кладёт загруженные картинки/логотипы
+media_folder: public/uploads
+public_folder: /uploads
+
+site_url: https://investbridge.kz
+display_url: https://investbridge.kz
+
+collections:
+  # ── Основная информация о форуме ─────────────────────────────
+  - name: event
+    label: 'Форум — даты и место'
+    files:
+      - name: event
+        label: 'Даты, место, гала-ужин'
+        file: src/content/event.json
+        description: 'Даты форума, площадка и время гала-ужина. Отображаются по всему сайту.'
+        fields:
+          - { name: dateRange, label: 'Даты (полностью)', widget: string, hint: 'Например: 29–30 июня 2026' }
+          - { name: dayStart, label: 'День начала (число)', widget: string, hint: 'Например: 29' }
+          - { name: dayEnd, label: 'День конца (число)', widget: string, hint: 'Например: 30' }
+          - { name: month, label: 'Месяц', widget: string, hint: 'Например: Июня' }
+          - { name: year, label: 'Год', widget: string }
+          - { name: venue, label: 'Площадка (кратко)', widget: string, hint: 'Например: AIFC, Астана' }
+          - { name: venueFull, label: 'Площадка (полностью)', widget: string }
+          - { name: city, label: 'Город', widget: string }
+          - { name: galaDate, label: 'Дата гала-ужина', widget: string }
+          - { name: galaTime, label: 'Время гала-ужина', widget: string, hint: 'Например: 29 июня · 20:00' }
+
+  # ── Особые участники (Institutional Attendance) ──────────────
+  - name: special_guests
+    label: 'Особые участники'
+    files:
+      - name: guests
+        label: 'Список институциональных гостей'
+        file: src/content/special-guests.json
+        description: 'Подтверждённые VIP-гости, показываются отдельной таблицей.'
+        fields:
+          - name: guests
+            label: 'Участники'
+            label_singular: 'Участник'
+            widget: list
+            summary: '{{fields.name}} — {{fields.role}}'
+            fields:
+              - { name: name, label: 'ФИО', widget: string }
+              - { name: role, label: 'Должность', widget: string }
+
+  # ── VIP-делегации (две страны) ───────────────────────────────
+  - name: vip
+    label: 'VIP-делегации'
+    files:
+      - name: vip
+        label: 'Делегации Казахстана и Италии'
+        file: src/content/vip.json
+        description: 'Списки ожидаемых VIP-участников по странам.'
+        fields:
+          - name: kazakhstan
+            label: 'Казахстан'
+            label_singular: 'Участник (KZ)'
+            widget: list
+            summary: '{{fields.name}} — {{fields.role}}'
+            fields:
+              - { name: name, label: 'ФИО / организация', widget: string }
+              - { name: role, label: 'Должность / роль', widget: string }
+          - name: italy
+            label: 'Италия'
+            label_singular: 'Участник (IT)'
+            widget: list
+            summary: '{{fields.name}} — {{fields.role}}'
+            fields:
+              - { name: name, label: 'ФИО / организация', widget: string }
+              - { name: role, label: 'Должность / роль', widget: string }
+
+  # ── Частые вопросы ───────────────────────────────────────────
+  - name: faq
+    label: 'Частые вопросы (FAQ)'
+    files:
+      - name: faq
+        label: 'Вопросы и ответы'
+        file: src/content/faq.json
+        fields:
+          - name: items
+            label: 'Вопросы'
+            label_singular: 'Вопрос'
+            widget: list
+            summary: '{{fields.q}}'
+            fields:
+              - { name: q, label: 'Вопрос', widget: string }
+              - { name: a, label: 'Ответ', widget: text }

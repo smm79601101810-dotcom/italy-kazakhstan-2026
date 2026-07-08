@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ItalyFlag, KazakhstanFlag } from '../ui/Flag';
+import event from '../../content/event.json';
 
 export default function TopBar() {
   return (
@@ -17,7 +18,7 @@ export default function TopBar() {
           <span className="opacity-70">Қазақстан · 2026</span>
         </div>
         <div className="hidden opacity-70 sm:block">
-          📍 Астана · 29–30 июня 2026
+          📍 {event.city} · {event.dateRange}
         </div>
       </div>
     </motion.div>

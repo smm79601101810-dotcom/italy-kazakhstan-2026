@@ -1,0 +1,25 @@
+{
+  "kazakhstan": [
+    { "name": "Олжас Бектенов", "role": "Премьер-Министр РК" },
+    { "name": "Серик Жумангарин", "role": "Зам. Премьер-министра — Министр нац. экономики" },
+    { "name": "Министерство торговли и интеграции", "role": "МТИ РК" },
+    { "name": "Министерство сельского хозяйства", "role": "МСХ РК" },
+    { "name": "Министерство науки и высшего образования", "role": "МНВО РК" },
+    { "name": "Министерство промышленности и строительства", "role": "МПС РК" },
+    { "name": "«Самрук-Қазына»", "role": "Фонд национального благосостояния" },
+    { "name": "Холдинг «Байтерек»", "role": "Национальный холдинг" },
+    { "name": "Kazakh Invest", "role": "Национальная компания" }
+  ],
+  "italy": [
+    { "name": "Посольство Италии в Астане", "role": "Ambasciata d'Italia" },
+    { "name": "Джанантонио Трамет", "role": "Президент CCIK" },
+    { "name": "Francesco Lollobrigida", "role": "Министр сельского хозяйства" },
+    { "name": "Adolfo Urso", "role": "Министр промышленности и Made in Italy" },
+    { "name": "Giancarlo Giorgetti", "role": "Министр экономики и финансов" },
+    { "name": "Luca Zaia", "role": "Президент региона Венето" },
+    { "name": "Federico Caner", "role": "Veneto Agricoltura" },
+    { "name": "Mauro Viti", "role": "ERSA Friuli" },
+    { "name": "Matteo Zoppas", "role": "Президент ICE" },
+    { "name": "Paolo Boccardelli, Vittorio De Pedys", "role": "Университеты и бизнес-школы" }
+  ]
+}

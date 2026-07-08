@@ -1,5 +1,6 @@
 import { motion, type Variants } from 'framer-motion';
 import { ItalyFlag, KazakhstanFlag } from '../ui/Flag';
+import event from '../../content/event.json';
 
 const EASE_OUT_EXPO: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -129,11 +130,11 @@ export default function Hero() {
             className="mt-6 font-display font-bold leading-[0.85] tracking-[-0.04em] text-gold"
             style={{ fontSize: 'clamp(88px, 14vw, 232px)' }}
           >
-            <span className="inline-block">29</span>
+            <span className="inline-block">{event.dayStart}</span>
             <span className="mx-3 inline-block align-middle text-cream/60 md:mx-6">
               —
             </span>
-            <span className="inline-block">30</span>
+            <span className="inline-block">{event.dayEnd}</span>
           </motion.div>
 
           {/* Month + year */}
@@ -143,7 +144,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 1.7 }}
             className="mt-3 font-display text-xl font-medium uppercase tracking-[0.45em] text-cream md:mt-5 md:text-3xl"
           >
-            Июня · 2026
+            {event.month} · {event.year}
           </motion.div>
 
           {/* Venue */}
@@ -153,7 +154,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 1.85 }}
             className="mt-4 text-[11px] uppercase tracking-[0.3em] text-cream/60 md:text-xs"
           >
-            AIFC · Astana International Financial Centre
+            {event.venueFull}
           </motion.div>
 
           {/* Bottom hairline */}
